@@ -69,18 +69,94 @@
             100% { transform: scale(1.05); }
         }
 
-        /* ===== KITUFE CHA KUSAKINISHA ===== */
-        .install-container {
-            display: flex;
-            justify-content: center;
-            padding: 15px 10px;
-            background: rgba(0,0,0,0.8);
-            border-bottom: 2px solid var(--gold-primary);
-            position: sticky;
-            top: 0;
-            z-index: 10001;
-            backdrop-filter: blur(5px);
-        }
+        /* ===== KITUFE CHA KUSAKINISHA - DUARA ===== */
+.install-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 10001;
+    animation: fadeOut 5s forwards;  /* Kitapotea baada ya sekunde 5 */
+    animation-delay: 3s;  /* Subiri sekunde 3 kisha anza kupotea */
+}
+
+#install-button {
+    background: linear-gradient(135deg, #D4AF37, #AA6C39);
+    color: white;
+    border: none;
+    width: 60px;  /* Duara */
+    height: 60px;  /* Duara */
+    border-radius: 50%;  /* Kufanya duara */
+    font-size: 0;  /* Ficha maandishi */
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 25px rgba(212,175,55,0.7);
+    transition: transform 0.3s, box-shadow 0.3s, opacity 0.5s;
+    font-family: 'Cinzel', serif;
+    position: relative;
+}
+
+#install-button i { 
+    font-size: 1.8rem;  /* Icon kubwa kidogo */
+    margin: 0;
+}
+
+#install-button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 40px var(--gold-shine);
+}
+
+/* Animation ya kupotea */
+@keyframes fadeOut {
+    0% { opacity: 1; transform: scale(1); }
+    70% { opacity: 0.7; transform: scale(0.9); }
+    100% { opacity: 0; transform: scale(0); display: none; visibility: hidden; }
+}
+
+/* Tooltip - Maandishi yanapojitokeza unapoelea */
+#install-button::after {
+    content: "Sakinisha App BURE";
+    position: absolute;
+    right: 70px;  /* Kushoto ya kitufe */
+    background: rgba(0,0,0,0.8);
+    color: white;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 14px;
+    white-space: nowrap;
+    border: 1px solid var(--gold-primary);
+    opacity: 0;
+    transition: opacity 0.3s;
+    pointer-events: none;
+}
+
+#install-button:hover::after {
+    opacity: 1;
+}
+
+/* Kwa simu ndogo */
+@media (max-width:768px) {
+    .install-container {
+        bottom: 80px;  /* Juu kidogo ya WhatsApp float */
+        right: 15px;
+    }
+    
+    #install-button {
+        width: 50px;
+        height: 50px;
+    }
+    
+    #install-button i { 
+        font-size: 1.5rem;
+    }
+    
+    #install-button::after {
+        right: 60px;
+        font-size: 12px;
+        padding: 5px 10px;
+    }
+}
         
         #install-button {
             background: linear-gradient(135deg, #D4AF37, #AA6C39);
@@ -959,7 +1035,9 @@
 <!-- INSTALL SCRIPT -->
 <script>
     const installBtn = document.getElementById('install-button');
+    const installContainer = document.querySelector('.install-container');
     let deferredPrompt;
+    let userEntered = false;  // Kufuatilia kama mtumiaji ameingia
 
     window.addEventListener('beforeinstallprompt', (e) => {
         e.preventDefault();
@@ -974,18 +1052,67 @@
             deferredPrompt.prompt();
             deferredPrompt.userChoice.then((choiceResult) => {
                 if (choiceResult.outcome === 'accepted') {
-                    installBtn.innerHTML = '<i class="fas fa-check"></i> IMEKWISHA SAKINISHA';
+                    installBtn.innerHTML = '<i class="fas fa-check"></i>';
                 }
                 deferredPrompt = null;
             });
         } else {
             alert('Ili kusakinisha, tumia Chrome au Safari kwenye simu. Au tafuta chaguo la "Install app" kwenye menyu.');
         }
+        
+        // Baada ya kubofya, ficha kitufe
+        hideInstallButton();
     });
 
     window.addEventListener('appinstalled', () => {
-        installBtn.innerHTML = '<i class="fas fa-check"></i> IMEKWISHA SAKINISHA';
+        installBtn.innerHTML = '<i class="fas fa-check"></i>';
+        hideInstallButton();
     });
+
+    // Fuatilia mtumiaji anapoingia (kubofya popote kwenye main-content)
+    document.getElementById('main-content').addEventListener('click', function() {
+        if (!userEntered) {
+            userEntered = true;
+            hideInstallButton();
+        }
+    });
+
+    // Fuatilia mtumiaji anaposcroll
+    window.addEventListener('scroll', function() {
+        if (!userEntered && window.scrollY > 100) {  // Akiscroll zaidi ya 100px
+            userEntered = true;
+            hideInstallButton();
+        }
+    });
+
+    // Fuatilia mtumiaji anapoingiza code
+    const codeInput = document.getElementById('access-code');
+    if (codeInput) {
+        codeInput.addEventListener('input', function() {
+            if (this.value.length >= 3 && !userEntered) {
+                userEntered = true;
+                hideInstallButton();
+            }
+        });
+    }
+
+    // Kazi ya kuficha kitufe
+    function hideInstallButton() {
+        if (installContainer) {
+            installContainer.style.animation = 'fadeOut 1s forwards';
+            // Baada ya sekunde 1, ficha kabisa
+            setTimeout(() => {
+                installContainer.style.display = 'none';
+            }, 1000);
+        }
+    }
+
+    // Kitufe kitapotea pia baada ya sekunde 10 hata kama hakuna kitendo
+    setTimeout(() => {
+        if (!userEntered) {
+            hideInstallButton();
+        }
+    }, 10000);  // Sekunde 10
 </script>
 
 <!-- PARALLAX -->
