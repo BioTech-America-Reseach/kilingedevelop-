@@ -740,12 +740,247 @@
             overflow: hidden;
         }
 
-        .progress-fill {
+                .progress-fill {
             height: 100%;
             background: linear-gradient(90deg, #667eea, #764ba2);
             width: 0%;
             transition: width 0.5s ease;
         }
+        
+        /* ===== WELCOME BANNER / LOADING SCREEN ===== */
+        .welcome-banner {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+            z-index: 20000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: fadeInBanner 0.8s ease;
+        }
+        
+        @keyframes fadeInBanner {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .banner-content {
+            max-width: 500px;
+            width: 90%;
+            background: rgba(20, 20, 20, 0.95);
+            border: 2px solid var(--gold-primary);
+            border-radius: 30px;
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: 0 0 50px rgba(212, 175, 55, 0.3);
+            position: relative;
+            overflow: hidden;
+            animation: slideUpBanner 0.6s ease;
+        }
+        
+        @keyframes slideUpBanner {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        
+        .banner-content::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--gold-shine), transparent);
+            animation: scanBanner 2s linear infinite;
+        }
+        
+        @keyframes scanBanner {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+        
+        .banner-loader {
+            margin-bottom: 30px;
+        }
+        
+        .banner-spinner {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto;
+            border: 4px solid rgba(212, 175, 55, 0.3);
+            border-top: 4px solid var(--gold-shine);
+            border-right: 4px solid var(--gold-shine);
+            border-radius: 50%;
+            animation: spinBanner 1.2s cubic-bezier(0.68, -0.55, 0.265, 1.55) infinite;
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+        }
+        
+        @keyframes spinBanner {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .banner-title {
+            color: var(--gold-shine);
+            font-family: 'Cinzel', serif;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            text-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
+            animation: glowText 2s infinite;
+        }
+        
+        @keyframes glowText {
+            0%, 100% { text-shadow: 0 0 15px rgba(212, 175, 55, 0.5); }
+            50% { text-shadow: 0 0 30px rgba(212, 175, 55, 0.8); }
+        }
+        
+        .banner-message {
+            margin: 25px 0;
+            min-height: 80px;
+        }
+        
+        .banner-message p {
+            color: #fff;
+            font-size: 1.2rem;
+            margin: 10px 0;
+            opacity: 0;
+            animation: fadeInMessage 0.5s forwards;
+        }
+        
+        .banner-message p:first-child {
+            animation-delay: 0.3s;
+        }
+        
+        .typing-text {
+            color: var(--gold-primary) !important;
+            font-size: 1rem !important;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .typing-text::after {
+            content: '|';
+            position: absolute;
+            right: -10px;
+            animation: blink 0.7s infinite;
+        }
+        
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+        
+        @keyframes fadeInMessage {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .banner-progress {
+            width: 100%;
+            height: 6px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            margin: 30px 0 20px;
+            overflow: hidden;
+        }
+        
+        .banner-progress-bar {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, var(--gold-dark), var(--gold-shine));
+            border-radius: 10px;
+            animation: progressLoad 2.5s ease-in-out forwards;
+            box-shadow: 0 0 10px var(--gold-shine);
+        }
+        
+        @keyframes progressLoad {
+            0% { width: 0%; }
+            20% { width: 30%; }
+            40% { width: 50%; }
+            60% { width: 65%; }
+            80% { width: 85%; }
+            100% { width: 100%; }
+        }
+        
+        .banner-footer {
+            margin-top: 25px;
+        }
+        
+        .banner-update {
+            color: var(--gold-primary);
+            font-size: 1.1rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+            animation: pulseUpdate 2s infinite;
+        }
+        
+        @keyframes pulseUpdate {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.02); color: var(--gold-shine); }
+        }
+        
+        .banner-features {
+            color: #aaa;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            margin: 15px 0;
+            padding: 0 10px;
+            border-left: 3px solid var(--gold-dark);
+            border-right: 3px solid var(--gold-dark);
+        }
+        
+        .banner-dots {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 20px;
+        }
+        
+        .dot {
+            width: 8px;
+            height: 8px;
+            background: var(--gold-dark);
+            border-radius: 50%;
+            animation: dotPulse 1.5s infinite;
+        }
+        
+        .dot:nth-child(2) {
+            animation-delay: 0.3s;
+        }
+        
+        .dot:nth-child(3) {
+            animation-delay: 0.6s;
+        }
+        
+        @keyframes dotPulse {
+            0%, 100% { transform: scale(1); background: var(--gold-dark); }
+            50% { transform: scale(1.3); background: var(--gold-shine); }
+        }
+        
+        @media (max-width: 768px) {
+            .banner-content {
+                padding: 30px 20px;
+            }
+            .banner-title {
+                font-size: 1.5rem;
+            }
+            .banner-message p {
+                font-size: 1rem;
+            }
+            .banner-features {
+                font-size: 0.8rem;
+            }
+        }
+        
+        /* FadeOut animation kwa banner */
+        @keyframes fadeOutBanner {
+            from { opacity: 1; }
+            to { opacity: 0; visibility: hidden; }
+        }
+    </style>
     </style>
 </head>
 <body>
@@ -766,8 +1001,31 @@
         <button class="btn-code" onclick="verifyCode()">FUNGUA KILINGE</button>
         <div class="error-message" id="code-error"></div>
         <button class="whatsapp-code-btn" onclick="requestCodeViaWhatsApp()">
-            <i class="fab fa-whatsapp"></i> 👉 NIMELIPIA - NIPE CODE
+            <i class="fab fa-whatsapp"></i> 👉KUOMBA CODE WHATSAPP
         </button>
+
+        <!-- VIBOX 4 vya nje kwenye login page -->
+        <div class="external-boxes-login">
+            <div class="external-box-login">
+                <div class="box-image" style="background-image: url('https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=200&auto=format')"></div>
+                <div class="box-title">DW1</div>
+            </div>
+            <div class="external-box-login">
+                <div class="box-image" style="background-image: url('https://images.unsplash.com/photo-1611162618071-b39a2ec055fb?w=200&auto=format')"></div>
+                <div class="box-title">DW2</div>
+            </div>
+            <div class="external-box-login">
+                <div class="box-image" style="background-image: url('https://images.unsplash.com/photo-1611162617263-4ec3060a058e?w=200&auto=format')"></div>
+                <div class="box-title">DW3</div>
+            </div>
+            <div class="external-box-login">
+                <div class="box-image" style="background-image: url('https://images.unsplash.com/photo-1611162616550-7f3d2d642c1c?w=200&auto=format')"></div>
+                <div class="box-title">DW4</div>
+            </div>
+        </div>
+    </div>
+</div>
+
         
         <!-- VIBOX 4 vya nje kwenye login page -->
         <div class="external-boxes-login">
