@@ -75,86 +75,78 @@
     bottom: 20px;
     right: 20px;
     z-index: 10001;
-    animation: fadeOut 5s forwards;  /* Kitapotea baada ya sekunde 5 */
-    animation-delay: 3s;  /* Subiri sekunde 3 kisha anza kupotea */
+    /* TUMA animation ianze baadaye na isifiche haraka */
+    opacity: 1;
+    transition: opacity 1s ease, transform 0.3s ease;
 }
 
 #install-button {
     background: linear-gradient(135deg, #D4AF37, #AA6C39);
     color: white;
     border: none;
-    width: 60px;  /* Duara */
-    height: 60px;  /* Duara */
-    border-radius: 50%;  /* Kufanya duara */
-    font-size: 0;  /* Ficha maandishi */
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    font-size: 0;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
     box-shadow: 0 0 25px rgba(212,175,55,0.7);
-    transition: transform 0.3s, box-shadow 0.3s, opacity 0.5s;
-    font-family: 'Cinzel', serif;
+    transition: all 0.3s ease;
     position: relative;
 }
 
-#install-button i { 
-    font-size: 1.8rem;  /* Icon kubwa kidogo */
-    margin: 0;
+#install-button i {
+    font-size: 2rem;
 }
 
 #install-button:hover {
-    transform: scale(1.1);
-    box-shadow: 0 0 40px var(--gold-shine);
+    transform: scale(1.15);
+    box-shadow: 0 0 40px #FFD700;
 }
 
-/* Animation ya kupotea */
-@keyframes fadeOut {
-    0% { opacity: 1; transform: scale(1); }
-    70% { opacity: 0.7; transform: scale(0.9); }
-    100% { opacity: 0; transform: scale(0); display: none; visibility: hidden; }
-}
-
-/* Tooltip - Maandishi yanapojitokeza unapoelea */
+/* Tooltip */
 #install-button::after {
     content: "Sakinisha App BURE";
     position: absolute;
-    right: 70px;  /* Kushoto ya kitufe */
-    background: rgba(0,0,0,0.8);
+    right: 85px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.9);
     color: white;
-    padding: 8px 15px;
-    border-radius: 20px;
-    font-size: 14px;
+    padding: 10px 16px;
+    border-radius: 30px;
+    font-size: 13px;
     white-space: nowrap;
-    border: 1px solid var(--gold-primary);
+    border: 1px solid #D4AF37;
     opacity: 0;
-    transition: opacity 0.3s;
+    transition: opacity 0.3s, transform 0.3s;
     pointer-events: none;
 }
 
 #install-button:hover::after {
     opacity: 1;
+    transform: translateY(-50%) translateX(10px);
 }
 
 /* Kwa simu ndogo */
-@media (max-width:768px) {
+@media (max-width: 768px) {
     .install-container {
-        bottom: 80px;  /* Juu kidogo ya WhatsApp float */
-        right: 15px;
+        bottom: 90px; /* Juu ya WhatsApp float */
+        right: 16px;
     }
-    
     #install-button {
-        width: 50px;
-        height: 50px;
+        width: 60px;
+        height: 60px;
     }
-    
-    #install-button i { 
-        font-size: 1.5rem;
+    #install-button i {
+        font-size: 1.7rem;
     }
-    
     #install-button::after {
-        right: 60px;
+        right: 75px;
         font-size: 12px;
-        padding: 5px 10px;
+        padding: 8px 12px;
     }
 }
         
@@ -1266,68 +1258,71 @@
     }
 </script>
 
-<!-- INSTALL SCRIPT -->
-<script>
-    const installBtn = document.getElementById('install-button');
-    const installContainer = document.querySelector('.install-container');
-    let deferredPrompt;
-    let userEntered = false;  // Kufuatilia kama mtumiaji ameingia
+// INSTALL SCRIPT - iliyorekebishwa
+const installBtn = document.getElementById('install-button');
+const installContainer = document.querySelector('.install-container');
+let deferredPrompt;
+let userInteracted = false;
 
-    window.addEventListener('beforeinstallprompt', (e) => {
-        e.preventDefault();
-        deferredPrompt = e;
-    });
+window.addEventListener('beforeinstallprompt', (e) => {
+    e.preventDefault();
+    deferredPrompt = e;
+    // Usifanye button ifichwe moja kwa moja
+});
 
-    installBtn.addEventListener('click', () => {
-        const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
-        if (isIOS) {
-            alert('Kwa iPhone: Bofya ikoni ya "Share" chini, kisha chagua "Add to Home Screen".');
-        } else if (deferredPrompt) {
-            deferredPrompt.prompt();
-            deferredPrompt.userChoice.then((choiceResult) => {
-                if (choiceResult.outcome === 'accepted') {
-                    installBtn.innerHTML = '<i class="fas fa-check"></i>';
-                }
-                deferredPrompt = null;
-            });
-        } else {
-            alert('Ili kusakinisha, tumia Chrome au Safari kwenye simu. Au tafuta chaguo la "Install app" kwenye menyu.');
-        }
-        
-        // Baada ya kubofya, ficha kitufe
-        hideInstallButton();
-    });
+installBtn.addEventListener('click', () => {
+    userInteracted = true;
+    const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
 
-    window.addEventListener('appinstalled', () => {
-        installBtn.innerHTML = '<i class="fas fa-check"></i>';
-        hideInstallButton();
-    });
-
-    // Fuatilia mtumiaji anapoingia (kubofya popote kwenye main-content)
-    document.getElementById('main-content').addEventListener('click', function() {
-        if (!userEntered) {
-            userEntered = true;
-            hideInstallButton();
-        }
-    });
-
-    // Fuatilia mtumiaji anaposcroll
-    window.addEventListener('scroll', function() {
-        if (!userEntered && window.scrollY > 100) {  // Akiscroll zaidi ya 100px
-            userEntered = true;
-            hideInstallButton();
-        }
-    });
-
-    // Fuatilia mtumiaji anapoingiza code
-    const codeInput = document.getElementById('access-code');
-    if (codeInput) {
-        codeInput.addEventListener('input', function() {
-            if (this.value.length >= 3 && !userEntered) {
-                userEntered = true;
-                hideInstallButton();
+    if (isIOS) {
+        alert('Kwa iPhone: Bofya ikoni ya "Share" chini, kisha chagua "Add to Home Screen".');
+    } else if (deferredPrompt) {
+        deferredPrompt.prompt();
+        deferredPrompt.userChoice.then((choiceResult) => {
+            if (choiceResult.outcome === 'accepted') {
+                installBtn.innerHTML = '<i class="fas fa-check"></i> Imesakinishwa!';
+                installBtn.disabled = true;
             }
+            deferredPrompt = null;
         });
+    } else {
+        alert('Ili kusakinisha, tumia Chrome au Safari kwenye simu. Au tafuta chaguo la "Install app" kwenye menyu.');
+    }
+
+    // Ficha tu baada ya kubofya (si moja kwa moja)
+    setTimeout(hideInstallButton, 3000);
+});
+
+window.addEventListener('appinstalled', () => {
+    installBtn.innerHTML = '<i class="fas fa-check"></i> Imesakinishwa!';
+    installBtn.disabled = true;
+    hideInstallButton();
+});
+
+// Ficha tu ikiwa mtumiaji ameshirikiana (scroll, click, au input code)
+function hideInstallButton() {
+    if (installContainer && userInteracted) {
+        installContainer.style.opacity = '0';
+        installContainer.style.pointerEvents = 'none';
+        setTimeout(() => {
+            installContainer.style.display = 'none';
+        }, 1000);
+    }
+}
+
+// Fuatilia interaction yoyote
+function markUserInteraction() {
+    if (!userInteracted) {
+        userInteracted = true;
+        // Usifanye ifichwe mara moja – wacha iendelee kuonekana kidogo
+    }
+}
+
+document.getElementById('main-content')?.addEventListener('click', markUserInteraction);
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 80) markUserInteraction();
+});
+document.getElementById('access-code')?.addEventListener('input', markUserInteraction);
     }
 
     // Kazi ya kuficha kitufe
@@ -3036,358 +3031,79 @@ const ZODIAC_DB = {
         "🏞️ Kamwe usifanye kazi za Mlinzi wa Hifadhi - Unahitaji kazi za ofisi si za porini"
     ]
 },
-    11: {
-        name: "Maji (Aquarius)",
-        image: "https://images.unsplash.com/photo-1505118380757-91f5f5632de0?auto=format&fit=crop&w=600&q=80",
-        
-        good: [
-            "💡 Mwenye ubunifu: Una wazo jipya kila wakati na unapenda kuvumbua",
-            "🤝 Mwenye urafiki: Unapenda watu na huna ubaguzi wa rangi wala dini",
-            "🌍 Mwenye maono ya mbali: Unaona mustakabali na unajua mabadiliko yanakuja",
-            "🕊️ Mwenye amani: Hupendi vita na ugomvi, unapenda watu waelewane",
-            "🔍 Mwenye uchunguzi: Unapenda kuchunguza na kujua ukweli wa mambo",
-            "⚡ Mwenye mwendo: Una kasi ya kufanya mambo kuliko wengine",
-            "🗣️ Mwenye ukombozi: Unapenda uhuru na hupendi kufungwa na mila potofu",
-            "🎯 Mwenye lengo: Una malengo ya kibinaadamu na ya kijamii",
-            "👥 Mwenye kufahamika: Unafahamika na watu wengi na kupendwa nao",
-            "📡 Mwenye mawasiliano: Unawasiliana vizuri na kila kundi la watu",
-            "🤖 Mwenye kupenda teknolojia: Unapenda vitu vya kisasa na teknolojia mipya",
-            "💭 Mwenye mawazo: Mawazo yako ni mapana na hayana mipaka",
-            "🧠 Mwenye akili: Una akili ya kutosha kutatua matatizo magumu",
-            "🌟 Mwenye mvuto: Unawavutia watu kwa utu wako wa kipekee",
-            "🔄 Mwenye kubadilika: Unabadilika na wakati na mazingira mapya",
-            "📚 Mwenye kupenda kusoma: Unasoma kila kitu unachoweza kupata",
-            "🎨 Mwenye sanaa: Una kipaji cha sanaa na ubunifu",
-            "🧩 Mwenye kutatua: Unapenda kutatua matatizo na changamoto",
-            "🌐 Mwenye mtandao: Una mtandao mpana wa marafiki na watu unaowafahamu",
-            "🔮 Mwenye kuona mambo: Una hisia ya kipekee ya kujua yatakayotokea",
-            "💫 Mwenye kipekee: Wewe ni wa kipekee na hufanani na mwingine yeyote",
-            "🧪 Mwenye majaribio: Unapenda kujaribu mambo mapya na kuona matokeo",
-            "⚙️ Mwenye ufundi: Una uhodari wa kuvumbua na kutengeneza vitu",
-            "🌱 Mwenye kujali: Unajali haki za binadamu na haki za wanyama",
-            "🏛️ Mwenye demokrasia: Unaamini watu wote wana haki sawa",
-            "💬 Mwenye mazungumzo: Unapenda kuzungumza na watu na kubadilishana mawazo",
-            "🎭 Mwenye utofauti: Unapenda utofauti wa watu na tamaduni",
-            "📊 Mwenye takwimu: Unapenda takwimu na ukweli wa mambo",
-            "🛸 Mwenye kupenda anga: Unavutiwa na anga na sayari nyingine",
-            "🧘 Mwenye kujitegemea: Unajitegemea na hupendi kuwategemea wengine"
-        ],
-        
-        bad: [
-            "❄️ Mwenye baridi: Unaweza kuwa baridi kihisia na kutojali hisia za wengine",
-            "🎭 Mwenye kubadilikabadilika: Unaweza kubadilika mara kwa mara na kuwachanganya watu",
-            "🚫 Mwenye kujitenga: Wakati mwingine unajitenga na watu na kuwa peke yako",
-            "📉 Mwenye kukosa mwelekeo: Unaweza kuanza vitu vingi lakini usimalize chochote",
-            "🤔 Mwenye utata: Unaweza kuwa mgumu kumwelewa na kutabiri",
-            "⚡ Mwenye ghafla: Unaweza kubadilika ghafla na kuwashangaza watu",
-            "🧠 Mwenye mawazo kupita kiasi: Unafikiria sana mpaka kusahau kutenda",
-            "💔 Mwenye kukosa hisia: Unaweza kuonekana haujali hata wakati unajali",
-            "📱 Mwenye kupenda faragha: Unapenda faragha sana na hufichua mambo yako",
-            "🔮 Mwenye mawazo ya ajabu: Mawazo yako yanaweza kuwa ya ajabu na yasiyo ya kweli",
-            "🎯 Mwenye kukosa lengo: Unaweza kukosa lengo maishani na kubwatuka tu",
-            "🗣️ Mwenye maneno makali: Unaweza kusema mambo makali na kuwaumiza wengine",
-            "🛸 Mwenye kupotea: Unaweza kupotea katika mawazo yako na kusahau ulimwengu",
-            "🔌 Mwenye kukosa nguvu: Unaweza kukosa nguvu za kufuata mawazo yako",
-            "💭 Mwenye ndoto: Unaweza kuwa na ndoto nyingi lakini zibaki ndoto tu",
-            "🤷 Mwenye kutofahamika: Watu wanaweza kukosa kukufahamu vizuri",
-            "🔄 Mwenye mabadiliko ya ghafla: Unaweza kubadilisha maisha yako ghafla na kushtua wote",
-            "🧪 Mwenye majaribio hatari: Unaweza kujaribu mambo hatari na kujidhuru",
-            "⚙️ Mwenye kukosa utaratibu: Unaweza kukosa utaratibu maishani",
-            "📡 Mwenye mawasiliano duni: Unaweza kushindwa kuwasilisha mawazo yako vizuri",
-            "🌐 Mwenye kukosa mtandao: Unaweza kujitenga na jamii na kukosa mitandao",
-            "💡 Mwenye kukosa mwanga: Mawazo yako yanaweza kukosa nuru ya kutekelezwa",
-            "🌟 Mwenye kujiona: Unaweza kujiona kuwa bora na wa kipekee kupita kiasi",
-            "🎨 Mwenye sanaa isiyoeleweka: Sanaa yako inaweza isieleweke na wengi",
-            "🧩 Mwenye kukosa vipande: Unaweza kukosa sehemu muhimu za maisha",
-            "🌍 Mwenye kuota ulimwengu: Unaweza kuota kubadilisha ulimwengu lakini usibadilishe nyumbani kwako",
-            "🔍 Mwenye kukosa uchunguzi: Unaweza kukosa kuchunguza mambo ya msingi",
-            "⚖️ Mwenye kukosa usawa: Unaweza kuwa na msimamo usio na usawa",
-            "🕊️ Mwenye amani kupita kiasi: Unaweza kukaa kimya hata unapaswa kupinga",
-            "💫 Mwenye kujitenga: Unaweza kujitenga na wale wanaokupenda"
-        ],
-        
-        health: [
-            "🔄 Matatizo ya mzunguko wa damu (68%) - Kwa sababu ya mfadhaiko na mabadiliko ya ghafla",
-            "🦵 Mishipa ya damu kufura (65%) - Kwa sababu ya kukaa kitako kwa muda mrefu",
-            "🧠 Matatizo ya neva (62%) - Kwa sababu ya mawazo mengi na msongo",
-            "👁️ Matatizo ya macho (60%) - Kwa sababu ya kukaa kwenye vifaa vya kielektroniki",
-            "🦵 Maumivu ya miguu (58%) - Kwa sababu ya kukosa mazoezi na kukaa tu",
-            "💓 Mapigo ya moyo yasiyo ya kawaida (55%) - Kwa sababu ya msongo wa mawazo",
-            "🧪 Matatizo ya tezi (52%) - Kwa sababu ya mabadiliko ya homoni na mfadhaiko",
-            "⚡ Kifafa (15%) - Kwa sababu ya msongo mkali na mwanga wa stroboscopy",
-            "😴 Kukosa usingizi (50%) - Kwa sababu ya mawazo mengi usiku",
-            "🔋 Uchovu sugu (48%) - Kwa sababu ya nguvu nyingi kutumika kiakili",
-            "🤧 Mzio wa vumbi (45%) - Kwa sababu ya vumbi la nyumbani na ofisini",
-            "🌿 Mzio wa maua (42%) - Kwa sababu ya maua na mimea mbalimbali",
-            "🍞 Mzio wa gluten (20%) - Kwa sababu ya ngano na vyakula vyenye gluten",
-            "🥛 Mzio wa maziwa (18%) - Kwa sababu ya lactose na bidhaa za maziwa",
-            "🦐 Mzio wa samaki (15%) - Kwa sababu ya samaki na vyakula vya baharini",
-            "😤 Pumu (30%) - Kwa sababu ya mzio na hewa chafu",
-            "🤕 Maumivu ya kichwa (55%) - Kwa sababu ya mawazo mengi na mfadhaiko",
-            "🔄 Kizunguzungu (40%) - Kwa sababu ya mabadiliko ya ghafla na shinikizo",
-            "🧘 Upungufu wa nguvu za kiroho (35%) - Kwa sababu ya kukosa utulivu wa nafsi",
-            "💭 Ndoto mbaya (28%) - Kwa sababu ya mawazo mengi na msongo"
-        ],
-        
-        avoid: [
-            "🚫 Maeneo yenye watu wengi sana - Hukufai kwa sababu unahitaji hewa ya kutosha",
-            "📵 Kukaa kwenye simu muda wote - Inaharibu macho na kukufanya uwe mpweke",
-            "🔇 Ukimya kupita kiasi - Hukufai kwa sababu unahitaji mawasiliano",
-            "🎢 Mabadiliko ya ghafla - Yanaweza kukuchosha na kukudhoofisha",
-            "🍺 Pombe kali - Inaharibu ubongo wako wa ubunifu",
-            "🚬 Sigara - Inaharibu mapafu na kupunguza nguvu zako",
-            "💊 Dawa za kulevya - Zinaharibu akili yako kali",
-            "🥫 Vyakula vya makopo - Vina kemikali zinazoharibu ubongo",
-            "🍔 Vyakula vya haraka - Vinapunguza nguvu zako za ubunifu",
-            "🧂 Chumvi nyingi - Huongeza shinikizo la damu na kuharibu figo",
-            "☕ Kahawa nyingi - Inakufanya uwe na wasiwasi kupita kiasi",
-            "🥤 Vinywaji vya bandia - Vina kemikali hatari kwa ubongo",
-            "🏢 Kazi za kufungwa ofisini - Unahitaji uhuru wa kutembea",
-            "⏰ Ratiba ngumu - Hukufai kwa sababu unahitaji kubadilika",
-            "👔 Watu wenye nidhamu kali - Wanaweza kukuchosha na kukukandamiza",
-            "📋 Sheria nyingi - Unahitaji uhuru si kufungwa na sheria",
-            "🏛️ Mila potofu - Unahitaji mabadiliko si kurudiarudia",
-            "👥 Watu wenye ubaguzi - Hawaendani na wewe mpenda usawa",
-            "🤥 Wadanganyifu - Unahitaji ukweli si uwongo",
-            "🔒 Kujifungia nyumbani - Unahitaji kuwa na watu na jamii"
-        ],
-        
-        compatible: [
-            "🤝 Watu waliozaliwa Januari (A) - Wanakuelewa na kukupenda",
-            "🤝 Watu waliozaliwa Machi (C) - Wanakupa uhuru wa kutosha",
-            "🤝 Watu waliozaliwa Mei (E) - Wanakubaliana na mawazo yako",
-            "🤝 Watu waliozaliwa Julai (G) - Wanakusaidia kutekeleza mawazo yako",
-            "🤝 Watu waliozaliwa Septemba (I) - Wanakupenda kwa ubunifu wako",
-            "🤝 Watu waliozaliwa Novemba (K) - Wanakupa ushauri wa busara",
-            "🤝 Watu wenye nyota ya Mizani - Wanakuelewa kwa usawa wao",
-            "🤝 Watu wenye nyota ya Mapacha - Wanakupenda kwa mazungumzo",
-            "🤝 Watu wenye nyota ya Mshale - Wanakupa uhuru na kukusaidia kupanua upeo",
-            "🤝 Watu wenye ubunifu kama wewe - Wanaoweza kukimbia na mawazo yako"
-        ],
-        
-        careers: [
-            "💻 Mtaalamu wa Teknolojia: Unaunda programu na teknolojia mpya",
-            "📡 Mhandisi wa Mawasiliano: Unaunda mitandao ya mawasiliano ya kisasa",
-            "🚀 Mwanasayansi wa Anga: Unachunguza sayari na nyota za mbali",
-            "🔬 Mtafiti: Unafanya utafiti wa kuvumbua mambo mapya",
-            "📊 Mchambuzi wa Data: Unachambua data na kutoa taarifa muhimu",
-            "🌍 Mtaalamu wa Mazingira: Unalinda mazingira na haki za wanyama",
-            "🎨 Mbunifu wa Kisasa: Unaunda mitindo mipya na ya kisasa",
-            "✍️ Mwandishi wa Kisayansi: Unaandika vitabu vya sayansi na uvumbuzi",
-            "📻 Mtangazaji wa Redio: Unatangaza habari na burudani kwa watu",
-            "📺 Mtayarishaji wa Vipindi: Unaunda vipindi vya runinga vya kuelimisha",
-            "🎬 Mtengenezaji wa Filamu: Unaunda filamu za kuelimisha na kuburudisha",
-            "🎵 Mtayarishaji wa Muziki: Unaunda muziki wa kisasa wa kielektroniki",
-            "🏛️ Mwanaharakati: Unapigania haki za binadamu na wanyama",
-            "🌐 Mtaalamu wa Mitandao ya Kijamii: Unasimamia mitandao ya kijamii",
-            "📱 Mbunifu wa Programu: Unaunda programu za simu na kompyuta",
-            "🤖 Mhandisi wa Roboti: Unaunda roboti za kusaidia binadamu",
-            "🧪 Mtaalamu wa Kemia: Unachunguza kemikali na kuvumbua dawa mpya",
-            "🌿 Mtaalamu wa Mimea: Unachunguza mimea na faida zake",
-            "🐘 Mtaalamu wa Wanyama: Unachunguza wanyama na tabia zao",
-            "🔭 Mwanaastronomia: Unachunguza nyota na sayari kwa darubini"
-        ],
-        
-        avoid_careers: [
-            "🏭 Kamwe usifanye kazi za Kazi za Kiwandani - Unahitaji ubunifu si kurudiarudia",
-            "📋 Kamwe usifanye kazi za Karani wa Ofisi - Unahitaji mabadiliko si kukaa kitako tu",
-            "⚖️ Kamwe usifanye kazi za Msimamizi wa Sheria Kali - Unahitaji uhuru si kufungwa na sheria",
-            "🏛️ Kamwe usifanye kazi za Mlinzi wa Mila - Unahitaji mabadiliko si kushikilia mila",
-            "👮 Kamwe usifanye kazi za Polisi wa Trafiki - Unahitaji kazi za ubunifu si za utaratibu",
-            "📚 Kamwe usifanye kazi za Mfanyabiashara wa Vitabu vya Kale - Unahitaji vya kisasa si vya zamani",
-            "🏦 Kamwe usifanye kazi za Mfanyakazi wa Benki ya Kawaida - Unahitaji mabadiliko si kukaa tu",
-            "🏪 Kamwe usifanye kazi za Muuza Duka la Kawaida - Unahitaji ubunifu si biashara tu",
-            "🍞 Kamwe usifanye kazi za Mwokaji Mikate - Unahitaji kazi za akili si za mikono tu",
-            "🧹 Kamwe usifanye kazi za Mfagiaji - Unahitaji kazi za kufikiri si za kufagia",
-            "🚗 Kamwe usifanye kazi za Dereva wa Basi la Kawaida - Unahitaji mabadiliko si njia moja tu",
-            "🏗️ Kamwe usifanye kazi za Mfanyakazi wa Ujenzi wa Kawaida - Unahitaji ubunifu si kazi za mikono",
-            "👨‍🌾 Kamwe usifanye kazi za Mkulima wa Kawaida - Unahitaji teknolojia si kulima kwa jembe",
-            "🍳 Kamwe usifanye kazi za Mpishi wa Kawaida - Unahitaji uvumbuzi si kupika ovyo",
-            "✂️ Kamwe usifanye kazi za Mshonaji wa Nguo za Kawaida - Unahitaji ubunifu si kushona tu",
-            "🔧 Kamwe usifanye kazi za Fundi wa Kawaida - Unahitaji teknolojia si vifaa vya zamani",
-            "🛠️ Kamwe usifanye kazi za Seremala wa Kawaida - Unahitaji ubunifu si kukata mbao tu",
-            "🎣 Kamwe usifanye kazi za Mvuvi wa Kawaida - Unahitaji teknolojia si samaki tu",
-            "🪓 Kamwe usifanye kazi za Mkataji miti - Unahitaji kulinda mazingira si kuharibu",
-            "🛢️ Kamwe usifanye kazi za Mfanyakazi wa Migodini - Unahitaji hewa safi si vumbi la mgodini"
-        ]
-    },
-
-    12: {
-        name: "Samaki (Pisces)",
-        image: "https://images.unsplash.com/photo-1535591273668-578e31182c4f?auto=format&fit=crop&w=600&q=80",
-        
-        good: [
-            "💖 Mwenye huruma: Una huruma kubwa na unawahurumia wanaoteseka",
-            "🎨 Mwenye kipaji cha sanaa: Una kipaji cha kipekee cha muziki, uchoraji au ushairi",
-            "🧘 Mwenye utulivu: Una utulivu wa ndani unaowavutia wengine",
-            "🌊 Mwenye kubaliana: Unakubaliana na kila mtu na hupendi ugomvi",
-            "🕯️ Mwenye kiroho: Una imani kubwa na unajua kuna nguvu za juu",
-            "🎵 Mwenye kupenda muziki: Muziki ni sehemu ya maisha yako",
-            "🤲 Mwenye kutoa: Unatoa kwa ukarimu hata kama huna cha kutosha",
-            "💭 Mwenye ndoto: Una ndoto kubwa na unaziamini",
-            "🐟 Mwenye kubadilika: Unabadilika na mazingira kama samaki majini",
-            "👂 Mwenye kusikiliza: Unawasikiliza wengine kwa makini na huruma",
-            "🌙 Mwenye hisia kali: Hisia zako ni kali na unajisikia sana",
-            "🕊️ Mwenye amani: Unapenda amani na utulivu kila mahali",
-            "🌟 Mwenye mvutio: Unawavutia watu kwa utulivu na huruma yako",
-            "🤝 Mwenye kusaidia: Unapenda kusaidia wanaoteseka na wenye shida",
-            "🧩 Mwenye kuelewa: Unawaelewa watu na matatizo yao kwa urahisi",
-            "🎭 Mwenye kujihisi: Unajihisi na kuelewa hisia zako na za wengine",
-            "📖 Mwenye kupenda hadithi: Unapenda hadithi na simulizi za kina",
-            "🌌 Mwenye kupenda anga: Unavutiwa na anga na nyota",
-            "🕰️ Mwenye kupenda historia: Unapenda historia na hadithi za kale",
-            "🧘 Mwenye kupenda tafakuri: Unapenda kukaa kimya na kutafakari maisha",
-            "💧 Mwenye maji: Unatiririka na maisha kama maji",
-            "🌈 Mwenye rangi nyingi: Una utu wenye tabaka nyingi",
-            "🎪 Mwenye hisia za sanaa: Una hisia nyeti za kisanii",
-            "🦋 Mwenye kubadilika: Unabadilika kama kipepeo anavyobadilika",
-            "🌊 Mwenye kina kirefu: Una kina cha hisia na mawazo",
-            "🐚 Mwenye thamani: Una thamani kubwa kama lulu baharini",
-            "🌙 Mwenye kushikamana na mwezi: Una uhusiano maalum na mwezi na maji",
-            "💫 Mwenye ndoto: Una ndoto za kipekee na za kushangaza",
-            "🎭 Mwenye hisia za kuigiza: Una hisia za kuigiza na kueleza",
-            "🧘 Mwenye amani ya ndani: Una amani ya ndani inayotoka kwa Muumba"
-        ],
-        
-        bad: [
-            "😢 Mwenye kuhangaika: Unaweza kuhangaika na mawazo ya kuhuzunisha",
-            "🌊 Mwenye kuzama: Unaweza kuzama katika hisia zako na kukosa nafuu",
-            "🎭 Mwenye kujifanya: Unaweza kujifanya mwenye furaha huku umejaa masikitiko",
-            "🚫 Mwenye kukimbia: Unakimbia ukweli na kujificha katika ndoto",
-            "🍺 Mwenye kulevya: Unaweza kukimbilia pombe au dawa kwa ajili ya nafuu",
-            "💔 Mwenye kuumia kirahisi: Unaumia kirahisi na huponi kwa haraka",
-            "🤥 Mwenye kudanganyika: Unadanganyika kirahisi na watu wenye nia mbaya",
-            "🧩 Mwenye kuchanganyikiwa: Unachanganyikiwa kirahisi na mambo mengi",
-            "🌫️ Mwenye mawazo mazito: Una mawazo mazito yanayokulemea",
-            "🎪 Mwenye kupotea: Unapotea katika mawazo yako na kusahau ulimwengu",
-            "🦋 Mwenye kukosa msimamo: Huna msimamo thabiti maishani",
-            "💧 Mwenye kulia kirahisi: Unalia kirahisi na kwa sababu ndogo",
-            "🌙 Mwenye kushikamana na mwezi: Hisia zako zinabadilika na mwezi",
-            "🌟 Mwenye kujiona mdogo: Unajiona mdogo na dhaifu kuliko wengine",
-            "🎨 Mwenye sanaa ya kuhuzunisha: Sanaa yako inaweza kuwa ya kuhuzunisha",
-            "📖 Mwenye hadithi za kusikitisha: Unazungumza hadithi za kusikitisha mara kwa mara",
-            "🧘 Mwenye kutafakari kupita kiasi: Unatafakari sana mpaka kusahau kutenda",
-            "🐟 Mwenye kukosa mwelekeo: Unaweza kukosa mweleko maishani kama samaki",
-            "🤝 Mwenye kukosa mipaka: Huna mipaka na watu na unajitoa kupita kiasi",
-            "💭 Mwenye ndoto za mchana: Unaota mchana na kusahau kazi zako",
-            "🌊 Mwenye kukosa nguvu: Unaweza kukosa nguvu za kukabiliana na changamoto",
-            "🎭 Mwenye kukosa utambulisho: Unaweza kukosa kujua wewe ni nani",
-            "🔮 Mwenye kukosa ukweli: Unaweza kukosa kutofautisha ukweli na ndoto",
-            "🕯️ Mwenye kukosa nuru: Unaweza kukosa nuru ya kuongoza maisha yako",
-            "🧠 Mwenye kukosa akili ya kivitendo: Una akili ya kiroho si ya vitendo",
-            "💫 Mwenye kukosa nguvu za kufuata: Una ndoto lakini huna nguvu za kuzifuata",
-            "🎵 Mwenye muziki wa kuhuzunisha: Unapenda muziki unaokuza huzuni",
-            "🌌 Mwenye kupotea angani: Unapotea angani na kusahau dunia",
-            "🕰️ Mwenye kuishi zamani: Unaishi kwenye historia na kusahau leo",
-            "🌈 Mwenye rangi za kuchanganya: Unachanganya rangi na kupotea"
-        ],
-        
-        health: [
-            "🦶 Matatizo ya miguu (75%) - Kwa sababu ya mfumo dhaifu wa mzunguko wa damu",
-            "🍺 Matatizo ya ini (70%) - Kwa sababu ya kukimbilia pombe kwa ajili ya kujisahau",
-            "🧠 Matatizo ya akili (68%) - Kwa sababu ya msongo na mawazo mazito",
-            "😴 Kukosa usingizi (65%) - Kwa sababu ya mawazo mengi na ndoto mbaya",
-            "💊 Matumizi ya dawa (60%) - Kwa sababu ya kukimbilia dawa za kupunguza maumivu",
-            "🦠 Mfumo dhaifu wa kinga (62%) - Kwa sababu ya msongo na lishe duni",
-            "🤧 Mzio wa vyakula (55%) - Kwa sababu ya mfumo nyeti wa mwili",
-            "🌿 Mzio wa mimea (50%) - Kwa sababu ya mazingira na mabadiliko ya hewa",
-            "🐟 Mzio wa samaki (45%) - Kwa sababu ya protini za baharini",
-            "🍷 Mzio wa pombe (40%) - Kwa sababu ya vimeng'enya dhaifu vya ini",
-            "💔 Matatizo ya moyo (48%) - Kwa sababu ya hisia kali na msongo",
-            "🩸 Shinikizo la damu (52%) - Kwa sababu ya msongo na mawazo mazito",
-            "🧂 Shinikizo la chini (45%) - Kwa sababu ya kukosa nguvu na lishe duni",
-            "🦴 Maumivu ya mifupa (42%) - Kwa sababu ya unyeti wa mwili",
-            "🤕 Maumivu ya kichwa (58%) - Kwa sababu ya mawazo mengi na msongo",
-            "🔄 Kizunguzungu (50%) - Kwa sababu ya shinikizo la damu na upungufu wa damu",
-            "🩸 Upungufu wa damu (55%) - Kwa sababu ya lishe duni na kukosa virutubisho",
-            "🍽️ Matatizo ya tumbo (48%) - Kwa sababu ya hisia kali na msongo",
-            "💩 Kuvimbiwa (35%) - Kwa sababu ya kukosa maji na nyuzinyuzi",
-            "🔥 Kiungulia (30%) - Kwa sababu ya hisia kali na vyakula vikali"
-        ],
-        
-        avoid: [
-            "🍺 Pombe - Inakufanya uwe mwenye huzuni zaidi na kukosa nguvu",
-            "🚬 Sigara - Inaharibu mapafu na kuongeza msongo",
-            "💊 Dawa za kulevya - Zinakufanya upoteze ukweli na kuzama zaidi",
-            "🎬 Filamu za kusikitisha - Zinakuza huzuni na mawazo mazito",
-            "🎵 Muziki wa kuhuzunisha - Unakuza hisia za huzuni na kukufanya uleweke",
-            "👥 Watu wenye nia mbaya - Wanakudanganya kwa urahisi",
-            "😈 Wachawi - Wanakuvutia kwa urahisi kwa hisia zako",
-            "📖 Hadithi za kutisha - Zinakuza hofu na wasiwasi",
-            "🌙 Kukaa usiku - Kunakuza mawazo mazito na huzuni",
-            "🏚️ Maeneo yenye watu wachache - Yanakuza upweke na huzuni",
-            "🧘 Kutafakari kupita kiasi - Kunakufanya uzame zaidi",
-            "💭 Kuota mchana - Kunakufanya ukose kufanya kazi zako",
-            "🎭 Kujifanya - Kunakufanya upoteze utambulisho wako",
-            "🌊 Kukaa karibu na maji peke yako - Kuna hatari ya kuzama katika mawazo",
-            "📵 Kutengwa na jamii - Kunakuza upweke na huzuni",
-            "🍰 Vyakula vitamu - Vinakuza mabadiliko ya hisia",
-            "☕ Kahawa nyingi - Inakuza wasiwasi na kukosa usingizi",
-            "🥫 Vyakula vya makopo - Vina kemikali zinazoathiri hisia",
-            "📺 Kuangalia runinga kupita kiasi - Kunakuza usingizi na uvivu",
-            "🛏️ Kulala kitandani - Kunapunguza nguvu na kuleta huzuni"
-        ],
-        
-        compatible: [
-            "🤝 Watu waliozaliwa Februari (B) - Wanakuelewa na kukupenda",
-            "🤝 Watu waliozaliwa Aprili (D) - Wanakupa ushauri wa busara",
-            "🤝 Watu waliozaliwa Juni (F) - Wanakupenda kwa hisia zako",
-            "🤝 Watu waliozaliwa Agosti (H) - Wanakusaidia kutekeleza ndoto",
-            "🤝 Watu waliozaliwa Oktoba (J) - Wanakuelewa na kukuvumilia",
-            "🤝 Watu waliozaliwa Desemba (L) - Wanakupenda bila masharti",
-            "🤝 Watu wenye nyota ya Nge - Wanakupa nguvu na ulinzi",
-            "🤝 Watu wenye nyota ya Mbuzi - Wanakusaidia kupanga maisha",
-            "🤝 Watu wenye nyota ya Mashuke - Wanakupa ushauri wa kiroho",
-            "🤝 Watu wenye huruma na hisia kama wewe - Wanaokuelewa na kukuhurumia"
-        ],
-        
-        careers: [
-            "🎨 Msanii: Unaunda sanaa inayogusa hisia za watu",
-            "🎵 Mwanamuziki: Unatengeneza muziki unaogusa roho",
-            "✍️ Mwandishi: Unaandika hadithi na mashairi ya kugusa",
-            "🎭 Mwigizaji: Unaigiza na kugusa hisia za watazamaji",
-            "📸 Mpiga picha: Unapiga picha za kugusa na kuvutia",
-            "🧘 Mwalimu wa yoga: Unafundisha utulivu na kutafakari",
-            "🕯️ Mshauri wa kiroho: Unawashauri watu katika masuala ya kiroho",
-            "🤲 Mfanyakazi wa misaada: Unawasaidia maskini na wenye shida",
-            "🏥 Muuguzi: Unawatumikia wagonjwa kwa huruma",
-            "👵 Mtunza watu wazima: Unawatunza wazee kwa upendo",
-            "🐾 Mtunza wanyama: Unawatunza wanyama kwa huruma",
-            "🌿 Mtaalamu wa tiba asili: Unatibu watu kwa mimea na asili",
-            "💆 Mtaalamu wa masaji: Unawapa watu utulivu na nafuu",
-            "🎪 Mburudishaji: Unawaburudisha watu kwa vipaji vyako",
-            "📖 Msimuliaji hadithi: Unasimulia hadithi za kugusa",
-            "🎬 Mtengenezaji wa filamu za kuelimisha: Unaunda filamu za kugusa",
-            "🏥 Mshauri wa saikolojia: Unawashauri wenye matatizo ya akili",
-            "🌊 Mlinzi wa bahari: Unalinda bahari na viumbe wake",
-            "🐬 Mtaalamu wa pomboo: Unawachunguza pomboo na tabia zao",
-            "🎹 Mpiga kinanda: Unapiga kinanda kwa hisia za kugusa"
-        ],
-        
-        avoid_careers: [
-            "💼 Kamwe usifanye kazi za Mfanyabiashara Mkali - Unahitaji upole si ukali",
-            "⚖️ Kamwe usifanye kazi za Mwanasheria Mkali - Unahitaji huruma si sheria kali",
-            "👮 Kamwe usifanye kazi za Polisi wa Ukali - Unahitaji upole si kukamata watu",
-            "💰 Kamwe usifanye kazi za Mtoza Deni - Utachoshwa na watu wanaokimbia deni",
-            "🏛️ Kamwe usifanye kazi za Mwanasiasa Mgomvi - Unahitaji amani si vita vya siasa",
-            "🏭 Kamwe usifanye kazi za Msimamizi Mkali wa Kiwanda - Unahitaji upole si ukali",
-            "📊 Kamwe usifanye kazi za Mchambuzi wa Hisa - Utachoshwa na namba na takwimu",
-            "🔧 Kamwe usifanye kazi za Fundi wa Magari - Unahitaji sanaa si mafuta na grisi",
-            "🪚 Kamwe usifanye kazi za Seremala Mkali - Unahitaji upole si kukata mbao kwa nguvu",
-            "🏗️ Kamwe usifanye kazi za Mjenzi wa Nyumba - Unahitaji sanaa si saruji na mchanga",
-            "🚜 Kamwe usifanye kazi za Mkulima wa Nguvu - Unahitaji huruma si kulima kwa nguvu",
-            "🍖 Kamwe usifanye kazi za Mchinjaji - Utachoshwa na damu na viumbe kuumia",
-            "🔫 Kamwe usifanye kazi za Jeshi - Unahitaji amani si vita na mauaji",
-            "🛡️ Kamwe usifanye kazi za Mlinzi Mkali - Unahitaji upole si kutumia nguvu",
-            "🚒 Kamwe usifanye kazi za Zimamoto - Utachoshwa na dharura na moto",
-            "🚑 Kamwe usifanye kazi za Dharura - Hisia zako zitaumia kuona watu wanaumia",
-            "🪦 Kamwe usifanye kazi za Mwenye makaburi - Utachoshwa na kifo na huzuni",
-            "🔬 Kamwe usifanye kazi za Mtafiti wa Maabara - Unahitaji sanaa si kemikali na vipimo",
-            "📏 Kamwe usifanye kazi za Mpimaji - Utachoshwa na vipimo na takwimu",
-            "🧹 Kamwe usifanye kazi za Msafishaji wa Viwandani - Unahitaji uzuri si uchafu"
-        ]
-    }
-};
+    11: { 
+    name: "Nyumba (Aquarius)", 
+    image: "https://images.unsplash.com/photo-1519904981063-b0cf448d479e?auto=format&fit=crop&w=600&q=80",
+    
+    good: [
+        "💡 Mvumbuzi: Una uwezo wa kuvumbua mambo mapya na ya kipekee",
+        "🌍 Mwenye kuona mbali: Una maono ya mbali na ya kimaendeleo",
+        "🤝 Mshirikiano: Unajua kufanya kazi na watu wa aina mbalimbali",
+        "🔭 Mwenye kutazama: Unapenda kutazama nyota na anga",
+        "📡 Mwenye kupenda teknolojia: Unapenda teknolojia na mambo ya kisasa",
+        "👥 Mwenye kupenda jamii: Unajali jamii na maendeleo ya watu",
+        "💫 Mwenye kipekee: Una mtindo wako wa kipekee usio na mfano",
+        "🤲 Mwenye kusaidia: Unapenda kusaidia wengine kwa moyo wako wote",
+        "🧠 Mwenye akili: Una akili iliyojaa mawazo mapya na ya kipekee",
+        "🌐 Mwenye mtandao: Una uwezo wa kuunganisha watu na mawazo",
+        "⚡ Mwenye nguvu: Una nguvu za kubeba mawazo mapya na changamoto",
+        "🎨 Mwenye ubunifu: Una wazo la kipekee la kufanya mambo kwa mtindo wako",
+        "📚 Mwenye kusoma: Unapenda kusoma na kujifunza mambo mapya kila siku",
+        "🌅 Mwenye matumaini: Una matumaini ya maisha bora ya baadaye",
+        "🤗 Mwenye urafiki: Una uwezo wa kuvutia marafiki wa aina mbalimbali",
+        "🔮 Mwenye angavu: Una angavu la kugundua mambo yaliyofichika",
+        "🌌 Mwenye kufikiria: Unafikiria mambo ya kina na ya mbali",
+        "📊 Mwenye mpango: Una mpango wa kuboresha jamii na dunia",
+        "🏛️ Mwenye kujenga: Unajenga jamii na kuleta maendeleo",
+        "💡 Mwenye kutoa mawazo: Unatoa mawazo mapya na yenye tija",
+        "🌍 Mwenye kupenda dunia: Unajali mazingira na dunia nzima",
+        "🤝 Mpatanishi: Una uwezo wa kupatanisha watu wenye mitindo tofauti",
+        "👥 Kiongozi wa jamii: Unaongoza watu katika maendeleo na mabadiliko",
+        "📡 Mwenye kupenda sayansi: Unapenda sayansi na uvumbuzi wa kisayansi",
+        "💻 Mwenye kupenda kompyuta: Unapenda kompyuta na teknolojia ya habari",
+        "🌐 Mwenye mtandao: Una uwezo wa kuunda mitandao ya kijamii",
+        "🤲 Mwenye kujali: Unawajali wengine na hali zao",
+        "🌟 Mwenye mvuto: Una mvuto wa kipekee unaowavutia watu",
+        "🎯 Mwenye malengo: Una malengo ya kuboresha jamii na dunia",
+        "🌄 Mwenye kuona kesho: Una uwezo wa kuona kesho na kupanga leo"
+    ],
+    
+    bad: [
+        "💡 Mwenye kubadilika: Unabadilika mara kwa mara na kuwachanganya watu",
+        "🌍 Mwenye kutangatanga: Unaweza kutangatanga kiakili na kimaumbile",
+        "🤥 Mwenye kujitenga: Unaweza kujitenga na watu na kujificha kwenye mawazo yako",
+        "🔭 Mwenye kuota: Unaota sana na kusahau kutenda",
+        "📡 Mwenye kukosa hisia: Unaweza kukosa hisia za kawaida za kibinadamu",
+        "👥 Mwenye kukosa urafiki: Unaweza kuwa na marafiki wengi lakini kukosa wa kweli",
+        "💫 Mwenye kukosa msimamo: Huna msimamo thabiti kwenye mambo",
+        "🤲 Mwenye kukosa ukarimu: Unatoa kwa wale unaowaamini tu",
+        "🧠 Mwenye kufikiria sana: Unafikiria sana mpaka kusahau kutenda",
+        "🌐 Mwenye kukosa mahusiano: Unaweza kuwa na mitandao mingi lakini kukosa mahusiano ya kweli",
+        "⚡ Mwenye kukosa nguvu: Unaweza kuchoka haraka na mawazo yako",
+        "🎨 Mwenye kukosa vitendo: Una mawazo mengi lakini hufanyii vitendo",
+        "📚 Mwenye kukosa hekima: Una elimu lakini huna hekima ya kuitumia",
+        "🌅 Mwenye kukosa matumaini: Unaweza kukata tamaa kwa urahisi",
+        "🤗 Mwenye kukosa urafiki: Unaweza kuwa na marafiki wengi wa juu juu tu",
+        "🔮 Mwenye kukosa angavu: Unaweza kukosa angavu la kugundua ukweli",
+        "🌌 Mwenye kukosa mwelekeo: Unaweza kupotea katika mawazo yako",
+        "📊 Mwenye kukosa mpango: Una mawazo lakini huna mpango wa kuyatekeleza",
+        "🏛️ Mwenye kukosa ujenzi: Unaweza kubomoa kuliko kujenga",
+        "💡 Mwenye kukosa utekelezaji: Una mawazo mengi lakini hufanyii vitendo",
+        "🌍 Mwenye kukosa dunia: Unaweza kuwa mbali na ukweli wa dunia",
+        "🤝 Mwenye kukosa ushirikiano: Unaweza kushindwa kushirikiana na wengine",
+        "👥 Mwenye kukosa uongozi: Unaweza kuwa na wafuasi lakini kukosa uongozi",
+        "📡 Mwenye kukosa sayansi: Unaweza kukosa misingi ya kisayansi",
+        "💻 Mwenye kukosa kompyuta: Unaweza kukosa ujuzi wa kutosha wa teknolojia",
+        "🌐 Mwenye kukosa mtandao: Unaweza kukosa uwezo wa kuunda mitandao imara",
+        "🤲 Mwenye kukosa kujali: Unaweza kukosa kujali wengine na hali zao",
+        "🌟 Mwenye kukosa mvuto: Unaweza kukosa mvuto wa kuwavutia watu",
+        "🎯 Mwenye kukosa malengo: Unaweza kuwa na malengo yasiyo wazi",
+        "🌄 Mwenye kukosa maono: Unaweza kuota lakini kukosa maono wazi"
+    ],
+    
+    health: [
+        "🩸 Matatizo ya mzunguko wa damu (65%) - Kwa sababu ya mawazo mengi na msongo",
+        "💓 Shinikizo la damu (62%) - Kwa sababu ya msongo wa mawazo na mabadiliko"
 
     
 
@@ -3605,10 +3321,19 @@ const ZODIAC_DB = {
     }
     
     function tumaMatokeoWhatsApp() {
-        if(!currentData) return;
-        const msg = `*MATOKEO YA RAMLI (DR. WILLIAM)*%0A%0AJina: ${currentData.name}%0ANyota: ${currentData.zodiac}%0ATarehe: ${currentData.date}%0A%0ANimeona matokeo yangu, nahitaji ufafanuzi zaidi.`;
-        window.open(`https://wa.me/255762286282?text=${msg}`, '_blank');
+    if (!currentData || !currentData.name) {
+        alert("Hakuna matokeo yaliyopatikana. Tafadhali jaribu tena kuangalia nyota yako kwanza.");
+        return;
     }
+    
+    const msg = `*MATOKEO YA RAMLI (DR. WILLIAM)*\n\n` +
+                `Jina: ${currentData.name}\n` +
+                `Nyota: ${currentData.zodiac}\n` +
+                `Tarehe ya kuzaliwa: ${currentData.date}\n\n` +
+                `Nimeona matokeo yangu, nahitaji ufafanuzi zaidi au ushauri wa ziada.`;
+                
+    window.open(`https://wa.me/255762286282?text=${encodeURIComponent(msg)}`, '_blank');
+}
     
     // ===== AI ASSISTANT KWA AJILI YA MIADI =====
     document.addEventListener('DOMContentLoaded', function() {
