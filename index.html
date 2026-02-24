@@ -1401,29 +1401,34 @@
         // ==================== MFUMO WA MALIPO (W001, W002, W003) ====================
         // Hii inahifadhi muda wa kutumia kwa kutumia localStorage
         function verifyCode() {
-    const codeInput = document.getElementById('access-code');
-    const errorDiv = document.getElementById('code-error');
-    if (!codeInput || !errorDiv) return;
-    
-    const code = codeInput.value.trim().toUpperCase();
-    
-    // DEBUG - Angalia console
-    console.log("Code iliyoingizwa:", code);
-    
-    // Codes zinazokubalika - ZIWE HIZI HASA
-    const validCodes = {
-        'W001': { days: 1, name: 'Siku 1 (BURE)' },
-        'W002': { days: 30, name: 'Mwezi 1' },
-        'W003': { days: 365, name: 'Mwaka 1 (Milele - HUTALIPIA TENA!)' }
-    };
+            const codeInput = document.getElementById('access-code');
+            const errorDiv = document.getElementById('code-error');
+            if (!codeInput || !errorDiv) return;
             
-             // DEBUG - Angalia kama code ipo kwenye object
-    console.log("Valid codes:", validCodes);
-    console.log("Code ipo?", validCodes[code]);
+            const code = codeInput.value.trim().toUpperCase();
+            
+            // DEBUG - Angalia console
+            console.log("Code iliyoingizwa:", code);
+            
+            // Codes zinazokubalika - W001=Siku, W002=Mwezi, W003=Mwaka
+            const validCodes = {
+                'W001': { days: 1, name: 'Siku 1 (BURE)' },
+                'W002': { days: 30, name: 'Mwezi 1' },
+                'W003': { days: 365, name: 'Mwaka 1 (Milele - HUTALIPIA TENA!)' }
+            };
+            
+            // DEBUG - Angalia kama code ipo
+            console.log("Valid codes:", validCodes);
+            
+            // Angalia kama code iliyoingizwa ipo kwenye orodha
+            if (validCodes[code]) {
+                // Iko sahihi!
+                const selectedPlan = validCodes[code];
+                console.log("Code ipo! Mpango:", selectedPlan);
                 
-                // Tunahesabu muda wa kuisha
+                // Tunahesabu muda wa kuisha - HAPA SASA NI HALISI: Siku, Mwezi, Mwaka
                 const now = new Date().getTime();
-                const expiryTime = now + (selectedPlan.days * 24 * 60 * 60 * 1000);
+                const expiryTime = now + (selectedPlan.days * 24 * 60 * 60 * 1000); // SIKU HALISI
                 
                 // Tunahifadhi kwenye browser ya mtumiaji
                 localStorage.setItem('drWilliamAccess', 'true');
@@ -1450,6 +1455,7 @@
                 }, 500);
                 
             } else {
+                // Code si sahihi
                 errorDiv.innerText = '❌ Code si sahihi. Tafadhali omba code sahihi kupitia WhatsApp.';
                 codeInput.classList.add('shake');
                 setTimeout(() => codeInput.classList.remove('shake'), 500);
@@ -1468,7 +1474,7 @@
             
             if (timeLeft <= 0) {
                 // Muda umeisha
-                logoutUser("⏰ MUDA WAKO UMEISHA! Tafadhali changia Tsh 5,000 tena kupata code mpya ya kufungua tena.");
+                logoutUser("⏰ MUDA WAKO UMEISHA! Tafadhali omba code mpya.");
                 return;
             }
             
@@ -1510,14 +1516,14 @@
                 
                 if (timeLeft <= 0) {
                     // Muda umeisha - tunafuta data na kuonyesha ujumbe
-                    logoutUser("⏰ MUDA WAKO UMEISHA! Tafadhali changia Tsh 5,000 tena kupata code mpya.");
+                    logoutUser("⏰ MUDA WAKO UMEISHA! Tafadhali omba code mpya.");
                 } else {
                     showRemainingTime();
                 }
             }, 60000); // Angalia kila dakika 1
         }
 
-        // Function ya kumaliza muda na kuomba malipo
+        // Function ya kumaliza muda na kuomba tena
         function logoutUser(message) {
             // Tunaonyesha ujumbe
             alert(message);
@@ -1542,12 +1548,12 @@
             // Tunaweka ujumbe maalum
             document.querySelector('.code-box p').innerHTML = `
                 <strong style="color: #ff6b6b;">⏰ MUDA WAKO UMEISHA!</strong><br><br>
-                <strong style="color: #D4AF37;">💎 BEI ZA CODE:</strong><br><br>
-                <span style="color: #D4AF37;">✓ W001 = Tsh 5,000</span> - Siku 1<br>
-                <span style="color: #D4AF37;">✓ W002 = Tsh 5,000</span> - Mwezi 1<br>
-                <span style="color: #FFD700; font-weight: bold;">✓ W003 = Tsh 5,000</span> - Mwaka 1 (Milele - HUTALIPIA TENA!)<br><br>
+                <strong style="color: #D4AF37;">💎 VIFURUSHI VYA KILINGENI:</strong><br><br>
+                <span style="color: #D4AF37;">✓ W001 = Siku 1 (BURE)</span><br>
+                <span style="color: #D4AF37;">✓ W002 = Mwezi 1</span><br>
+                <span style="color: #FFD700; font-weight: bold;">✓ W003 = Mwaka 1 (Milele - HUTALIPIA TENA!)</span><br><br>
                 <strong>JINSI YA KUPATA:</strong><br>
-                Tuma Tsh.5,000 tena kwenda M-Pesa <strong>0762286282</strong> (BARAKA RICHARD) upate code mpya.
+                Tuma neno CODE kwenda WhatsApp <strong>0762286282</strong> ili kupokea code za kujiunga na kifurushi.
             `;
         }
 
@@ -1576,46 +1582,52 @@
             
             message += `Ulipochagua mpango wa: ${plan}\n\n`;
             message += `💡 UKITAKA KUONGEZA MUDA:\n`;
-            message += `Tuma Tsh 5,000 M-Pesa 0762286282 (BARAKA RICHARD)`;
-            message += `\n\nMDAU MEMBERSHIP = Siku 1\nSILVER MEMBERSHIP = Mwezi 1\nGOLD MEMBERSHIP = Mwaka 1 (milele)`;
+            message += `Tuma neno CODE kwenda WhatsApp 0762286282`;
+            message += `\n\nW001 = Siku 1 (BURE)\nW002 = Mwezi 1\nW003 = Mwaka 1 (milele)`;
             
             alert(message);
         }
 
         // Function ya kuangalia kama mtumiaji ana access kabla ya kupakia ukurasa
         function checkAccessOnLoad() {
-    const access = localStorage.getItem('drWilliamAccess');
-    const expiry = localStorage.getItem('drWilliamExpiry');
-    
-    // DEBUG
-    console.log("Access:", access);
-    console.log("Expiry:", expiry);
-    
-    if (access === 'true' && expiry) {
-        const now = new Date().getTime();
-        const timeLeft = parseInt(expiry) - now;
-        
-        console.log("Time left:", timeLeft);
-        
-        if (timeLeft > 0) {
-            // Muda bado upo
-            document.getElementById('code-overlay').style.display = 'none';
-            document.getElementById('main-content').style.display = 'block';
-            showRemainingTime();
-            startCountdown();
-            return true; // Imefunguka
-        } else {
-            // Muda umeisha
-            localStorage.removeItem('drWilliamAccess');
-            localStorage.removeItem('drWilliamExpiry');
-            localStorage.removeItem('drWilliamPlan');
-            localStorage.removeItem('drWilliamCode');
+            const access = localStorage.getItem('drWilliamAccess');
+            const expiry = localStorage.getItem('drWilliamExpiry');
+            
+            // DEBUG
+            console.log("Access:", access);
+            console.log("Expiry:", expiry);
+            
+            if (access === 'true' && expiry) {
+                const now = new Date().getTime();
+                const timeLeft = parseInt(expiry) - now;
+                
+                console.log("Time left:", timeLeft);
+                
+                if (timeLeft > 0) {
+                    // Muda bado upo
+                    document.getElementById('code-overlay').style.display = 'none';
+                    document.getElementById('main-content').style.display = 'block';
+                    showRemainingTime();
+                    startCountdown();
+                    return true; // Imefunguka
+                } else {
+                    // Muda umeisha
+                    localStorage.removeItem('drWilliamAccess');
+                    localStorage.removeItem('drWilliamExpiry');
+                    localStorage.removeItem('drWilliamPlan');
+                    localStorage.removeItem('drWilliamCode');
+                }
+            }
+            
+            // Kama hajawahi kuingia au muda umeisha, onyesha overlay ya kuingia code
+            document.getElementById('code-overlay').style.display = 'flex';
+            document.getElementById('main-content').style.display = 'none';
+            return false; // Haijafunguka
         }
-    }
 
         // Function ya kuomba code kupitia WhatsApp
         function requestCodeViaWhatsApp() {
-            const message = `Halo Dr. William, ninaomba code ya kufungua Kilinge chako. Nimetuma Tsh 5,000 M-Pesa. Nataka code ya: W003 (milele). Jina langu: [ANDIKA JINA LAKO HAPA]`;
+            const message = `Halo Dr. William, ninaomba code ya kufungua Kilinge chako. Nataka code ya: W003 (milele). Jina langu: [ANDIKA JINA LAKO HAPA]`;
             window.open(`https://wa.me/255762286282?text=${encodeURIComponent(message)}`, '_blank');
         }
 
