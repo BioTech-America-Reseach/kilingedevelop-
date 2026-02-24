@@ -1401,22 +1401,25 @@
         // ==================== MFUMO WA MALIPO (W001, W002, W003) ====================
         // Hii inahifadhi muda wa kutumia kwa kutumia localStorage
         function verifyCode() {
-            const codeInput = document.getElementById('access-code');
-            const errorDiv = document.getElementById('code-error');
-            if (!codeInput || !errorDiv) return;
+    const codeInput = document.getElementById('access-code');
+    const errorDiv = document.getElementById('code-error');
+    if (!codeInput || !errorDiv) return;
+    
+    const code = codeInput.value.trim().toUpperCase();
+    
+    // DEBUG - Angalia console
+    console.log("Code iliyoingizwa:", code);
+    
+    // Codes zinazokubalika - ZIWE HIZI HASA
+    const validCodes = {
+        'W001': { days: 1, name: 'Siku 1 (BURE)' },
+        'W002': { days: 30, name: 'Mwezi 1' },
+        'W003': { days: 365, name: 'Mwaka 1 (Milele - HUTALIPIA TENA!)' }
+    };
             
-            const code = codeInput.value.trim().toUpperCase();
-            
-            // Codes zinazokubalika
-            const validCodes = {
-                'W001': { days: 1, name: 'Siku 1' },
-                'W002': { days: 30, name: 'Mwezi 1' },
-                'W003': { days: 365, name: 'Mwaka 1 (Milele - HUTALIPIA TENA)' }
-            };
-            
-            if (validCodes[code]) {
-                // Tunaangalia kama code ni sahihi
-                const selectedPlan = validCodes[code];
+             // DEBUG - Angalia kama code ipo kwenye object
+    console.log("Valid codes:", validCodes);
+    console.log("Code ipo?", validCodes[code]);
                 
                 // Tunahesabu muda wa kuisha
                 const now = new Date().getTime();
@@ -1581,28 +1584,34 @@
 
         // Function ya kuangalia kama mtumiaji ana access kabla ya kupakia ukurasa
         function checkAccessOnLoad() {
-            const access = localStorage.getItem('drWilliamAccess');
-            const expiry = localStorage.getItem('drWilliamExpiry');
-            
-            if (access === 'true' && expiry) {
-                const now = new Date().getTime();
-                const timeLeft = parseInt(expiry) - now;
-                
-                if (timeLeft > 0) {
-                    // Muda bado upo - funga code overlay
-                    document.getElementById('code-overlay').style.display = 'none';
-                    document.getElementById('main-content').style.display = 'block';
-                    showRemainingTime();
-                    startCountdown();
-                } else {
-                    // Muda umeisha
-                    localStorage.removeItem('drWilliamAccess');
-                    localStorage.removeItem('drWilliamExpiry');
-                    localStorage.removeItem('drWilliamPlan');
-                    localStorage.removeItem('drWilliamCode');
-                }
-            }
+    const access = localStorage.getItem('drWilliamAccess');
+    const expiry = localStorage.getItem('drWilliamExpiry');
+    
+    // DEBUG
+    console.log("Access:", access);
+    console.log("Expiry:", expiry);
+    
+    if (access === 'true' && expiry) {
+        const now = new Date().getTime();
+        const timeLeft = parseInt(expiry) - now;
+        
+        console.log("Time left:", timeLeft);
+        
+        if (timeLeft > 0) {
+            // Muda bado upo
+            document.getElementById('code-overlay').style.display = 'none';
+            document.getElementById('main-content').style.display = 'block';
+            showRemainingTime();
+            startCountdown();
+            return true; // Imefunguka
+        } else {
+            // Muda umeisha
+            localStorage.removeItem('drWilliamAccess');
+            localStorage.removeItem('drWilliamExpiry');
+            localStorage.removeItem('drWilliamPlan');
+            localStorage.removeItem('drWilliamCode');
         }
+    }
 
         // Function ya kuomba code kupitia WhatsApp
         function requestCodeViaWhatsApp() {
