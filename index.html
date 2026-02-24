@@ -155,6 +155,41 @@
             }
         }
 
+        /* ===== TIMER DISPLAY ===== */
+        #timer-display {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background: linear-gradient(135deg, #D4AF37, #AA6C39);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: bold;
+            z-index: 9999;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+            border: 2px solid #FFD700;
+            cursor: pointer;
+            font-family: 'Cinzel', serif;
+            animation: pulse 2s infinite;
+            backdrop-filter: blur(5px);
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        @media (max-width:768px) {
+            #timer-display {
+                top: 5px;
+                right: 5px;
+                padding: 8px 15px;
+                font-size: 12px;
+            }
+        }
+
         /* ===== SHAKE ANIMATION ===== */
         @keyframes shake {
             0%,100% { transform: translateX(0); }
@@ -181,7 +216,7 @@
             border: 2px solid var(--gold-dark);
             border-radius: 20px;
             padding: 40px 30px;
-            max-width: 450px;
+            max-width: 500px;
             width: 100%;
             text-align: center;
             box-shadow: 0 0 50px rgba(212,175,55,0.3);
@@ -206,10 +241,23 @@
             font-size: 1.5rem;
         }
         .code-box p {
-            color: #ccc;
+            color: #fff;
             margin-bottom: 30px;
             font-size: 0.95rem;
-            line-height: 1.6;
+            line-height: 1.8;
+            text-align: left;
+            background: rgba(0,0,0,0.3);
+            padding: 15px;
+            border-radius: 10px;
+            border-left: 4px solid var(--gold-primary);
+        }
+        .code-box p strong {
+            color: var(--gold-shine);
+        }
+        .price-tag {
+            color: #FFD700;
+            font-weight: bold;
+            font-size: 1.2rem;
         }
         .code-input {
             width: 100%;
@@ -223,6 +271,7 @@
             letter-spacing: 2px;
             margin-bottom: 20px;
             transition: 0.3s;
+            text-transform: uppercase;
         }
         .code-input:focus {
             outline: none;
@@ -240,15 +289,35 @@
             box-shadow: 0 0 20px var(--gold-dark);
         }
         .whatsapp-code-btn {
-            background: #25D366; color: white; border: none; padding: 12px; width: 100%;
+            background: #25D366; color: white; border: none; padding: 15px; width: 100%;
             border-radius: 8px; font-size: 1.1rem; cursor: pointer; transition: 0.3s;
             display: flex; align-items: center; justify-content: center; gap: 10px;
+            font-weight: bold;
         }
         .whatsapp-code-btn:hover {
             background: #128C7E; transform: scale(1.02);
         }
         .error-message {
-            color: #ff6b6b; margin-top: 10px; font-size: 0.9rem; min-height: 20px;
+            color: #ff6b6b; margin: 10px 0; font-size: 0.9rem; min-height: 20px;
+        }
+        .code-features {
+            display: flex;
+            justify-content: space-around;
+            margin: 20px 0;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .feature-badge {
+            background: rgba(212,175,55,0.1);
+            border: 1px solid var(--gold-dark);
+            padding: 8px 12px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            color: var(--text-gold);
+        }
+        .feature-badge i {
+            color: var(--gold-shine);
+            margin-right: 5px;
         }
 
         /* ===== VIBOX 4 (kwenye login page) ===== */
@@ -967,12 +1036,45 @@
     <div id="code-overlay">
         <div class="code-box">
             <h2><i class="fas fa-lock"></i> KILINGE CHA DR WILLIAM KIMEFUNGWA</h2>
-            <p><strong>JINSI YA KUCHANGIA:</strong> Tuma Tsh.5,000 kwenda M-Pesa <strong>0762286282</strong> (BARAKA RICHARD) kisha ubofye kitufe hapa chini kuomba code.</p>
+            
+            <!-- BEI NA MAELEKEZO MAPYA -->
+            <p>
+                <strong style="color: #FFD700; font-size: 1.2rem;">💎 BEI ZA CODE:</strong><br><br>
+                
+                <span style="display: block; margin: 10px 0; padding: 10px; background: rgba(212,175,55,0.1); border-radius: 8px;">
+                    <span style="color: #D4AF37; font-weight: bold;">✓ W001 = Tsh 5,000</span><br>
+                    <span style="color: #aaa; font-size: 0.9rem;">Siku 1 (Siku moja)</span>
+                </span>
+                
+                <span style="display: block; margin: 10px 0; padding: 10px; background: rgba(212,175,55,0.1); border-radius: 8px;">
+                    <span style="color: #D4AF37; font-weight: bold;">✓ W002 = Tsh 5,000</span><br>
+                    <span style="color: #aaa; font-size: 0.9rem;">Mwezi 1 (Siku 30)</span>
+                </span>
+                
+                <span style="display: block; margin: 10px 0; padding: 15px; background: rgba(255,215,0,0.2); border: 2px solid #FFD700; border-radius: 8px;">
+                    <span style="color: #FFD700; font-weight: bold; font-size: 1.1rem;">🔥 W003 = Tsh 5,000</span><br>
+                    <span style="color: #FFD700; font-size: 0.9rem;">Mwaka 1 - MILELE (HUTALIPIA TENA KWA MWAKA MZIMA!)</span>
+                </span><br>
+                
+                <strong>📲 JINSI YA KUPATA CODE:</strong><br>
+                1. Tuma <strong>Tsh 5,000</strong> kwenda M-Pesa<br>
+                <strong>0762286282</strong> (BARAKA RICHARD)<br>
+                2. Bonyeza kitufe cha WhatsApp hapa chini<br>
+                3. Tupe jina lako na code unayoitaka (W001, W002, au W003)<br>
+                4. Utapokea code yako mara moja!
+            </p>
+
+            <div class="code-features">
+                <span class="feature-badge"><i class="fas fa-check-circle"></i> W001: Siku 1</span>
+                <span class="feature-badge"><i class="fas fa-check-circle"></i> W002: Mwezi 1</span>
+                <span class="feature-badge"><i class="fas fa-check-circle"></i> W003: Mwaka 1</span>
+            </div>
+
             <input type="text" id="access-code" class="code-input" placeholder="INGIZA CODE HAPA" maxlength="4" autocomplete="off">
             <button class="btn-code" onclick="verifyCode()">FUNGUA KILINGE</button>
             <div class="error-message" id="code-error"></div>
             <button class="whatsapp-code-btn" onclick="requestCodeViaWhatsApp()">
-                <i class="fab fa-whatsapp"></i> KUOMBA CODE WHATSAPP
+                <i class="fab fa-whatsapp"></i> OMBA CODE WHATSAPP
             </button>
 
             <!-- VIBOX 4 vya nje kwenye login page -->
@@ -1349,24 +1451,255 @@
         });
     </script>
 
-    <!-- MAIN SCRIPT -->
+    <!-- MAIN SCRIPT KWA MFUMO WA MALIPO -->
     <script>
-        // ==================== FUNCTIONS ZA MSINGI ====================
-        function sanitizeHTML(str) {
-            if (!str) return '';
-            return String(str)
-                .replace(/&/g, '&amp;')
-                .replace(/</g, '&lt;')
-                .replace(/>/g, '&gt;')
-                .replace(/"/g, '&quot;')
-                .replace(/'/g, '&#039;');
+        // ==================== MFUMO KAMILI WA MALIPO (W001, W002, W003) ====================
+        
+        // Hii inahifadhi muda wa kutumia kwa kutumia localStorage
+        function verifyCode() {
+            const codeInput = document.getElementById('access-code');
+            const errorDiv = document.getElementById('code-error');
+            if (!codeInput || !errorDiv) return;
+            
+            const code = codeInput.value.trim().toUpperCase();
+            
+            // Codes zinazokubalika
+            const validCodes = {
+                'W001': { days: 1, name: 'Siku 1' },
+                'W002': { days: 30, name: 'Mwezi 1' },
+                'W003': { days: 365, name: 'Mwaka 1 (MILELE)' }
+            };
+            
+            if (validCodes[code]) {
+                // Tunaangalia kama code ni sahihi
+                const selectedPlan = validCodes[code];
+                
+                // Tunahesabu muda wa kuisha
+                const now = new Date().getTime();
+                const expiryTime = now + (selectedPlan.days * 24 * 60 * 60 * 1000);
+                
+                // Tunahifadhi kwenye browser ya mtumiaji
+                localStorage.setItem('drWilliamAccess', 'true');
+                localStorage.setItem('drWilliamExpiry', expiryTime.toString());
+                localStorage.setItem('drWilliamPlan', selectedPlan.name);
+                localStorage.setItem('drWilliamCode', code);
+                
+                // Tunaonyesha ujumbe wa kufanikiwa
+                const codeOverlay = document.getElementById('code-overlay');
+                const mainContent = document.getElementById('main-content');
+                
+                if (codeOverlay) codeOverlay.style.display = 'none';
+                if (mainContent) mainContent.style.display = 'block';
+                
+                // Tunaonyesha ujumbe wa kukaribisha
+                alert(`✅ Hongera! Umefungua Kilinge kwa ${selectedPlan.name}. Tufurahie huduma zetu!`);
+                
+                // Tunaonyesha taarifa ya muda uliobaki
+                showRemainingTime();
+                
+                // Tunaanza kuhesabu muda
+                startCountdown();
+                
+            } else {
+                errorDiv.innerText = '❌ Code si sahihi. Tafadhali omba code sahihi kupitia WhatsApp.';
+                codeInput.classList.add('shake');
+                setTimeout(() => codeInput.classList.remove('shake'), 500);
+            }
         }
 
-        function sanitizeArray(arr) {
-            return arr.map(item => sanitizeHTML(item));
+        // Function ya kuomba code kupitia WhatsApp
+        function requestCodeViaWhatsApp() {
+            const message = `Halo Dr. William, ninaomba code ya kufungua Kilinge chako. Nimetuma Tsh 5,000 M-Pesa. Nataka code ya: W003 (milele). Jina langu: [ANDIKA JINA LAKO HAPA]`;
+            window.open(`https://wa.me/255762286282?text=${encodeURIComponent(message)}`, '_blank');
         }
 
-        // ==================== DATA ZA ZODIAC (1-12) ====================
+        // Function ya kuonyesha muda uliobaki
+        function showRemainingTime() {
+            const expiry = localStorage.getItem('drWilliamExpiry');
+            const plan = localStorage.getItem('drWilliamPlan');
+            
+            if (!expiry) return;
+            
+            const now = new Date().getTime();
+            const timeLeft = parseInt(expiry) - now;
+            
+            if (timeLeft <= 0) {
+                // Muda umeisha
+                logoutUser("⏰ MUDA WAKO UMEISHA! Tafadhali changia Tsh 5,000 tena kupata code mpya.");
+                return;
+            }
+            
+            // Tunahesabu muda uliobaki
+            const daysLeft = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+            const hoursLeft = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutesLeft = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+            const secondsLeft = Math.floor((timeLeft % (1000 * 60)) / 1000);
+            
+            // Tunaunda kipengele cha kuonyesha muda kama hakipo
+            let timerDiv = document.getElementById('timer-display');
+            
+            if (!timerDiv) {
+                timerDiv = document.createElement('div');
+                timerDiv.id = 'timer-display';
+                document.body.appendChild(timerDiv);
+            }
+            
+            let timeText = '';
+            if (daysLeft > 0) {
+                timeText = `${daysLeft} siku ${hoursLeft} saa`;
+            } else if (hoursLeft > 0) {
+                timeText = `${hoursLeft} saa ${minutesLeft} dakika`;
+            } else if (minutesLeft > 0) {
+                timeText = `${minutesLeft} dakika ${secondsLeft} sekunde`;
+            } else {
+                timeText = `${secondsLeft} sekunde`;
+            }
+            
+            timerDiv.innerHTML = `⏳ Muda umebaki: ${timeText} | ${plan} | 💰 Bonyeza kuongeza muda`;
+        }
+
+        // Function ya kuhesabu muda chini
+        function startCountdown() {
+            // Tunaangalia kila sekunde 1
+            setInterval(function() {
+                const expiry = localStorage.getItem('drWilliamExpiry');
+                if (!expiry) return;
+                
+                const now = new Date().getTime();
+                const timeLeft = parseInt(expiry) - now;
+                
+                if (timeLeft <= 0) {
+                    // Muda umeisha - tunafuta data na kuonyesha ujumbe
+                    logoutUser("⏰ MUDA WAKO UMEISHA! Tafadhali changia Tsh 5,000 tena kupata code mpya ya kufungua tena.");
+                } else {
+                    showRemainingTime();
+                }
+            }, 1000); // Angalia kila sekunde 1
+        }
+
+        // Function ya kumaliza muda na kuomba malipo
+        function logoutUser(message) {
+            // Tunaondoa timer
+            const timerDiv = document.getElementById('timer-display');
+            if (timerDiv) timerDiv.remove();
+            
+            // Tunaonyesha ujumbe
+            alert(message);
+            
+            // Tunafuta data zote za kumbukumbu
+            localStorage.removeItem('drWilliamAccess');
+            localStorage.removeItem('drWilliamExpiry');
+            localStorage.removeItem('drWilliamPlan');
+            localStorage.removeItem('drWilliamCode');
+            
+            // Tunaficha main content
+            document.getElementById('main-content').style.display = 'none';
+            
+            // Tunaonyesha code overlay tena
+            const codeOverlay = document.getElementById('code-overlay');
+            codeOverlay.style.display = 'flex';
+            
+            // Tunaweka ujumbe maalum
+            const codeBoxPara = document.querySelector('.code-box p');
+            if (codeBoxPara) {
+                codeBoxPara.innerHTML = `
+                    <strong style="color: #ff6b6b; font-size: 1.2rem;">⏰ MUDA WAKO UMEISHA!</strong><br><br>
+                    <strong>💎 BEI ZA CODE:</strong><br><br>
+                    <span style="color: #D4AF37;">✓ W001 = Tsh 5,000</span> - Siku 1<br>
+                    <span style="color: #D4AF37;">✓ W002 = Tsh 5,000</span> - Mwezi 1<br>
+                    <span style="color: #FFD700; font-weight: bold;">✓ W003 = Tsh 5,000</span> - Mwaka 1 (MILELE)<br><br>
+                    <strong>📲 Tuma tena Tsh 5,000 M-Pesa 0762286282</strong><br>
+                    upate code mpya ya kufungua tena.
+                `;
+            }
+        }
+
+        // Function ya kuonyesha ujumbe wa kuongeza muda (inaitwa ukibonyeza timer)
+        function showExpiryMessage() {
+            const expiry = localStorage.getItem('drWilliamExpiry');
+            const plan = localStorage.getItem('drWilliamPlan');
+            
+            if (!expiry) return;
+            
+            const now = new Date().getTime();
+            const timeLeft = parseInt(expiry) - now;
+            const daysLeft = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+            const hoursLeft = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutesLeft = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+            
+            let message = `⏰ MUDA WAKO ULIOSALIA:\n\n`;
+            
+            if (daysLeft > 0) {
+                message += `${daysLeft} siku, ${hoursLeft} saa, na ${minutesLeft} dakika\n\n`;
+            } else if (hoursLeft > 0) {
+                message += `${hoursLeft} saa na ${minutesLeft} dakika\n\n`;
+            } else {
+                message += `${minutesLeft} dakika\n\n`;
+            }
+            
+            message += `Ulipochagua mpango wa: ${plan}\n\n`;
+            message += `💡 UKITAKA KUONGEZA MUDA:\n`;
+            message += `Tuma Tsh 5,000 M-Pesa 0762286282 (BARAKA RICHARD)`;
+            message += `\n\nW001 = Siku 1\nW002 = Mwezi 1\nW003 = Mwaka 1 (milele)`;
+            
+            alert(message);
+        }
+
+        // Function ya kuangalia kama mtumiaji ana access kabla ya kupakia ukurasa
+        function checkAccessOnLoad() {
+            const access = localStorage.getItem('drWilliamAccess');
+            const expiry = localStorage.getItem('drWilliamExpiry');
+            
+            if (access === 'true' && expiry) {
+                const now = new Date().getTime();
+                const timeLeft = parseInt(expiry) - now;
+                
+                if (timeLeft > 0) {
+                    // Muda bado upo - funga code overlay
+                    document.getElementById('code-overlay').style.display = 'none';
+                    document.getElementById('main-content').style.display = 'block';
+                    showRemainingTime();
+                    startCountdown();
+                    
+                    // Tunaongeza event ya kubonyeza timer
+                    setTimeout(() => {
+                        const timerDiv = document.getElementById('timer-display');
+                        if (timerDiv) {
+                            timerDiv.onclick = showExpiryMessage;
+                        }
+                    }, 1000);
+                } else {
+                    // Muda umeisha
+                    localStorage.removeItem('drWilliamAccess');
+                    localStorage.removeItem('drWilliamExpiry');
+                    localStorage.removeItem('drWilliamPlan');
+                    localStorage.removeItem('drWilliamCode');
+                }
+            }
+        }
+
+        // Tumia hii function badala ya ya zamani ya switchPage
+        function switchPage(pageId, btn) {
+            const containers = document.querySelectorAll('.container');
+            const serviceBtns = document.querySelectorAll('.btn-service');
+            const cardsContainer = document.getElementById('cards-container');
+            const sendResults = document.getElementById('send-results-container');
+            const nextPage = document.getElementById('next-page-container');
+            
+            containers.forEach(el => el.style.display = 'none');
+            serviceBtns.forEach(b => b.classList.remove('active'));
+            
+            const targetPage = document.getElementById('page-' + pageId);
+            if (targetPage) targetPage.style.display = 'block';
+            if (btn) btn.classList.add('active');
+            
+            if (pageId !== 'ramli') {
+                if (cardsContainer) cardsContainer.style.display = 'none';
+                if (sendResults) sendResults.style.display = 'none';
+                if (nextPage) nextPage.style.display = 'none';
+            }
+        }
+		// ==================== DATA ZA ZODIAC (1-12) ====================
         const ZODIAC_DB = {
             1: { 
                 name: "Wewe ni Kondoo (Aries)", 
