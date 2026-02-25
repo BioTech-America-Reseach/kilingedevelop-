@@ -1014,7 +1014,7 @@
         e.preventDefault();
         deferredPrompt = e;
         
-        if (!window.matchMedia('(display-mode: standalone)').matches && !installShown) {
+        if (window.matchMedia('(display-mode: standalone)').matches) {
             showInstallButton();
         }
     });
@@ -1762,11 +1762,9 @@
         "🍷 **UWEZO WA KUFURAHIA STAREHE**: Zuhura inakupa uwezo wa kufurahia starehe za maisha kwa usawa na hekima. Utafiti wa Chuo Kikuu cha Stanford (2024) uligundua kuwa Ng'ombe wana uwezo wa kufurahia chakula kizuri, muziki mzuri, na starehe nyingine bila kuzidi au kujiharibu. Wanajua kujipatia raha na starehe zinazowafurahisha, lakini wanajua pia wakati wa kusimama. Wewe ni kama mtu anayejua kufurahia maisha - unaweza kula vizuri, kunywa kwa kiasi, na kufurahia starehe za maisha bila hatia au wasiwasi, na hii inakupa furaha na kuridhika kwa ndani.",
 
         // 2️⃣0️⃣ UTHABITI WA KIMWILI - GAUQUELIN (1955)
-        "💪 **UTHABITI WA KIMWILI**: Utafiti wa Gauquelin (1955) uligundua kuwa Ng'ombe wana nguvu za kimwili za kipekee na uvumilivu wa kufanya kazi ngumu kwa muda mrefu. Utafiti wa Chuo Kikuu cha Sydney (2022) ulibaini kuwa Ng'ombe wana uwezo wa kurejesha nguvu zao haraka baada ya kufanya kazi ngumu, na wana uwezo wa kufanya kazi kwa muda mrefu bila kuchoka. Wewe ni kama ng'ombe anayelima shamba kwa siku nzima - una nguvu za kutosha kufanya kazi ngumu, kubeba mizigo mizito, na kuvumilia uchovu. Uthabiti wako wa kimwili unakusaidia kufanya kazi ngumu ambazo wengine hawawezi, na unakupa uwezo wa kujilinda na kuwalinda wapendwa wako."
-    ],
+        "💪 **UTHABITI WA KIMWILI**: Utafiti wa Gauquelin (1955) uligundua kuwa Ng'ombe wana nguvu za kimwili za kipekee na uvumilivu wa kufanya kazi ngumu kwa muda mrefu. Utafiti wa Chuo Kikuu cha Sydney (2022) ulibaini kuwa Ng'ombe wana uwezo wa kurejesha nguvu zao haraka baada ya kufanya kazi ngumu, na wana uwezo wa kufanya kazi kwa muda mrefu bila kuchoka. Wewe ni kama ng'ombe anayelima shamba kwa siku nzima - una nguvu za kutosha kufanya kazi ngumu, kubeba mizigo mizito, na kuvumilia uchovu. Uthabiti wako wa kimwili unakusaidia kufanya kazi ngumu ambazo wengine hawawezi, na unakupa uwezo wa kujilinda na kuwalinda wapendwa wako."],
 
-    bad: [
-        // 1️⃣ UKAIDI WA HALI YA JUU - UTAFITI WA EYSENCK (1982)
+    bad: [// 1️⃣ UKAIDI WA HALI YA JUU - UTAFITI WA EYSENCK (1982)
         "🐂 **UKAIDI WA HALI YA JUU**: Profesa Hans Eysenck aligundua mwaka 1982 kuwa Ng'ombe wana kiwango cha juu cha ukaidi kuliko wastani wa watu kwa asilimia 73. Mara tu wanapoweka msimamo au kuamua jambo, ni vigumu sana kuwabadilisha au kuwashawishi wabadili mawazo yao. Utafiti wa Chuo Kikuu cha Harvard (2023) ulibaini kuwa ukaidi wa Ng'ombe unaweza kuwafanya wapoteze fursa muhimu maishani, kwa sababu wanakataa kubadilisha msimamo wao hata wanapojua kuwa wamekosea. Wewe unaweza kushikilia mawazo yako kwa nguvu, hata wakati ushahidi unaonyesha kuwa uko kwenye makosa. Hii inaweza kusababisha migogoro isiyo ya lazima na wapendwa wako, na inaweza kukufanya ujikuta umetengwa na wengine ambao hawawezi kukuvumilia.",
 
         // 2️⃣ UCHU WA MALI - ZUHURA (VENUS) - PADUA (2022)
@@ -1824,11 +1822,10 @@
         "⏳ **KUKOSA UWEZO WA KUTAMBUA WAKATI WA KUTENDA**: Utafiti wa Chuo Kikuu cha Cambridge (2022) uligundua kuwa Ng'ombe wanaweza kukosa uwezo wa kutambua wakati wa kuchukua hatua, na wanaweza kuchelewa kufanya maamuzi muhimu. Wanaweza kusubiri muda mrefu sana kuchukua hatua, na wakati wanapochukua hatua, wamekwisha kosa fursa. Hii inawafanya wapoteze fursa nyingi za mafanikio katika biashara na maisha. Wewe unaweza kuchelewa kuchukua hatua katika fursa za kazi, uwekezaji, au mahusiano, na hii inaweza kukufanya ujikute umebaki nyuma wakati wengine wanasonga mbele.",
 
         // 2️⃣0️⃣ KUKOSA UWEZO WA KUTAMBUA WATU WA KUWAAMINI - MICHIGAN (2005)
-        "🤨 **KUKOSA UWEZO WA KUTAMBUA WATU WA KUWAAMINI**: Utafiti wa Chuo Kikuu cha Michigan (2005) uligundua kuwa Ng'ombe wanaweza kukosa uwezo wa kutambua watu wenye nia mbaya, na wanaweza kuwaaminisha watu wasiostahili kuaminiwa. Wanaweza kujikuta wakisaidiwa na watu wanaowatumia kwa maslahi yao binafsi, na wanaweza kupoteza mali na uhusiano muhimu. Wewe unaweza kuwa mkarimu na mwaminifu kwa kila mtu, lakini si kila mtu anastahili uaminifu wako. Hii inaweza kukufanya ujikute umedanganywa na kutumika na watu wasio waaminifu, na unaweza kupoteza mengi kabla ya kugundua ukweli."
-    ],
+        "🤨 **KUKOSA UWEZO WA KUTAMBUA WATU WA KUWAAMINI**: Utafiti wa Chuo Kikuu cha Michigan (2005) uligundua kuwa Ng'ombe wanaweza kukosa uwezo wa kutambua watu wenye nia mbaya, na wanaweza kuwaaminisha watu wasiostahili kuaminiwa. Wanaweza kujikuta wakisaidiwa na watu wanaowatumia kwa maslahi yao binafsi, na wanaweza kupoteza mali na uhusiano muhimu. Wewe unaweza kuwa mkarimu na mwaminifu kwa kila mtu, lakini si kila mtu anastahili uaminifu wako. Hii inaweza kukufanya ujikute umedanganywa na kutumika na watu wasio waaminifu, na unaweza kupoteza mengi kabla ya kugundua ukweli."],
 
-    health: [
-        // 1️⃣ MATATIZO YA KOO NA SHINGO - ZUHURA (VENUS)
+
+    health: [// 1️⃣ MATATIZO YA KOO NA SHINGO - ZUHURA (VENUS)
         "🦷 **MATATIZO YA KOO NA SHINGO (75%)**: Kwa sababu ya ushawishi wa Zuhura (Venus) inayotawala koo na shingo, Ng'ombe wana uwezekano mkubwa wa kupata matatizo ya koo, shingo, na tezi. Utafiti wa Chuo Kikuu cha Johns Hopkins (2021) uligundua kuwa asilimia 75 ya Ng'ombe wanakabiliwa na matatizo ya koo, uvimbe wa tezi, au maumivu ya shingo wakati fulani wa maisha yao. Unapokuwa na msongo au wasiwasi, mara nyingi huhisi koo linakwama au kuumiza. Pia uko katika hatari ya kupata ugonjwa wa tezi (hypothyroidism au hyperthyroidism) kwa sababu ya unyeti wa eneo hili. Ni muhimu kufanya vipimo vya tezi mara kwa mara na kuhakikisha unakula vyakula vyenye iodini kwa kiasi kinachofaa.",
 
         // 2️⃣ SHINIKIZO LA DAMU - GAUQUELIN (1955)
@@ -1886,11 +1883,10 @@
         "🩸 **UPUNGUFU WA DAMU (30%)**: Ng'ombe wana uwezekano mkubwa wa kupata upungufu wa damu kutokana na lishe duni na kukosa vyakula vyenye madini ya chuma. Utafiti wa Chuo Kikuu cha Oxford (2021) uligundua kuwa asilimia 30 ya Ng'ombe wanakabiliwa na upungufu wa damu, hasa wanawake wakati wa hedhi. Hii inaweza kusababisha uchovu, kizunguzungu, na kukosa nguvu. Ni muhimu kula vyakula vyenye madini ya chuma kama vile nyama nyekundu, wiki, na kunde, na kuchukua virutubisho ikiwa ni lazima.",
 
         // 2️⃣0️⃣ HOMA - CAMBRIDGE (2022)
-        "🌡️ **HOMA (15%)**: Utafiti wa Chuo Kikuu cha Cambridge (2022) uligundua kuwa asilimia 15 ya Ng'ombe wanakabiliwa na homa za malaria na maambukizi ya virusi, kutokana na kukaa katika maeneo yenye mbu na kukosa kinga ya mwili. Homa inaweza kusababisha kutetemeka, joto la mwili, na kukosa nguvu. Ni muhimu kutafuta matibabu ikiwa una homa inayoendelea kwa muda mrefu, na kujikinga na mbu kwa kutumia vyandarua na dawa za kuzuia malaria."
-    ],
+        "🌡️ **HOMA (15%)**: Utafiti wa Chuo Kikuu cha Cambridge (2022) uligundua kuwa asilimia 15 ya Ng'ombe wanakabiliwa na homa za malaria na maambukizi ya virusi, kutokana na kukaa katika maeneo yenye mbu na kukosa kinga ya mwili. Homa inaweza kusababisha kutetemeka, joto la mwili, na kukosa nguvu. Ni muhimu kutafuta matibabu ikiwa una homa inayoendelea kwa muda mrefu, na kujikinga na mbu kwa kutumia vyandarua na dawa za kuzuia malaria."],
 
-    avoid: [
-        // 1️⃣ POMBE KALI
+
+    avoid: [// 1️⃣ POMBE KALI
         "🍺 **POMBE KALI** - Pombe kali inaharibu ini lako na inakufanya uwe mlegevu na mvivu zaidi. Utafiti wa Chuo Kikuu cha Harvard (2023) uligundua kuwa Ng'ombe wanaokunywa pombe kali wana uwezekano mkubwa wa kuwa na uraibu wa pombe kwa sababu ya kupenda starehe na kujitafuna. Pombe pia inaongeza uzito wako, inaharibu ini, na inakufanya uwe na matatizo ya moyo. Inaweza pia kusababisha matatizo ya kumbukumbu na kufanya maamuzi mabaya. Epuka kabisa pombe kali na uwe wa kunywa kwa kiasi kidogo sana, ikiwa ni lazima.",
 
         // 2️⃣ SIGARA NA TUMBAKU
@@ -1948,11 +1944,10 @@
         "💊 **KUKOSA DAWA ZA KUONGEZA DAMU** - Kukosa dawa za kuongeza damu kunaongeza hatari yako ya kupata upungufu wa damu na kukosa nguvu. Utafiti wa Chuo Kikuu cha Yale (2023) uligundua kuwa Ng'ombe wana uwezekano mkubwa wa kukosa virutubisho muhimu, hasa madini ya chuma na vitamini B12. Upungufu wa damu unaweza kusababisha uchovu, kizunguzungu, kukosa nguvu, na matatizo ya moyo. Ni muhimu kufanya vipimo vya damu mara kwa mara na kuchukua virutubisho ikiwa ni lazima, hasa kwa wanawake wakati wa hedhi au ujauzito.",
 
         // 2️⃣0️⃣ KUKOSA MAPUMZIKO YA KUTOSHA
-        "🧘 **KUKOSA MAPUMZIKO YA KUTOSHA** - Kukosa mapumziko ya kutosha kunakufanya uwe na msongo wa mawazo na kukosa nguvu za kufanya kazi. Utafiti wa Chuo Kikuu cha Cambridge (2022) uligundua kuwa Ng'ombe wana uwezekano mkubwa wa kukosa mapumziko kwa sababu ya kujituma kupita kiasi kazini. Kukosa mapumziko kunaweza kusababisha uchovu sugu, matatizo ya usingizi, na kuongezeka kwa hatari ya magonjwa ya moyo na kiharusi. Pia kunaweza kusababisha unyogovu na wasiwasi. Hakikisha unapata mapumziko ya kutosha na unajipa muda wa kujiburudisha na kufurahia maisha."
-    ],
+        "🧘 **KUKOSA MAPUMZIKO YA KUTOSHA** - Kukosa mapumziko ya kutosha kunakufanya uwe na msongo wa mawazo na kukosa nguvu za kufanya kazi. Utafiti wa Chuo Kikuu cha Cambridge (2022) uligundua kuwa Ng'ombe wana uwezekano mkubwa wa kukosa mapumziko kwa sababu ya kujituma kupita kiasi kazini. Kukosa mapumziko kunaweza kusababisha uchovu sugu, matatizo ya usingizi, na kuongezeka kwa hatari ya magonjwa ya moyo na kiharusi. Pia kunaweza kusababisha unyogovu na wasiwasi. Hakikisha unapata mapumziko ya kutosha na unajipa muda wa kujiburudisha na kufurahia maisha."],
 
-    compatible: [
-        // 1️⃣ MASHUKE (VIRGO)
+
+    compatible: [// 1️⃣ MASHUKE (VIRGO)
         "🤝 **MASHUKE (VIRGO) - Agosti 23 hadi Septemba 22** - Ardhi kwa Ardhi! Utafiti wa Chuo Kikuu cha Stanford (2024) uligundua kuwa Ng'ombe na Mashuke wana uwezekano mkubwa wa kuelewana na kusaidiana. Wote ni watu wa kazi na wanapenda utaratibu na mpango. Mashuke anamsaidia Ng'ombe kupanga maisha yake na kukumbusha kujitunza, na Ng'ombe anampa Mashuke utulivu na usalama anaoitaji. Nyumba yenu itakuwa ya amani na utaratibu, na mtajenga mali pamoja kwa bidii na uvumilivu. Utafiti wa Chuo Kikuu cha Harvard (2023) ulionyesha kuwa mahusiano ya Ng'ombe na Mashuke yana uwezekano wa kudumu kwa muda mrefu na kuwa na mafanikio makubwa.",
 
         // 2️⃣ MBUZI (CAPRICORN)
@@ -1995,11 +1990,10 @@
         "🤝 **WATU WENYE UTULIVU NA SUBIRA** - Watu wasio na haraka wala pupa, wenye kuelewa mwendo wako wa polepole. Utafiti wa Chuo Kikuu cha Stanford (2024) uligundua kuwa Ng'ombe wanafurahia kuwa na watu wenye subira na utulivu. Wanakuthamini na kukupokea kwa jinsi ulivyo, na wanakuvumilia kwa upendo, na mtaweza kuwa na mahusiano yenye amani. Utafiti wa Chuo Kikuu cha Cambridge (2022) ulibaini kuwa mahusiano haya yana uwezekano mkubwa wa kuleta amani na utulivu katika maisha.",
 
         // 1️⃣5️⃣ WATU WENYE HESHIMA NA ADABU
-        "🤝 **WATU WENYE HESHIMA NA ADABU** - Watu wanaoheshimu wazee na mila, na wenye adabu nzuri wanakufaa sana. Utafiti wa Chuo Kikuu cha Tokyo (2021) uligundua kuwa Ng'ombe wanavutiwa na watu wenye heshima na adabu. Wanaothamini utamaduni na desturi za jamii, na mtaweza kuheshimiana na kuelewana vizuri. Utafiti wa Chuo Kikuu cha Kyoto (2022) ulibaini kuwa mahusiano haya yana uwezekano mkubwa wa kuleta heshima na hadhi katika jamii."
-    ],
+        "🤝 **WATU WENYE HESHIMA NA ADABU** - Watu wanaoheshimu wazee na mila, na wenye adabu nzuri wanakufaa sana. Utafiti wa Chuo Kikuu cha Tokyo (2021) uligundua kuwa Ng'ombe wanavutiwa na watu wenye heshima na adabu. Wanaothamini utamaduni na desturi za jamii, na mtaweza kuheshimiana na kuelewana vizuri. Utafiti wa Chuo Kikuu cha Kyoto (2022) ulibaini kuwa mahusiano haya yana uwezekano mkubwa wa kuleta heshima na hadhi katika jamii."],
 
-    careers: [
-        // 1️⃣ MENEJA WA BENKI
+
+    careers: [// 1️⃣ MENEJA WA BENKI
         "🏦 **Meneja wa Benki** - Utafiti wa Chuo Kikuu cha Chicago (2022) uligundua kuwa Ng'ombe wana uwezo wa kipekee wa kusimamia fedha na benki. Wewe una busara ya kifedha na unajua jinsi ya kushughulikia pesa za watu kwa uaminifu na uangalifu. Kazi ya meneja wa benki inakuruhusu kutumia ujuzi wako wa kifedha, uongozi wako, na uaminifu wako. Utahakikisha benki inafanya kazi vizuri, kusimamia mikopo na akiba za wateja, na kuhakikisha faida ya benki. Pia utakuwa na fursa ya kushauri wateja wako kuhusu uwekezaji na akiba zao. Kazi hii inakupa utulivu na usalama wa kifedha unaoupenda, na inakuruhusu kujenga uhusiano wa muda mrefu na wateja wako.",
 
         // 2️⃣ MTHAMINI MAJENGO
@@ -2057,11 +2051,10 @@
         "🐄 **Mfugaji** - Utafiti wa Chuo Kikuu cha California (2022) uligundua kuwa Ng'ombe wana uwezo wa kipekee wa kufuga wanyama na kuwatunza vizuri. Wewe unawapenda wanyama na unajua jinsi ya kuwatunza ili wakue vizuri. Kazi ya mfugaji inakuruhusu kutumia ujuzi wako wa ufugaji na upendo wako wa wanyama. Utahakikisha wanyama wako wana lishe bora, wanapata huduma za afya, na wanazalisha kwa wingi. Unaweza kufuga ng'ombe, mbuzi, kondoo, kuku, au wanyama wengine kwa ajili ya nyama, maziwa, mayai, au ngozi. Pia utachangia uchumi wa nchi yako na kusaidia jamii yako kupata chakula bora.",
 
         // 2️⃣0️⃣ MWENYE KIUANDA
-        "🏭 **Mwenye Kiwanda** - Utafiti wa Chuo Kikuu cha MIT (2022) uligundua kuwa Ng'ombe wana uwezo wa kipekee wa kusimamia viwanda na uzalishaji kwa ufanisi na ubora. Wewe una uwezo wa kuona picha kubwa ya uzalishaji na unajua jinsi ya kuhakikisha viwanda vinafanya kazi vizuri. Kazi ya mwenye kiwanda inakuruhusu kutumia ujuzi wako wa uongozi na uelewa wako wa uzalishaji. Utahakikisha kiwanda chako kinafanya kazi kwa ufanisi, kuongoza wafanyakazi, na kuzalisha bidhaa bora. Pia utachangia uchumi wa nchi yako na kuajiri watu wengi, na kusaidia jamii yako kupata bidhaa bora kwa bei nafuu."
-    ],
+        "🏭 **Mwenye Kiwanda** - Utafiti wa Chuo Kikuu cha MIT (2022) uligundua kuwa Ng'ombe wana uwezo wa kipekee wa kusimamia viwanda na uzalishaji kwa ufanisi na ubora. Wewe una uwezo wa kuona picha kubwa ya uzalishaji na unajua jinsi ya kuhakikisha viwanda vinafanya kazi vizuri. Kazi ya mwenye kiwanda inakuruhusu kutumia ujuzi wako wa uongozi na uelewa wako wa uzalishaji. Utahakikisha kiwanda chako kinafanya kazi kwa ufanisi, kuongoza wafanyakazi, na kuzalisha bidhaa bora. Pia utachangia uchumi wa nchi yako na kuajiri watu wengi, na kusaidia jamii yako kupata bidhaa bora kwa bei nafuu."],
 
-    avoid_careers: [
-        // 1️⃣ RUBANI WA NDEGE
+
+    avoid_careers: [// 1️⃣ RUBANI WA NDEGE
         "✈️ **Kamwe Usifanye Kazi za Rubani wa Ndege** - Utafiti wa Chuo Kikuu cha Stanford (2024) uligundua kuwa Ng'ombe wana uwezekano mkubwa wa kuchoshwa na safari za mara kwa mara na mabadiliko ya mazingira. Kazi ya rubani inahitaji kusafiri kila wakati na kukaa mbali na nyumbani kwa muda mrefu, jambo ambalo linakera roho yako inayopenda utulivu na nyumbani. Utapata msongo na kukosa usingizi, na hatimaye utaacha kazi kabla ya muda wake. Pia, hatari za kusafiri angani zitakufanya uwe na wasiwasi wa kudumu, na hutakuwa na utulivu wa kufurahia maisha yako. Ng'ombe wanahitaji utulivu na utaratibu, si maisha ya kusafiri kila wakati na kukaa katika hoteli tofauti kila siku.",
 
         // 2️⃣ MZIMAMOTO
@@ -2133,8 +2126,7 @@
     // ======================================================================================
     // SEHEMU YA 1: SIFA NZURI (GOOD TRAITS) - Uchambuzi wa kina wa pointi 20
     // ======================================================================================
-    good: [
-        // 1️⃣ UWEZO WA KUWASILIANA KWA UFAFIU
+    good: [// 1️⃣ UWEZO WA KUWASILIANA KWA UFAFIU
         "🗣️ **Uwezo wa Kuwasiliana kwa Ufasaha (Excellent Communication Skills)** - Kama nyota ya Hewa, umejaliwa uwezo wa kipekee wa kuwasiliana na watu kwa urahisi na ufasaha. Utafiti wa Chuo Kikuu cha Harvard (2023) uligundua kuwa watu wa nyota ya Mapacha wana uwezo wa juu wa kujieleza na kuelewa wengine, na wanaongoza kwa asilimia 78 katika ufasaha wa lugha. Hii inatokana na ushawishi wa Zebaki (Mercury) - sayari ya mawasiliano na biashara. Wewe unaweza kuzungumza na mtu yeyote kwa urahisi, kuwashawishi wengine, na kufanya mazungumzo ya kuvutia. Watu wanapendezwa na wewe kwa sababu unajua kusikiliza na kujibu kwa hekima. Uwezo huu unakufanya uwe mwalimu bora, mwandishi hodari, na mwanasheria mahiri.",
 
         // 2️⃣ UBUNIFU NA UWELUZI WA FIKRA
@@ -2192,14 +2184,13 @@
         "🏃 **Uchangamfu wa Kimwili (Physical Agility)** - Utafiti wa Chuo Kikuu cha Sydney (2022) uligundua kuwa Mapacha wana uwezo wa kipekee wa kimwili na wanapenda michezo na shughuli za kimwili. Wewe una nguvu na ustahimilivu wa kufanya michezo mbalimbali, na unapenda kujaribu michezo mipya. Hii inakufanya uwe mwanariadha bora, mcheza dansi hodari, na mtu anayeweza kufurahia maisha kwa njia za kimwili. Watu wanashangaa nguvu zako na wanakutamani kuwa na uwezo wako wa kufurahia maisha kwa njia zote.",
 
         // 2️⃣0️⃣ UWEZO WA KUONA MUSTAKBALI
-        "🔮 **Uwezo wa Kuona Mustakabali (Visionary Thinking)** - Utafiti wa Chuo Kikuu cha Stanford (2024) uligundua kuwa Mapacha wana uwezo wa kipekee wa kuona mwenendo wa siku zijazo na kujiandaa kwa ajili yake. Wewe unaweza kutabiri mabadiliko ya kijamii, kiteknolojia, na kiuchumi kabla hayajatokea. Hii inatokana na uwezo wako wa kuchambua habari nyingi na kuona muundo na mwelekeo. Hii inakufanya uwe mtabiri bora, mpangaji hodari, na mtu anayeweza kuwasaidia wengine kujiandaa kwa mustakabali. Katika ulimwengu unaobadilika kwa kasi, wewe ni kama mwongozo anayeweza kuwaonyesha wengine njia ya usoni."
-    ],
+        "🔮 **Uwezo wa Kuona Mustakabali (Visionary Thinking)** - Utafiti wa Chuo Kikuu cha Stanford (2024) uligundua kuwa Mapacha wana uwezo wa kipekee wa kuona mwenendo wa siku zijazo na kujiandaa kwa ajili yake. Wewe unaweza kutabiri mabadiliko ya kijamii, kiteknolojia, na kiuchumi kabla hayajatokea. Hii inatokana na uwezo wako wa kuchambua habari nyingi na kuona muundo na mwelekeo. Hii inakufanya uwe mtabiri bora, mpangaji hodari, na mtu anayeweza kuwasaidia wengine kujiandaa kwa mustakabali. Katika ulimwengu unaobadilika kwa kasi, wewe ni kama mwongozo anayeweza kuwaonyesha wengine njia ya usoni."],
+
 
     // ======================================================================================
     // SEHEMU YA 2: SIFA ZA UPENDO (LOVE TRAITS) - Uchambuzi wa kina wa pointi 10
     // ======================================================================================
-    love: [
-        // 1️⃣ MPENZI MWASILIANAJI
+    love: [// 1️⃣ MPENZI MWASILIANAJI
         "💬 **Mpenzi Mwasilianaji (Communicative Lover)** - Katika mapenzi, uwezo wako wa kuwasiliana ndio silaha yako kuu. Utafiti wa Chuo Kikuu cha Toronto (2023) uligundua kuwa Mapacha wana uwezo wa kipekee wa kuwasiliana na wapenzi wao na kutatua matatizo kwa mazungumzo. Wewe huwezi kukaa kimya wakati kuna tatizo, unataka kuzungumza na kulitatua. Unampenda mwenzako kwa kuzungumza naye, kumueleza hisia zako, na kumsikiliza anachosema. Hii inawafanya wapenzi wako wajisikie kusikilizwa na kueleweka, na inaimarisha uhusiano wenu kwa njia za ajabu.",
         
         // 2️⃣ MPENZI MWENYE UBUNIFU
@@ -2227,14 +2218,13 @@
         "🌈 **Mpenzi Mwenye Kuthamini Tofauti (Appreciative of Differences)** - Utafiti wa Chuo Kikuu cha British Columbia (2023) uligundua kuwa Mapacha wana uwezo wa kipekee wa kuthamini tofauti za wapenzi wao na kujifunza kutoka kwao. Wewe huwezi kumtaka mwenzako awe kama wewe, unathamini tofauti zake na kujifunza kutoka kwake. Hii inawafanya wapenzi wako wajisikie kukubalika na kupendwa jinsi walivyo, na inajenga uhusiano wenye utajiri wa mawazo na uzoefu mbalimbali.",
         
         // 🔟 MPENZI MWENYE KUWA WA KWELI
-        "💎 **Mpenzi Mwenye Kuwa wa Kweli (Authentic Lover)** - Utafiti wa Chuo Kikuu cha Harvard (2023) uligundua kuwa Mapacha wana uwezo wa kipekee wa kuwa wa kweli na wasio na uongo katika mahusiano yao. Wewe huwezi kujifanya kuwa kitu usicho ili kumpendeza mwenzako, unakuwa wewe mwenyewe na kumwomba akupende jinsi ulivyo. Hii inawafanya wapenzi wako wajisikie kuwa wana mtu wa kweli na waaminifu, na inajenga uhusiano wenye msingi imara wa uaminifu na ukweli."
-    ],
+        "💎 **Mpenzi Mwenye Kuwa wa Kweli (Authentic Lover)** - Utafiti wa Chuo Kikuu cha Harvard (2023) uligundua kuwa Mapacha wana uwezo wa kipekee wa kuwa wa kweli na wasio na uongo katika mahusiano yao. Wewe huwezi kujifanya kuwa kitu usicho ili kumpendeza mwenzako, unakuwa wewe mwenyewe na kumwomba akupende jinsi ulivyo. Hii inawafanya wapenzi wako wajisikie kuwa wana mtu wa kweli na waaminifu, na inajenga uhusiano wenye msingi imara wa uaminifu na ukweli."],
+
 
     // ======================================================================================
     // SEHEMU YA 3: SIFA MBAYA (BAD TRAITS) - Uchambuzi wa kina wa pointi 10
     // ======================================================================================
-    bad: [
-        // 1️⃣ KUKOSA UTULIVU
+    bad: [// 1️⃣ KUKOSA UTULIVU
         "🌀 **Kukosa Utulivu (Restlessness)** - Sifa yako ya kubadilika inapozidi, inageuka kukosa utulivu na kushindwa kukaa mahali pamoja kwa muda mrefu. Utafiti wa Chuo Kikuu cha Yale (2023) uligundua kuwa Mapacha wana uwezekano mkubwa wa kuchoka haraka na wanahitaji mabadiliko ya mara kwa mara. Hii inaweza kusababisha shida katika kazi na mahusiano, kwani unaweza kuacha kazi au uhusiano kabla ya kukamilika kwa sababu tu umechoka. Kukosa utulivu kwako kunaweza kukufanya usifikie malengo yako ya muda mrefu na kubaki katika hali ya kuanza tu bila kumaliza.",
         
         // 2️⃣ UONGO WA KUPINDUKIA
@@ -2262,14 +2252,13 @@
         "⚖️ **Kukosa Uamuzi (Indecisiveness)** - Utafiti wa Chuo Kikuu cha Michigan (2022) uligundua kuwa Mapacha wana uwezekano mkubwa wa kukosa uamuzi na kubadilisha mawazo yao mara kwa mara. Wewe unaweza kuona pande zote za hoja na kushindwa kuchagua upande mmoja, au kubadilisha uamuzi wako mara kwa mara. Hii inaweza kuwachosha wengine na kukufanya uonekane kama mtu asiye na msimamo. Watu wanaweza kukosa kukuamini kwa sababu hawajui utasimama wapi kesho.",
         
         // 🔟 KUKOSA UHIFADHI WA FEDHA
-        "💰 **Kukosa Uhifadhi wa Fedha (Financial Irresponsibility)** - Utafiti wa Chuo Kikuu cha California (2024) uligundua kuwa Mapacha wana uwezekano mkubwa wa kukosa uhifadhi wa fedha na kupanga bajeti vizuri. Wewe unaweza kutumia pesa kwa mambo yasiyo ya lazima, kukopa bila kufikiria namna ya kulipa, au kuwekeza kwenye mipango hatarishi bila utafiti. Hii inaweza kukufanya uwe na madeni na shida za kifedha, na kushindwa kujenga utajiri wa kudumu. Fedha zinaweza kukupitia mikononi kama maji, na kuacha hofu na majuto."
-    ],
+        "💰 **Kukosa Uhifadhi wa Fedha (Financial Irresponsibility)** - Utafiti wa Chuo Kikuu cha California (2024) uligundua kuwa Mapacha wana uwezekano mkubwa wa kukosa uhifadhi wa fedha na kupanga bajeti vizuri. Wewe unaweza kutumia pesa kwa mambo yasiyo ya lazima, kukopa bila kufikiria namna ya kulipa, au kuwekeza kwenye mipango hatarishi bila utafiti. Hii inaweza kukufanya uwe na madeni na shida za kifedha, na kushindwa kujenga utajiri wa kudumu. Fedha zinaweza kukupitia mikononi kama maji, na kuacha hofu na majuto."],
+
 
     // ======================================================================================
     // SEHEMU YA 4: AFYA (HEALTH) - Uchambuzi wa kina wa pointi 10
     // ======================================================================================
-    health: [
-        "🧠 **MFUMO WA NEVA DHAAIFU (85%)** - Utafiti wa Chuo Kikuu cha Harvard (2023) uligundua kuwa asilimia 85 ya Mapacha wana mfumo dhaifu wa neva unaosababishwa na kufanya kazi nyingi na kukosa usingizi wa kutosha. Wewe una uwezekano mkubwa wa kupata msongo wa mawashi na wasiwasi, na hii inaweza kuathiri afya yako kwa ujumla. Unahitaji kujifunza kupumzika na kutulia, na kuepuka kufanya kazi nyingi kwa wakati mmoja.",
+    health: ["🧠 **MFUMO WA NEVA DHAAIFU (85%)** - Utafiti wa Chuo Kikuu cha Harvard (2023) uligundua kuwa asilimia 85 ya Mapacha wana mfumo dhaifu wa neva unaosababishwa na kufanya kazi nyingi na kukosa usingizi wa kutosha. Wewe una uwezekano mkubwa wa kupata msongo wa mawashi na wasiwasi, na hii inaweza kuathiri afya yako kwa ujumla. Unahitaji kujifunza kupumzika na kutulia, na kuepuka kufanya kazi nyingi kwa wakati mmoja.",
 
         "🌬️ **MFUMO WA MAPAFU (78%)** - Kama nyota ya Hewa, Mapacha wana uhusiano wa karibu na mfumo wa mapafu na kupumua. Utafiti wa Chuo Kikuu cha Stanford (2024) uligundua kuwa asilimia 78 ya Mapacha wanakabiliwa na matatizo ya mapafu kama pumu, mafua ya mara kwa mara, na mizio ya vumbi na hewa chafu. Wewe unahitaji kuepuka mazingira yenye vumbi na moshi, na kuhakikisha unapata hewa safi ya kutosha.",
 
@@ -2287,14 +2276,13 @@
 
         "👁️ **MACHO NA KUONA (58%)** - Utafiti wa Chuo Kikuu cha MIT (2023) uligundua kuwa asilimia 58 ya Mapacha wanakabiliwa na matatizo ya macho na kuona, kutokana na kusoma sana na kukaa kwenye taa za kompyuta kwa muda mrefu. Wewe unahitaji kupumzisha macho yako mara kwa mara na kufanya vipimo vya macho mara kwa mara.",
 
-        "🦷 **MENO NA UFAU WA KINYWA (48%)** - Utafiti wa Chuo Kikuu cha Michigan (2022) uligundua kuwa asilimia 48 ya Mapacha wanakabiliwa na matatizo ya meno na ufau wa kinywa, kutokana na kusaga meno usingizi na msongo wa mawasha. Wewe unahitaji kutembelea daktari wa meno mara kwa mara na kujifunza kudhibiti msongo wako."
-    ],
+        "🦷 **MENO NA UFAU WA KINYWA (48%)** - Utafiti wa Chuo Kikuu cha Michigan (2022) uligundua kuwa asilimia 48 ya Mapacha wanakabiliwa na matatizo ya meno na ufau wa kinywa, kutokana na kusaga meno usingizi na msongo wa mawasha. Wewe unahitaji kutembelea daktari wa meno mara kwa mara na kujifunza kudhibiti msongo wako."],
+
 
     // ======================================================================================
     // SEHEMU YA 5: VYAKULA NA VITU VYA KUE PUKA (AVOID) - Uchambuzi wa kina wa pointi 15
     // ======================================================================================
-    avoid: [
-        "☕ **KAHAWA NA VICHOCHEO** - Kahawa na vichocheo vingine vinaongeza msongo wako na kukufanya ushindwe kulala vizuri. Utafiti wa Chuo Kikuu cha Harvard (2023) uligundua kuwa Mapacha wanaokunywa kahawa nyingi wana uwezekano mkubwa wa kupata wasiwasi na kukosa usingizi. Badala yake, chai ya mitishamba au maji ya kutosha yatakusaidia kutulia na kupumzika. ",
+    avoid: ["☕ **KAHAWA NA VICHOCHEO** - Kahawa na vichocheo vingine vinaongeza msongo wako na kukufanya ushindwe kulala vizuri. Utafiti wa Chuo Kikuu cha Harvard (2023) uligundua kuwa Mapacha wanaokunywa kahawa nyingi wana uwezekano mkubwa wa kupata wasiwasi na kukosa usingizi. Badala yake, chai ya mitishamba au maji ya kutosha yatakusaidia kutulia na kupumzika. ",
 
         "🍰 **SUKARI NA VYAKULA VITAMU** - Sukari inakupa nishati ya haraka lakini inakufanya uanguke haraka zaidi, na inaongeza msongo wako. Utafiti wa Chuo Kikuu cha Stanford (2024) uligundua kuwa Mapacha wanapenda vyakula vitamu na wana uwezekano mkubwa wa kupata kisukari. Badala yake, tunda lenye nyuzinyuzi na asali ya kiasili itakupa nishati ya kudumu.",
 
@@ -2322,14 +2310,13 @@
 
         "🎯 **MAAMUZI YA HARAKA** - Maamuzi ya haraka bila kufikiria vizuri yanaweza kukugharimu sana kifedha na kihisia. Utafiti wa Chuo Kikuu cha Cambridge (2022) uligundua kuwa Mapacha wanaofanya maamuzi ya haraka wana uwezekano mkubwa wa kujuta baadaye. Badala yake, chukua muda wako kufikiria na kuchambua kabla ya kufanya uamuzi wowote mkubwa.",
 
-        "🚫 **KUTOKUWA NA MPANGO** - Kutokuwa na mpango na malengo wazi kunakufanya uzururu bila mwelekeo na kukosa mafanikio makubwa. Utafiti wa Chuo Kikuu cha Oxford (2023) uligundua kuwa Mapacha wasio na malengo wazi wana uwezekano mkubwa wa kushindwa maishani. Badala yake, weka malengo wazi na fuata mpango ili kufikia mafanikio unayotaka."
-    ],
+        "🚫 **KUTOKUWA NA MPANGO** - Kutokuwa na mpango na malengo wazi kunakufanya uzururu bila mwelekeo na kukosa mafanikio makubwa. Utafiti wa Chuo Kikuu cha Oxford (2023) uligundua kuwa Mapacha wasio na malengo wazi wana uwezekano mkubwa wa kushindwa maishani. Badala yake, weka malengo wazi na fuata mpango ili kufikia mafanikio unayotaka."],
+
 
     // ======================================================================================
     // SEHEMU YA 6: WATU WANAOENDANA NAWE (COMPATIBLE) - Uchambuzi wa kina wa pointi 15
     // ======================================================================================
-    compatible: [
-        "♎ **MIZANI (Septemba 23 - Oktoba 22)** - Utafiti wa Chuo Kikuu cha Harvard (2023) uligundua kuwa Mapacha na Mizani wana uwezekano mkubwa wa kuelewana na kusaidiana. Mizani anamsawazisha Mapacha na kumfanya awe mtulivu zaidi, na Mapacha anampa Mizani nguvu na bidii ya kufanya kazi. Wote ni nyota za Hewa na wanapenda mawasiliano na mazungumzo. Wanaweza kuzungumza kwa saa nyingi bila kuchoka, na wanajenga uhusiano wenye usawa na maelewano mazuri.",
+    compatible: ["♎ **MIZANI (Septemba 23 - Oktoba 22)** - Utafiti wa Chuo Kikuu cha Harvard (2023) uligundua kuwa Mapacha na Mizani wana uwezekano mkubwa wa kuelewana na kusaidiana. Mizani anamsawazisha Mapacha na kumfanya awe mtulivu zaidi, na Mapacha anampa Mizani nguvu na bidii ya kufanya kazi. Wote ni nyota za Hewa na wanapenda mawasiliano na mazungumzo. Wanaweza kuzungumza kwa saa nyingi bila kuchoka, na wanajenga uhusiano wenye usawa na maelewano mazuri.",
 
         "♒ **NDOO (Januari 20 - Februari 18)** - Utafiti wa Chuo Kikuu cha Stanford (2024) uligundua kuwa Mapacha na Ndoo wana uwezekano mkubwa wa kuelewana na kusaidiana. Wote ni nyota za Hewa na wanapenda uhuru na mabadiliko. Ndoo anampa Mapacha mawazo mapya na ya kipekee, na Mapacha anampa Ndoo nguvu na bidii ya kufanya kazi. Wanaweza kufanya kazi pamoja na kufanikiwa katika miradi yao, na wanajenga uhusiano wenye ubunifu na msisimuko.",
 
@@ -2357,14 +2344,13 @@
 
         "👥 **WATU WENYE MAWASILIANO MAZURI** - Utafiti wa Chuo Kikuu cha Oxford (2022) uligundua kuwa Mapacha wana uwezekano mkubwa wa kuelewana na watu wenye mawasiliano mazuri. Wewe unathamini watu wanaoweza kuzungumza vizuri, kueleza mawazo yao kwa uwazi, na kusikiliza kwa makini. Watu hawa wanakufaa kwa sababu wanaweza kuendana na kasi yako na kukupa changamoto za kiakili unazozitafuta.",
 
-        "🧠 **WATU WENYE AKILI KALI** - Utafiti wa Chuo Kikuu cha Yale (2023) uligundua kuwa Mapacha wana uwezekano mkubwa wa kuelewana na watu wenye akili kali na wanaopenda kujifunza. Wewe unathamini watu wanaoweza kukupa changamoto za kiakili, kukufundisha mambo mapya, na kukusaidia kukua kiakili. Watu hawa wanakufaa kwa sababu wanaweza kuendana na kasi yako na kukusaidia kufikia uwezo wako kamili."
-    ],
+        "🧠 **WATU WENYE AKILI KALI** - Utafiti wa Chuo Kikuu cha Yale (2023) uligundua kuwa Mapacha wana uwezekano mkubwa wa kuelewana na watu wenye akili kali na wanaopenda kujifunza. Wewe unathamini watu wanaoweza kukupa changamoto za kiakili, kukufundisha mambo mapya, na kukusaidia kukua kiakili. Watu hawa wanakufaa kwa sababu wanaweza kuendana na kasi yako na kukusaidia kufikia uwezo wako kamili."],
+
 
     // ======================================================================================
     // SEHEMU YA 7: KAZI ZINAZOKUFAA (CAREERS) - Uchambuzi wa kina wa pointi 15
     // ======================================================================================
-    careers: [
-        "📰 **MWANDISHI HABARI** - Utafiti wa Chuo Kikuu cha Columbia (2023) uligundua kuwa Mapacha wana uwezo wa kipekee wa kufanya kazi za uandishi wa habari. Wewe unaweza kuchunguza hadithi, kuwasiliana na watu mbalimbali, na kuandika habari kwa njia ya kuvutia. Uwezo wako wa kuuliza maswali na kuchambua hali unakufaa sana katika kazi hii. Unaweza kufanya kazi kwenye magazeti, runinga, redio, au mitandao ya kijamii, na kuwa sauti ya kweli inayowafahamisha watu.",
+    careers: ["📰 **MWANDISHI HABARI** - Utafiti wa Chuo Kikuu cha Columbia (2023) uligundua kuwa Mapacha wana uwezo wa kipekee wa kufanya kazi za uandishi wa habari. Wewe unaweza kuchunguza hadithi, kuwasiliana na watu mbalimbali, na kuandika habari kwa njia ya kuvutia. Uwezo wako wa kuuliza maswali na kuchambua hali unakufaa sana katika kazi hii. Unaweza kufanya kazi kwenye magazeti, runinga, redio, au mitandao ya kijamii, na kuwa sauti ya kweli inayowafahamisha watu.",
 
         "📚 **MWANDISHI VITABU** - Utafiti wa Chuo Kikuu cha Iowa (2022) uligundua kuwa Mapacha wana uwezo wa kipekee wa kuandika vitabu na makala zenye kuvutia. Wewe unaweza kuandika riwaya, vitabu vya elimu, au makala za kisayansi kwa ustadi mkubwa. Uwezo wako wa kutumia maneno kwa usahihi na kuleta picha wazi akilini mwa wasomaji unakufaa sana katika kazi hii. Unaweza kuwa mwandishi maarufu na kubadilisha maisha ya watu kwa maneno yako.",
 
@@ -2392,14 +2378,13 @@
 
         "🧪 **MTAFITI** - Utafiti wa Chuo Kikuu cha Johns Hopkins (2022) uligundua kuwa Mapacha wana uwezo wa kipekee wa kufanya kazi za utafiti na uchunguzi. Wewe unaweza kuchunguza masuala mbalimbali, kukusanya data, na kutoa matokeo ya utafiti kwa usahihi. Uwezo wako wa kuuliza maswali, kuchambua hali, na kuona uhusiano kati ya mambo unakufaa sana katika kazi hii. Unaweza kufanya kazi katika vyuo vikuu, taasisi za utafiti, au mashirika ya kimataifa.",
 
-        "🎵 **MWANAMUZIKI** - Utafiti wa Chuo Kikuu cha Berklee (2023) uligundua kuwa Mapacha wana uwezo wa kipekee wa kufanya kazi za muziki na burudani. Wewe unaweza kuimba, kucheza ala, au kutunga nyimbo kwa ustadi. Uwezo wako wa kujieleza kwa njia za kisanii na kuvutia watu unakufaa sana katika kazi hii. Unaweza kuwa msanii maarufu na kugusa mioyo ya watu wengi kwa muziki wako."
-    ],
+        "🎵 **MWANAMUZIKI** - Utafiti wa Chuo Kikuu cha Berklee (2023) uligundua kuwa Mapacha wana uwezo wa kipekee wa kufanya kazi za muziki na burudani. Wewe unaweza kuimba, kucheza ala, au kutunga nyimbo kwa ustadi. Uwezo wako wa kujieleza kwa njia za kisanii na kuvutia watu unakufaa sana katika kazi hii. Unaweza kuwa msanii maarufu na kugusa mioyo ya watu wengi kwa muziki wako."],
+
 
     // ======================================================================================
     // SEHEMU YA 8: KAZI ZISIZOKUFAA (AVOID CAREERS) - Uchambuzi wa kina wa pointi 10
     // ======================================================================================
-    avoid_careers: [
-        "🔧 **KAZI ZA KURUDIARUDIA KIUfundi** - Kazi za kufanya kitu kilekile kila siku kwenye kiwanda au mstari wa uzalishaji zitakufanya uwe na wazimu. Utafiti wa Chuo Kikuu cha MIT (2024) uligundua kuwa Mapacha wana uwezekano mkubwa wa kuacha kazi za kurudiarudia kwa sababu ya kuchoka haraka. Kazi za kukusanya vifaa, kupakia bidhaa, au kufanya shughuli za kurudiarudia kwenye kiwanda zitakufanya uhisi kama umezikwa wazima. Wewe unahitaji mabadiliko na changamoto mpya kila siku.",
+    avoid_careers: ["🔧 **KAZI ZA KURUDIARUDIA KIUfundi** - Kazi za kufanya kitu kilekile kila siku kwenye kiwanda au mstari wa uzalishaji zitakufanya uwe na wazimu. Utafiti wa Chuo Kikuu cha MIT (2024) uligundua kuwa Mapacha wana uwezekano mkubwa wa kuacha kazi za kurudiarudia kwa sababu ya kuchoka haraka. Kazi za kukusanya vifaa, kupakia bidhaa, au kufanya shughuli za kurudiarudia kwenye kiwanda zitakufanya uhisi kama umezikwa wazima. Wewe unahitaji mabadiliko na changamoto mpya kila siku.",
 
         "🧮 **UHASIBU NA FEDHA** - Kazi za kuhesabu hesabu na kufanya rekonsili ya benki kwa saa nyingi zitakufanya uwe na usingizi na kukosa makini. Utafiti wa Chuo Kikuu cha Chicago (2023) uligundua kuwa Mapacha wana uwezekano mkubwa wa kufanya makosa katika kazi za uhasibu kwa sababu ya kukosa uvumilivu. Kazi za kufanya rekonsili ya benki, kuandaa taarifa za kodi, au kuhakiki hesabu za kampuni zitakufanya uwe na wazimu na utaanza kukosa usingizi usiku.",
 
@@ -2418,9 +2403,9 @@
         "🧵 **USHONAJI NA UFUMAJI** - Kushona nguo au kufuma vitambaa kwa usahihi na kwa muda mrefu kunahitaji uvumilivu na makini, lakini wewe Mapacha unataka kasi na mwendo. Utafiti wa Chuo Kikuu cha London (2022) uligundua kuwa Mapacha wana uwezekano mkubwa wa kuharibu nguo kwa kushona kwa haraka na bila makini. Kazi za kushona nguo za watu, kutengeneza mavazi ya harusi, au kurekebisha nguo zilizochanika zitakufanya uwe na wazimu na utaanza kukata nguo kwa hasira!",
 
         "📜 **UTUNZAJI WA KUMBUKUMBU** - Kuchunguza na kutunza makumbukumbu za zamani kunahitaji uvumilivu wa kusoma nyaraka nyingi na kukaa kimya kwa muda mrefu, lakini wewe Mapacha unataka siku zijazo na mambo mapya. Utafiti wa Chuo Kikuu cha Oxford (2023) uligundua kuwa Mapacha wana uwezekano mkubwa wa kuchoshwa na historia na kutaka kuangalia mambo ya baadaye. Kazi za kusoma hati za kale, kuhifadhi makumbukumbu za zamani, au kutafiti historia ya watu zitakufanya uwe na wazimu na utaanza kutabiri mustakabali badala ya kuchunguza zamani!"]
-    },
-
-        4: {
+    
+ },
+    4: {
     // --------------------------------------------------------------------------------------
     // TAARIFA ZA MSINGI - Utambulisho kamili wa nyota
     // --------------------------------------------------------------------------------------
@@ -2430,8 +2415,7 @@
     // ======================================================================================
     // SEHEMU YA 1: SIFA NZURI (GOOD TRAITS) - Uchambuzi wa kina wa pointi 20
     // ======================================================================================
-    good: [
-        // 1️⃣ UPENDO WA DHATI KWA FAMILIA - UTAFITI WA PTOLEMY (150 AD)
+    good: [// 1️⃣ UPENDO WA DHATI KWA FAMILIA - UTAFITI WA PTOLEMY (150 AD)
         "👨‍👩‍👧‍👦 **UPENDO WA DHATI KWA FAMILIA (Deep Love for Family)** - Ukiwa Kaa, familia ndio kila kitu kwako. Uchunguzi wa Ptolemy (150 AD) ulibainisha kuwa watu wa nyota ya Maji wana uhusiano wa karibu sana na familia na wanajitolea kwao kwa dhati. Utafiti wa Chuo Kikuu cha Harvard (2023) uligundua kuwa asilimia 92 ya watu waliozaliwa chini ya nyota ya Kaa wana uhusiano wa karibu na familia zao na wanafanya kila wawezalo kuwafurahisha. Wewe ni kama mzizi wa mti unaoishikilia familia yako pamoja - unawalinda, unawalea, na unawapa usalama. Huwezi kuwaza maisha bila familia yako, na utafanya lolote kuwalinda na kuwafurahisha. Hii ndio sifa kuu inayowafanya Kaa wawe na mahusiano ya kudumu na yenye nguvu na familia zao, na wanajulikana kama walinzi bora wa familia katika jamii zao.",
 
         // 2️⃣ HURUMA NA UELEWA WA HISIA ZA WENGINE - UCHAMBUZI WA JUNG (1921)
@@ -2489,14 +2473,13 @@
         "🌊 **UWEZO WA KUWA MWENYE KUVUMILIA (Endurance)** - Utafiti wa Chuo Kikuu cha Yale (2023) uligundua kuwa asilimia 81 ya Kaa wana uwezo wa kuvumilia shida na magumu kwa muda mrefu bila kukata tamaa. Wana nguvu ya ndani inayowasaidia kuendelea hata wakati mambo yanapokuwa magumu. Utafiti wa Chuo Kikuu cha Duke (2022) ulibaini kuwa Kaa wana uwezo wa kurejea haraka baada ya kukumbwa na msiba au shida, na wana nguvu ya kujenga upya maisha yao. Wewe ni kama mwamba usiovunjika na mawimbi - unakabiliwa na changamoto kwa utulivu na uvumilivu usio na kifani, na hatimaye unashinda.",
 
         // 2️⃣0️⃣ UWEZO WA KUWA MWENYE UPENDO WA DHATI - HARVARD (2023)
-        "❤️ **UWEZO WA KUWA MWENYE UPENDO WA DHATI (Deep Love)** - Utafiti wa Chuo Kikuu cha Harvard (2023) uligundua kuwa asilimia 89 ya Kaa wana uwezo wa kupenda kwa dhati na kujitolea kwa wapenzi wao. Wanapopenda, wanapenda kwa moyo wote na wanajitolea bila masharti. Utafiti wa Chuo Kikuu cha California (2022) ulibaini kuwa Kaa wana uwezo wa kudumu katika mahusiano na kujitolea kwa wapenzi wao kwa dhati na uaminifu. Wewe ni kama mwanga unaowasha moto wa upendo katika mioyo ya wale unaowapenda - unapopenda, unapenda kwa dhati na kwa nguvu, na unajitolea kwa mwenzako bila kujali."
-    ],
+        "❤️ **UWEZO WA KUWA MWENYE UPENDO WA DHATI (Deep Love)** - Utafiti wa Chuo Kikuu cha Harvard (2023) uligundua kuwa asilimia 89 ya Kaa wana uwezo wa kupenda kwa dhati na kujitolea kwa wapenzi wao. Wanapopenda, wanapenda kwa moyo wote na wanajitolea bila masharti. Utafiti wa Chuo Kikuu cha California (2022) ulibaini kuwa Kaa wana uwezo wa kudumu katika mahusiano na kujitolea kwa wapenzi wao kwa dhati na uaminifu. Wewe ni kama mwanga unaowasha moto wa upendo katika mioyo ya wale unaowapenda - unapopenda, unapenda kwa dhati na kwa nguvu, na unajitolea kwa mwenzako bila kujali."],
+
 
     // ======================================================================================
     // SEHEMU YA 2: SIFA ZA UPENDO (LOVE TRAITS) - Uchambuzi wa kina wa pointi 10
     // ======================================================================================
-    love: [
-        // 1️⃣ MPENZI MWENYE KUJALI NA KUTUNZA
+    love: [// 1️⃣ MPENZI MWENYE KUJALI NA KUTUNZA
         "💝 **Mpenzi Mwenye Kujali na Kutunza (Caring and Nurturing Lover)** - Katika mapenzi, wewe ni mpenzi anayejali na kutunza sana. Utafiti wa Chuo Kikuu cha Toronto (2023) uligundua kuwa Kaa wana uwezo wa kipekee wa kuwajali wapenzi wao na kuwatunza kwa upendo. Wewe unamjali mwenzako kwa dhati, unahakikisha ana kila kitu anachohitaji, na unajitolea kwa ajili yake bila kujali. Unampikia chakula anachokipenda, unamletea maua bila sababu, na unamshangaa kwa njia za kipekee. Hii inawafanya wapenzi wako wajisikie kupendwa na kuthaminiwa, na wanakupenda zaidi kwa sababu ya utunzaji wako.",
 
         // 2️⃣ MPENZI MWENYE UAMINIFU WA HALI YA JUU
@@ -2524,14 +2507,12 @@
         "🤝 **Mpenzi Mwenye Kuwa Mwaminifu (Trustworthy Lover)** - Utafiti wa Chuo Kikuu cha British Columbia (2023) uligundua kuwa Kaa wana uwezo wa kipekee wa kuwa waaminifu na wapenzi wao na kushika ahadi zao. Wewe huwezi kumdanganya mwenzako wala kumficha ukweli, unasema ukweli wako wazi na kumwamini yeye pia. Hii inawafanya wapenzi wako wajisikie salama na wenye uhakika na uhusiano wenu, na wanajua kuwa wanaweza kukutegemea daima.",
 
         // 🔟 MPENZI MWENYE KUWA MWENYE MAPENZI YA DHATI
-        "💕 **Mpenzi Mwenye Kuwa Mwenye Mapenzi ya Dhati (Deeply Loving Lover)** - Utafiti wa Chuo Kikuu cha Harvard (2023) uligundua kuwa Kaa wana uwezo wa kipekee wa kupenda kwa dhati na kujenga uhusiano wenye kina na nguvu. Wewe unampenda mwenzako kwa dhati, si kwa maneno tu bali kwa vitendo. Unajitolea kwa ajili yake, unamheshimu, na unamthamini. Hii inawafanya wapenzi wako wajisikie kupendwa na kuthaminiwa kwa dhati, na wanakupenda zaidi kwa sababu ya upendo wako wa kweli."
-    ],
+        "💕 **Mpenzi Mwenye Kuwa Mwenye Mapenzi ya Dhati (Deeply Loving Lover)** - Utafiti wa Chuo Kikuu cha Harvard (2023) uligundua kuwa Kaa wana uwezo wa kipekee wa kupenda kwa dhati na kujenga uhusiano wenye kina na nguvu. Wewe unampenda mwenzako kwa dhati, si kwa maneno tu bali kwa vitendo. Unajitolea kwa ajili yake, unamheshimu, na unamthamini. Hii inawafanya wapenzi wako wajisikie kupendwa na kuthaminiwa kwa dhati, na wanakupenda zaidi kwa sababu ya upendo wako wa kweli."],
 
     // ======================================================================================
     // SEHEMU YA 3: SIFA MBAYA (BAD TRAITS) - Uchambuzi wa kina wa pointi 20
     // ======================================================================================
-    bad: [
-        // 1️⃣ KUSHIKILIA SANA ZAMANI - UTAFITI WA EYSENCK (1982)
+    bad: [// 1️⃣ KUSHIKILIA SANA ZAMANI - UTAFITI WA EYSENCK (1982)
         "📜 **KUSHIKILIA SANA ZAMANI (Living in the Past)** - Utafiti wa Profesa Hans Eysenck (1982) uligundua kuwa asilimia 71 ya Kaa wana tabia ya kushikilia sana mambo ya zamani na kukumbuka kumbukumbu zenye kuumiza kwa muda mrefu. Wanaweza kukumbuka makosa yaliyofanyiwa miaka mingi iliyopita na bado kukasirika kama yalifanyika jana. Utafiti wa Chuo Kikuu cha Harvard (2023) ulibaini kuwa kushikilia zamani kunaweza kuwafanya Kaa wasiweze kuendelea na maisha na kufurahia sasa. Wewe unaweza kukaa kwenye kumbukumbu za zamani na kusahau kuwa maisha yanaendelea, na hii inaweza kukuzuia kuwa na furaha ya leo na matumaini ya kesho.",
 
         // 2️⃣ WASIWASI NA HOFU ZA KUDUMU - PADUA (2022)
@@ -2589,14 +2570,13 @@
         "💎 **KUKOSA UWEZO WA KUTAMBUA THAMANI YAKE (Low Self-worth)** - Utafiti wa Chuo Kikuu cha Harvard (2023) uligundua kuwa asilimia 64 ya Kaa wanaweza kukosa kujithamini na kujiona kuwa hawana thamani ya kutosha. Wanaweza kujilinganisha na wengine na kuhisi duni, na hii inaweza kuathiri maamuzi yao na mahusiano yao. Utafiti wa Chuo Kikuu cha California (2022) ulibaini kuwa hii inaweza kuwafanya wakubali kutendewa vibaya na kukaa kwenye mahusiano yasiyo mazuri. Wewe unaweza kukosa kutambua thamani yako na kuruhusu wengine wakudharau, na hii inaweza kukufanya ujisikie duni na kukosa furaha.",
 
         // 2️⃣0️⃣ KUKOSA UWEZO WA KUWA MWENYE KUTAMBUA NDOTO ZAKE - OXFORD (2021)
-        "🌟 **KUKOSA UWEZO WA KUTAMBUA NDOTO ZAKE (Lack of Vision)** - Utafiti wa Chuo Kikuu cha Oxford (2021) uligundua kuwa asilimia 60 ya Kaa wanaweza kukosa uwezo wa kutambua ndoto zao na kuzifuata kwa ujasiri. Wanaweza kukaa kwenye eneo lao la starehe na kuepuka kuchukua hatari zinazohitajika kufikia malengo yao. Utafiti wa Chuo Kikuu cha Cambridge (2022) ulibaini kuwa hii inaweza kuwafanya wasifikie uwezo wao kamili na kuwa na maisha ya kawaida tu. Wewe unaweza kukosa kufikia ndoto zako kwa sababu ya kukosa ujasiri wa kuchukua hatua na kujitosa nje ya eneo lako la starehe."
-    ],
+        "🌟 **KUKOSA UWEZO WA KUTAMBUA NDOTO ZAKE (Lack of Vision)** - Utafiti wa Chuo Kikuu cha Oxford (2021) uligundua kuwa asilimia 60 ya Kaa wanaweza kukosa uwezo wa kutambua ndoto zao na kuzifuata kwa ujasiri. Wanaweza kukaa kwenye eneo lao la starehe na kuepuka kuchukua hatari zinazohitajika kufikia malengo yao. Utafiti wa Chuo Kikuu cha Cambridge (2022) ulibaini kuwa hii inaweza kuwafanya wasifikie uwezo wao kamili na kuwa na maisha ya kawaida tu. Wewe unaweza kukosa kufikia ndoto zako kwa sababu ya kukosa ujasiri wa kuchukua hatua na kujitosa nje ya eneo lako la starehe."],
+
 
     // ======================================================================================
     // SEHEMU YA 4: AFYA (HEALTH) - Uchambuzi wa kina wa pointi 20
     // ======================================================================================
-    health: [
-        // 1️⃣ MATATIZO YA TUMBO NA MMENG'ENYO WA CHAKULA
+    health: [// 1️⃣ MATATIZO YA TUMBO NA MMENG'ENYO WA CHAKULA
         "🤢 **MATATIZO YA TUMBO NA MMENG'ENYO WA CHAKULA (82%)** - Utafiti wa Chuo Kikuu cha Johns Hopkins (2023) uligundua kuwa asilimia 82 ya watu waliozaliwa chini ya nyota ya Kaa wanakabiliwa na matatizo ya tumbo na mmeng'enyo wa chakula. Hii inatokana na uhusiano wao wa karibu na maji na unyeti wao wa kihisia unaoathiri mfumo wao wa mmeng'enyo. Wasiwasi na msongo wa mawazo unaweza kusababisha kiungulia, asidi, na maumivu ya tumbo. Wewe unahitaji kula polepole, kuepuka vyakula vyenye viungo vingi, na kudhibiti msongo wako ili kuweka tumbo lako sawa.",
 
         // 2️⃣ MAUMIVU YA KIFUA NA MATITI
@@ -2654,14 +2634,13 @@
         "🌬️ **PUMU (20%)** - Utafiti wa Chuo Kikuu cha Oxford (2022) uligundua kuwa asilimia 20 ya Kaa wanakabiliwa na pumu, kutokana na mzio wa vumbi, ukungu, au wanyama. Wewe unaweza kupata pumu hasa unapokuwa ndani ya nyumba kwa muda mrefu au katika mazingira yenye vumbi. Pumu inaweza kusababisha kukosa pumzi, kikohozi, na shida ya kupumua. Ni muhimu kuepuka vitu unavyozitwa, kutumia dawa za pumu inapobidi, na kutafuta matibabu ikiwa dalili zinaendelea.",
 
         // 2️⃣0️⃣ UPUNGUFU WA DAMU
-        "🩸 **UPUNGUFU WA DAMU (30%)** - Utafiti wa Chuo Kikuu cha Stanford (2024) uligundua kuwa asilimia 30 ya Kaa wanakabiliwa na upungufu wa damu, kutokana na lishe duni na kukosa vyakula vyenye madini ya chuma. Wewe unaweza kupata upungufu wa damu ukikosa kula vizuri au ukila vyakula vya kusindikwa tu. Upungufu wa damu unaweza kusababisha uchovu, kizunguzungu, na kukosa nguvu. Ni muhimu kula vyakula vyenye madini ya chuma kama vile nyama nyekundu, wiki, na kunde, na kuchukua virutubisho ikiwa ni lazima."
-    ],
+        "🩸 **UPUNGUFU WA DAMU (30%)** - Utafiti wa Chuo Kikuu cha Stanford (2024) uligundua kuwa asilimia 30 ya Kaa wanakabiliwa na upungufu wa damu, kutokana na lishe duni na kukosa vyakula vyenye madini ya chuma. Wewe unaweza kupata upungufu wa damu ukikosa kula vizuri au ukila vyakula vya kusindikwa tu. Upungufu wa damu unaweza kusababisha uchovu, kizunguzungu, na kukosa nguvu. Ni muhimu kula vyakula vyenye madini ya chuma kama vile nyama nyekundu, wiki, na kunde, na kuchukua virutubisho ikiwa ni lazima."],
+
 
     // ======================================================================================
     // SEHEMU YA 5: VYAKULA NA VITU VYA KUEPUKA (AVOID) - Uchambuzi wa kina wa pointi 15
     // ======================================================================================
-    avoid: [
-        // 1️⃣ POMBE KALI
+    avoid: [// 1️⃣ POMBE KALI
         "🍺 **POMBE KALI** - Pombe kali inaongeza hisia zako za huzuni na wasiwasi, na inakufanya uwe na mawazo mabaya zaidi. Utafiti wa Chuo Kikuu cha Harvard (2023) uligundua kuwa Kaa wanaokunywa pombe kali wana uwezekano mkubwa wa kupata unyogovu na wasiwasi. Pombe pia inaharibu ini lako na inakufanya uwe na matatizo ya mmeng'enyo wa chakula. Inaweza pia kusababisha matatizo ya usingizi na kukufanya uwe na nguvu kidogo. Epuka kabisa pombe kali na uwe wa kunywa kwa kiasi kidogo sana, ikiwa ni lazima.",
 
         // 2️⃣ SIGARA NA TUMBAKU
@@ -2704,14 +2683,13 @@
         "🍚 **KUKOSA KULA VIZURI** - Kukosa kula vizuri na kukosa lishe bora kunakufanya uwe na upungufu wa nguvu na magonjwa. Utafiti wa Chuo Kikuu cha Oxford (2022) uligundua kuwa Kaa wana uwezekano mkubwa wa kukosa kula vizuri wanapokuwa na msongo au wasiwasi. Hakikisha unakula vyakula vyenye lishe bora kila siku, na usiruke milo muhimu kama kiamsha kinywa. Lishe bora itakusaidia kuwa na nguvu na afya njema.",
 
         // 1️⃣5️⃣ KUKOSA KUFANYA MAZOEZI
-        "🏋️ **KUKOSA KUFANYA MAZOEZI** - Kukosa kufanya mazoezi ya mwili kunakufanya uwe na unene na magonjwa, na kunapunguza nguvu zako. Utafiti wa Chuo Kikuu cha Cambridge (2023) uligundua kuwa Kaa wana uwezekano mkubwa wa kukosa mazoezi wanapokuwa na msongo au wasiwasi. Fanya mazoezi angalau mara 3 kwa wiki, kama vile kutembea, kukimbia, kuogelea, au yoga. Mazoezi yatakusaidia kuwa na nguvu, kupunguza msongo, na kuboresha usingizi wako."
-    ],
+        "🏋️ **KUKOSA KUFANYA MAZOEZI** - Kukosa kufanya mazoezi ya mwili kunakufanya uwe na unene na magonjwa, na kunapunguza nguvu zako. Utafiti wa Chuo Kikuu cha Cambridge (2023) uligundua kuwa Kaa wana uwezekano mkubwa wa kukosa mazoezi wanapokuwa na msongo au wasiwasi. Fanya mazoezi angalau mara 3 kwa wiki, kama vile kutembea, kukimbia, kuogelea, au yoga. Mazoezi yatakusaidia kuwa na nguvu, kupunguza msongo, na kuboresha usingizi wako."],
+
 
     // ======================================================================================
     // SEHEMU YA 6: WATU WANAOENDANA NAWE (COMPATIBLE) - Uchambuzi wa kina wa pointi 15
     // ======================================================================================
-    compatible: [
-        // 1️⃣ NGE (SCORPIO)
+    compatible: [// 1️⃣ NGE (SCORPIO)
         "♏ **NGE (Scorpio) - Oktoba 23 hadi Novemba 21** - Maji kwa Maji! Utafiti wa Chuo Kikuu cha Stanford (2024) uligundua kuwa Kaa na Nge wana uwezekano mkubwa wa kuelewana na kusaidiana. Wote ni nyota za Maji na wana hisia nyingi na uelewa wa kina. Nge anampa Kaa nguvu na ujasiri, na Kaa anampa Nge upendo na utunzaji. Wanaweza kujenga uhusiano wenye kina kirefu na nguvu, na wanajulikana kwa uaminifu wao na kujitolea kwa kila mmoja. Mahusiano yao yana uwezekano mkubwa wa kudumu kwa muda mrefu na kuwa na furaha.",
 
         // 2️⃣ SAMAKI (PISCES)
@@ -2754,14 +2732,13 @@
         "🤝 **WATU WENYE UAMINIFU** - Utafiti wa Chuo Kikuu cha Michigan (2005) uligundua kuwa Kaa wana uwezekano mkubwa wa kuelewana na watu wenye uaminifu na wanaoheshimu ahadi zao. Wewe unathamini watu wanaoweza kutegemewa na kushika neno lao. Watu hawa wanakufaa kwa sababu wanajenga uaminifu na usalama katika mahusiano, na unajisikia salama unapokuwa nao.",
 
         // 1️⃣5️⃣ WATU WENYE UPENDO WA FAMILIA
-        "👨‍👩‍👧‍👦 **WATU WENYE UPENDO WA FAMILIA** - Utafiti wa Chuo Kikuu cha Columbia (2023) uligundua kuwa Kaa wana uwezekano mkubwa wa kuelewana na watu wanaothamini familia na wanaojali wapendwa wao. Wewe unathamini watu wanaoelewa umuhimu wa familia na wanajitolea kwao. Watu hawa wanakufaa kwa sababu wanaweza kuelewa upendo wako kwa familia yako na kukusaidia kujenga maisha ya familia yenye furaha na amani."
-    ],
+        "👨‍👩‍👧‍👦 **WATU WENYE UPENDO WA FAMILIA** - Utafiti wa Chuo Kikuu cha Columbia (2023) uligundua kuwa Kaa wana uwezekano mkubwa wa kuelewana na watu wanaothamini familia na wanaojali wapendwa wao. Wewe unathamini watu wanaoelewa umuhimu wa familia na wanajitolea kwao. Watu hawa wanakufaa kwa sababu wanaweza kuelewa upendo wako kwa familia yako na kukusaidia kujenga maisha ya familia yenye furaha na amani."],
+
 
     // ======================================================================================
     // SEHEMU YA 7: KAZI ZINAZOKUFAA (CAREERS) - Uchambuzi wa kina wa pointi 20
     // ======================================================================================
-    careers: [
-        // 1️⃣ DAKTARI AU MUUGUZI
+    careers: [// 1️⃣ DAKTARI AU MUUGUZI
         "👩‍⚕️ **Daktari au Muuguzi** - Utafiti wa Chuo Kikuu cha Johns Hopkins (2023) uligundua kuwa Kaa wana uwezo wa kipekee wa kufanya kazi za matibabu na uuguzi. Wewe una huruma na uelewa wa kina wa hisia za wagonjwa, na unajua jinsi ya kuwapa faraja na matumaini. Kazi ya daktari au muuguzi inakuruhusu kutumia ujuzi wako wa kutunza na kuwasaidia wengine. Utahakikisha wagonjwa wanapata matibabu bora na huduma ya kibinadamu. Pia utakuwa na fursa ya kugusa maisha ya watu na kuwasaidia kupona. Kazi hii inakupa fursa ya kutumia huruma yako na kuwasaidia wale wanaohitaji msaada zaidi.",
 
         // 2️⃣ MLEZI WA WATOTO
@@ -2819,14 +2796,13 @@
         "🎵 **Mtaalamu wa Matibabu kwa Muziki (Music Therapist)** - Utafiti wa Chuo Kikuu cha Oxford (2022) uligundua kuwa Kaa wana uwezo wa kipekee wa kutumia muziki kusaidia watu kupumzika na kujieleza. Wewe una upendo wa muziki na uelewa wa kina wa hisia za watu, na unajua jinsi ya kuwasaidia kupata amani na utulivu kupitia muziki. Kazi ya mtaalamu wa matibabu kwa muziki inakuruhusu kutumia ujuzi wako wa muziki na uelewa wako wa hisia za watu. Utahakikisha wateja wako wanapata nafasi ya kupumzika na kujieleza kupitia muziki, na kutatua matatizo yao ya kihisia. Pia utakuwa na fursa ya kugusa maisha ya watu na kuwasaidia kuwa na afya ya akili na furaha.",
 
         // 2️⃣0️⃣ MTAALAMU WA MENGI (PET THERAPIST)
-        "🐶 **Mtaalamu wa Matibabu kwa Wanyama (Pet Therapist)** - Utafiti wa Chuo Kikuu cha Harvard (2023) uligundua kuwa Kaa wana uwezo wa kipekee wa kutumia wanyama kusaidia watu kupumzika na kupona. Wewe unawapenda wanyama na una uelewa wa kina wa hisia za watu, na unajua jinsi ya kuwasaidia kupata amani na utulivu kupitia wanyama. Kazi ya mtaalamu wa matibabu kwa wanyama inakuruhusu kutumia ujuzi wako wa wanyama na uelewa wako wa hisia za watu. Utahakikisha wateja wako wanapata nafasi ya kupumzika na kupona kupitia wanyama, na kutatua matatizo yao ya kihisia. Pia utakuwa na fursa ya kugusa maisha ya watu na kuwasaidia kuwa na afya ya akili na furaha."
-    ],
+        "🐶 **Mtaalamu wa Matibabu kwa Wanyama (Pet Therapist)** - Utafiti wa Chuo Kikuu cha Harvard (2023) uligundua kuwa Kaa wana uwezo wa kipekee wa kutumia wanyama kusaidia watu kupumzika na kupona. Wewe unawapenda wanyama na una uelewa wa kina wa hisia za watu, na unajua jinsi ya kuwasaidia kupata amani na utulivu kupitia wanyama. Kazi ya mtaalamu wa matibabu kwa wanyama inakuruhusu kutumia ujuzi wako wa wanyama na uelewa wako wa hisia za watu. Utahakikisha wateja wako wanapata nafasi ya kupumzika na kupona kupitia wanyama, na kutatua matatizo yao ya kihisia. Pia utakuwa na fursa ya kugusa maisha ya watu na kuwasaidia kuwa na afya ya akili na furaha."];
+
 
     // ======================================================================================
     // SEHEMU YA 8: KAZI ZISIZOKUFAA (AVOID CAREERS) - Uchambuzi wa kina wa pointi 15
     // ======================================================================================
-    avoid_careers: [
-        // 1️⃣ KAMANDA WA JESHI
+    avoid_careers: [// 1️⃣ KAMANDA WA JESHI
         "⚔️ **Kamwe Usifanye Kazi za Kamanda wa Jeshi** - Utafiti wa Chuo Kikuu cha Stanford (2024) uligundua kuwa Kaa wana uwezekano mkubwa wa kuchoshwa na kazi za ukatili na vita. Kazi ya kamanda wa jeshi inahitaji uamuzi wa haraka na ukatili, jambo ambalo linakera roho yako inayopenda amani na utulivu. Utapata msongo na wasiwasi, na hatimaye utaacha kazi kabla ya muda wake. Pia, hatari za vita na mauaji zitakufanya uwe na wasiwasi wa kudumu, na hutakuwa na amani ya kufurahia maisha yako. Kaa wanahitaji amani na utulivu, si vita na ukatili.",
 
         // 2️⃣ MZIMAMOTO
@@ -2885,8 +2861,7 @@
     // ======================================================================================
     // SEHEMU YA 1: SIFA NZURI (GOOD TRAITS) - Uchambuzi wa kina wa pointi 20
     // ======================================================================================
-    good: [
-        // 1️⃣ UONGOZI WA ASILI
+    good: [// 1️⃣ UONGOZI WA ASILI
         "👑 **UONGOZI WA ASILI**: Utafiti wa Chuo Kikuu cha Harvard (2023) uligundua kuwa Simba wana uwezo wa kipekee wa uongozi na wanaongoza kwa asilimia 76 ya viongozi wa juu katika taasisi mbalimbali. Wewe umezaliwa na uwezo wa kuongoza, kuhamasisha na kuwavutia wengine. Hii inatokana na ushawishi wa Jua (Sun) - nyota yako inayotawala, inayokupa nguvu, mwanga na uwezo wa kuangaza popote uendapo. Watu wanakuona kama kiongozi wa asili na wanakufuata kwa hiari, kwa sababu unawapa matumaini na mwelekeo. Uongozi wako si wa kujitakia bali unatokana na uwezo wako wa kuona picha kubwa na kuwaongoza wengine kufikia malengo yao. Katika timu yoyote, wewe ndiye unayechukua hatua na kuwaongoza wengine kwenye ushindi.",
 
         // 2️⃣ UKARIMU WA KIFALME
@@ -2944,14 +2919,12 @@
         "🔍 **UWEZO WA KUTAMBUA VIPAJI VYA WATU**: Utafiti wa Chuo Kikuu cha Stanford (2024) uligundua kuwa Simba wana uwezo wa kipekee wa kutambua vipaji vya watu na kuwasaidia kuvikuza. Wewe unaweza kuona uwezo wa mtu ambao hata yeye mwenyewe haoni, na unawasaidia kufikia uwezo wao kamili. Hii inatokana na uongozi wako na uwezo wako wa kuwaona watu kwa undani. Unapomtambua mtu mwenye kipaji, unamhimiza, unamsaidia na unampa nafasi ya kukua. Uwezo huu unakufanya uwe mwalimu bora, kocha hodari, na mtu anayeweza kubadilisha maisha ya watu kwa kuwasaidia kutambua vipaji vyao.",
 
         // 2️⃣0️⃣ UTHABITI WA KIHISIA
-        "🏔️ **UTHABITI WA KIHISIA**: Utafiti wa Chuo Kikuu cha Cambridge (2022) uligundua kuwa Simba wana uthabiti wa kihisia wa kipekee na wanajua kudhibiti hisia zao hata katika hali ngumu. Wewe huwezi kuvunjika kirahisi au kuonyesha udhaifu wako mbele ya watu, unajua kujituliza na kukaa imara hata wakati wa shida. Hii inatokana na ufahamu wako wa thamani yako na imani yako katika uwezo wako. Uthabiti wako wa kihisia unawafanya wengine wakuone kama nguzo imara na wanakutegemea wakati wa shida. Wewe ni kama mwamba usioyumbishwa na mawimbi ya maisha, unakabiliwa na changamoto kwa utulivu na uhodari."
-    ],
+        "🏔️ **UTHABITI WA KIHISIA**: Utafiti wa Chuo Kikuu cha Cambridge (2022) uligundua kuwa Simba wana uthabiti wa kihisia wa kipekee na wanajua kudhibiti hisia zao hata katika hali ngumu. Wewe huwezi kuvunjika kirahisi au kuonyesha udhaifu wako mbele ya watu, unajua kujituliza na kukaa imara hata wakati wa shida. Hii inatokana na ufahamu wako wa thamani yako na imani yako katika uwezo wako. Uthabiti wako wa kihisia unawafanya wengine wakuone kama nguzo imara na wanakutegemea wakati wa shida. Wewe ni kama mwamba usioyumbishwa na mawimbi ya maisha, unakabiliwa na changamoto kwa utulivu na uhodari."]
 
     // ======================================================================================
     // SEHEMU YA 2: SIFA ZA UPENDO (LOVE TRAITS) - Uchambuzi wa kina wa pointi 10
     // ======================================================================================
-    love: [
-        // 1️⃣ MPENZI MWENYE UPENDO WA DHATI
+    love: [// 1️⃣ MPENZI MWENYE UPENDO WA DHATI
         "💝 **MPENZI MWENYE UPENDO WA DHATI**: Utafiti wa Chuo Kikuu cha Toronto (2023) uligundua kuwa Simba wana uwezo wa kipekee wa kupenda kwa dhati na kujitolea kwa wapenzi wao bila masharti. Wewe unapompenda mtu, unampenda kwa moyo wako wote, kwa roho yako yote, na kwa nguvu zako zote. Hupendi kwa nusu nusu au kwa kujitayarisha kuondoka, unajitoa kabisa na unatarajia kupokea upendo wa namna hiyo hiyo. Upendo wako unaonekana na kuhisika - unampeleka mwenzako mahali pazuri, unampatia zawadi, unamshangaza, na unamfanya ajisikie kama mfalme au malkia. Hii inawafanya wapenzi wako wajisikie kuwa ndio watu wenye bahati zaidi duniani, kwani wana mtu anayewapenda kwa dhati na bila kujitenga.",
         
         // 2️⃣ MPENZI MWENYE UKARIMU WA KIFALME
@@ -2979,14 +2952,13 @@
         "🎭 **MPENZI MWENYE KUJITOKEA**: Utafiti wa Chuo Kikuu cha Stanford (2024) uligundua kuwa Simba wana uwezo wa kipekee wa kujitokeza na kumfanya mwenzao ajisikie maalum kwa njia za kipekee. Wewe hujitokeza kwenye matukio muhimu, unashiriki katika sherehe na maadhimisho, na unahakikisha uwepo wako unahisika katika kila hatua muhimu ya maisha ya mwenzako. Hii inawafanya wapenzi wako wajisikie kuwa wana mtu anayejali na kushiriki katika maisha yao kwa dhati. Kujitokeza kwako kunawaonyesha kuwa wewe ni mtu wa kuwepo katika nyakati zote, nzuri na mbaya, na hii inajenga uaminifu na uhusiano wa kina.",
         
         // 🔟 MPENZI MWENYE KUWA MWANGA
-        "☀️ **MPENZI MWENYE KUWA MWANGA**: Utafiti wa Chuo Kikuu cha Harvard (2023) uligundua kuwa Simba wana uwezo wa kipekee wa kuwa mwanga katika maisha ya wapenzi wao na kuangaza njia yao. Wewe humpa mwenzako matumaini, nguvu, na mwelekeo. Unamwonyesha njia anapokuwa amepotea, unampa nguvu anapokuwa amechoka, na unampa matumaini anapokata tamaa. Hii inawafanya wapenzi wako wajisikie kuwa wana mtu anayeweza kutegemea na kuongozwa naye. Kuwa mwanga wao kunamaanisha kuwa wewe si mpenzi tu, bali pia ni mshauri, rafiki, na kiongozi katika maisha yao."
-    ],
+        "☀️ **MPENZI MWENYE KUWA MWANGA**: Utafiti wa Chuo Kikuu cha Harvard (2023) uligundua kuwa Simba wana uwezo wa kipekee wa kuwa mwanga katika maisha ya wapenzi wao na kuangaza njia yao. Wewe humpa mwenzako matumaini, nguvu, na mwelekeo. Unamwonyesha njia anapokuwa amepotea, unampa nguvu anapokuwa amechoka, na unampa matumaini anapokata tamaa. Hii inawafanya wapenzi wako wajisikie kuwa wana mtu anayeweza kutegemea na kuongozwa naye. Kuwa mwanga wao kunamaanisha kuwa wewe si mpenzi tu, bali pia ni mshauri, rafiki, na kiongozi katika maisha yao."],
+
 
     // ======================================================================================
     // SEHEMU YA 3: SIFA MBAYA (BAD TRAITS) - Uchambuzi wa kina wa pointi 10
     // ======================================================================================
-    bad: [
-        // 1️⃣ KIBURI NA KUTAKA KUJIONYESHA
+    bad: [// 1️⃣ KIBURI NA KUTAKA KUJIONYESHA
         "🦁 **KIBURI NA KUTAKA KUJIONYESHA**: Utafiti wa Chuo Kikuu cha Yale (2023) uligundua kuwa asilimia 68 ya Simba wana tabia ya kiburi na kutaka kujionyesha mbele ya watu. Wewe unaweza kuonekana kuwa mbinafsi na mwenye kutaka umakini wa kila mtu, hata wakati haufai. Hii inatokana na ushawishi wa Jua unaokupa hamu ya kuangaza na kuonekana, lakini inapozidi inakuwa kiburi cha kuchusha. Watu wanaweza kukiona kuwa mwenye majivuno na asiyejali wengine, na hii inaweza kuwafukuza wale wanaokupenda. Kiburi chako kinaweza kukufanya usikubali makosa yako au kusikiliza ushauri wa wengine, na hii inaweza kukuletea matatizo makubwa maishani.",
 
         // 2️⃣ KUTAKA KUTAWALA NA KUAMURISHA
@@ -3029,14 +3001,13 @@
         "🥇 **KUTAKA KUWA WA KWANZA**: Utafiti wa Chuo Kikuu cha Cambridge (2023) uligundua kuwa asilimia 71 ya Simba wana tabia ya kutaka kuwa wa kwanza katika kila jambo, na wanashindwa kuvumilia kuwa wa pili au wa mwisho. Wewe unaweza kushindana vikali na wengine, hata kwenye mambo yasiyo na maana, na unaweza kukasirika unaposhindwa. Hii inawafanya wengine wachoke kushindana nawe na inaweza kukufanya uonekane kama mtu asiye na uungwana. Kutaka kwako kuwa wa kwanza kunaweza kukufanya ushirikiane na wengine na kufurahia mafanikio ya pamoja, na inaweza kukufanya uwe na wivu na chuki kwa wale wanaofanikiwa.",
 
         // 1️⃣5️⃣ KUTOKUWA TAYARI KUSHIRIKI MWANGA
-        "🌑 **KUTOKUWA TAYARI KUSHIRIKI MWANGA**: Utafiti wa Chuo Kikuu cha Pennsylvania (2023) uligundua kuwa asilimia 55 ya Simba wana tabia ya kutokuwa tayari kushiriki mwanga na wengine, na wanapenda kuwa ndio chanzo pekee cha mwanga. Wewe unaweza kuwazuia wengine wasionekane au wasifanikiwe, kwa hofu ya kupoteza umaarufu wako au heshima yako. Hii inawafanya wengine wakuchukie na wasiweze kukua karibu nawe. Kutokuwa tayari kwako kushiriki mwanga kunaweza kukufanya uwe na wivu na chuki kwa wale wanaofanikiwa, na inaweza kukuzuia kujenga timu imara na washirika wenye nguvu."
-    ],
+        "🌑 **KUTOKUWA TAYARI KUSHIRIKI MWANGA**: Utafiti wa Chuo Kikuu cha Pennsylvania (2023) uligundua kuwa asilimia 55 ya Simba wana tabia ya kutokuwa tayari kushiriki mwanga na wengine, na wanapenda kuwa ndio chanzo pekee cha mwanga. Wewe unaweza kuwazuia wengine wasionekane au wasifanikiwe, kwa hofu ya kupoteza umaarufu wako au heshima yako. Hii inawafanya wengine wakuchukie na wasiweze kukua karibu nawe. Kutokuwa tayari kwako kushiriki mwanga kunaweza kukufanya uwe na wivu na chuki kwa wale wanaofanikiwa, na inaweza kukuzuia kujenga timu imara na washirika wenye nguvu."],
+
 
     // ======================================================================================
     // SEHEMU YA 4: AFYA (HEALTH) - Uchambuzi wa kina wa pointi 10
     // ======================================================================================
-    health: [
-        "💓 **MOYO NA MFUMO WA MISHIPA YA DAMU (82%)**: Kwa sababu ya ushawishi wa Jua unaotawala moyo na mzunguko wa damu, Simba wana uwezekano mkubwa wa kupata matatizo ya moyo na mishipa ya damu. Utafiti wa Chuo Kikuu cha Harvard (2023) uligundua kuwa asilimia 82 ya Simba wanakabiliwa na shinikizo la damu, mapigo ya moyo yasiyo ya kawaida, na matatizo mengine ya moyo. Hii inatokana na msongo wao wa kudumu, bidii yao ya kufanya kazi, na tabia yao ya kujibeba mzigo mwingi. Unahitaji kupima shinikizo lako mara kwa mara, kudhibiti msongo wako, na kufanya mazoezi ya kupunguza msongo kama yoga au kutafakari. Pia ni muhimu kuepuka vyakula vyenye mafuta mengi na cholesterol inayoziba mishipa ya damu.",
+    health: ["💓 **MOYO NA MFUMO WA MISHIPA YA DAMU (82%)**: Kwa sababu ya ushawishi wa Jua unaotawala moyo na mzunguko wa damu, Simba wana uwezekano mkubwa wa kupata matatizo ya moyo na mishipa ya damu. Utafiti wa Chuo Kikuu cha Harvard (2023) uligundua kuwa asilimia 82 ya Simba wanakabiliwa na shinikizo la damu, mapigo ya moyo yasiyo ya kawaida, na matatizo mengine ya moyo. Hii inatokana na msongo wao wa kudumu, bidii yao ya kufanya kazi, na tabia yao ya kujibeba mzigo mwingi. Unahitaji kupima shinikizo lako mara kwa mara, kudhibiti msongo wako, na kufanya mazoezi ya kupunguza msongo kama yoga au kutafakari. Pia ni muhimu kuepuka vyakula vyenye mafuta mengi na cholesterol inayoziba mishipa ya damu.",
 
         "🦴 **MGONGO NA UTI WA MGONGO (75%)**: Simba wana uhusiano wa karibu na mgongo na uti wa mgongo, na wana uwezekano mkubwa wa kupata maumivu ya mgongo na matatizo ya uti wa mgongo. Utafiti wa Chuo Kikuu cha Stanford (2024) uligundua kuwa asilimia 75 ya Simba wanakabiliwa na maumivu ya mgongo, hasa sehemu ya juu ya mgongo na bega. Hii ni kwa sababu ya kujibeba mzigo mwingi wa majukumu na kujisukuma kupita kiasi. Unahitaji kufanya mazoezi ya kunyoosha mgongo, kuepuka kubeba mizigo mizito, na kuhakikisha unakaa vizuri hasa unapofanya kazi kwa muda mrefu. Pia ni muhimu kupumzika na kujipanga vizuri ili kupunguza msongo.",
 
@@ -3066,14 +3037,13 @@
 
         "🤢 **MAUMIVU YA TUMBO (38%)**: Utafiti wa Chuo Kikuu cha Oxford (2022) uligundua kuwa asilimia 38 ya Simba wanakabiliwa na maumivu ya tumbo na matatizo ya mmeng'enyo wa chakula, kutokana na kula vyakula vizito na kula kwa haraka. Unaweza kupata kiungulia, asidi, na maumivu ya tumbo baada ya kula. Hii inaweza kukufanya ushindwe kula vizuri na kupata nguvu. Unahitaji kula polepole, kuepuka vyakula vyenye viungo vingi, na kula mara kwa mara kwa kiasi kidogo. Pia ni muhimu kuepuka kula usiku sana na kula vyakula vyenye nyuzinyuzi nyingi.",
 
-        "🦷 **MENO NA UFIZI WA KINYWA (44%)**: Utafiti wa Chuo Kikuu cha Michigan (2005) uligundua kuwa asilimia 44 ya Simba wanakabiliwa na matatizo ya meno na ufizi wa kinywa, kutokana na kusaga meno usingizi na msongo wa mawashi. Wewe unaweza pia kuwa na usafi wa kinywa wa hali ya juu, lakini bado upate matatizo kwa sababu ya msongo wako. Unahitaji kutembelea daktari wa meno mara kwa mara na kujifunza kudhibiti msongo wako. Pia ni muhimu kudumisha usafi wa meno kwa kupiga mswaki mara kwa mara na kutumia uzi wa meno."
-    ],
+        "🦷 **MENO NA UFIZI WA KINYWA (44%)**: Utafiti wa Chuo Kikuu cha Michigan (2005) uligundua kuwa asilimia 44 ya Simba wanakabiliwa na matatizo ya meno na ufizi wa kinywa, kutokana na kusaga meno usingizi na msongo wa mawashi. Wewe unaweza pia kuwa na usafi wa kinywa wa hali ya juu, lakini bado upate matatizo kwa sababu ya msongo wako. Unahitaji kutembelea daktari wa meno mara kwa mara na kujifunza kudhibiti msongo wako. Pia ni muhimu kudumisha usafi wa meno kwa kupiga mswaki mara kwa mara na kutumia uzi wa meno."],
+
 
     // ======================================================================================
     // SEHEMU YA 5: VYAKULA NA VITU VYA KUE PUKA (AVOID) - Uchambuzi wa kina wa pointi 15
     // ======================================================================================
-    avoid: [
-        "🍔 **VYAKULA VYA MAFUTA MENGI NA VYA KUKAANGA** - Nyama nyekundu, siagi, mafuta ya wanyama, na vyakula vya kukaangwa vina mafuta mengi yanayoziba mishipa yako ya damu. Utafiti wa Chuo Kikuu cha Harvard (2023) uligundua kuwa Simba wana uwezekano mkubwa wa kupata cholesterol kubwa na matatizo ya moyo kutokana na kula mafuta mengi. Mafuta mengi pia yanaweza kusababisha unene, matatizo ya ini, na kansa ya utumbo. Chagua nyama konda, upike kwa kukaanga kidogo au kuchoma, na uepuke vyakula vya kukaanga. Badala yake, chagua samaki, kuku, na mboga za majani.",
+    avoid: ["🍔 **VYAKULA VYA MAFUTA MENGI NA VYA KUKAANGA** - Nyama nyekundu, siagi, mafuta ya wanyama, na vyakula vya kukaangwa vina mafuta mengi yanayoziba mishipa yako ya damu. Utafiti wa Chuo Kikuu cha Harvard (2023) uligundua kuwa Simba wana uwezekano mkubwa wa kupata cholesterol kubwa na matatizo ya moyo kutokana na kula mafuta mengi. Mafuta mengi pia yanaweza kusababisha unene, matatizo ya ini, na kansa ya utumbo. Chagua nyama konda, upike kwa kukaanga kidogo au kuchoma, na uepuke vyakula vya kukaanga. Badala yake, chagua samaki, kuku, na mboga za majani.",
 
         "🍰 **VYAKULA VITAMU VYA SUKARI NYINGI** - Keki, biskuti, chokoleti, na vinywaji vitamu vina sukari nyingi inayoongeza sukari yako na kukuza kisukari. Utafiti wa Chuo Kikuu cha Stanford (2024) uligundua kuwa Simba wana uwezekano mkubwa wa kupata kisukari kutokana na kupenda vyakula vitamu. Sukari pia inaharibu meno yako, inakufanya uwe na ngozi mbaya, na inaweza kusababisha unene. Pia inaweza kusababisha mabadiliko ya hisia na kukufanya uwe na wasiwasi. Punguza sana ulaji wa sukari na ubadilishie matunda na asali ya kiasili kwa kiasi kidogo.",
 
@@ -3101,14 +3071,13 @@
 
         "☕ **KUNYWA KAHAWA NYINGI** - Kahawa nyingi inakuleta usingizi na inaongeza msongo wako wa mawazo. Utafiti wa Chuo Kikuu cha California (2021) uligundua kuwa Simba wana uwezekano mkubwa wa kutumia kahawa kupita kiasi ili waweze kufanya kazi kwa muda mrefu na kukaa macho. Kahawa nyingi inaweza kusababisha wasiwasi, kukosa usingizi, mapigo ya moyo ya kasi, na matatizo ya tumbo. Pia inaweza kusababisha utegemezi na dalili za kujiondoa. Punguza ulaji wa kahawa hadi kikombe 1-2 kwa siku, na usinywe kahawa jioni. Badala yake, chagua chai ya kijani au chai ya mitishamba.",
 
-        "🚫 **KUTOKUWA NA MPANGO WA KAZI NA MAPUMZIKO** - Kutokuwa na mpango wa kazi na mapumziko kunakufanya ujisukume kupita kiasi na kukosa nafasi ya kupumzika. Utafiti wa Chuo Kikuu cha Oxford (2022) uligundua kuwa Simba wasio na mpango wazi wa kazi na mapumziko wana uwezekano mkubwa wa kupata msongo na uchovu sugu. Unahitaji kupanga muda wako vizuri, kuweka vipaumbele, na kujiruhusu kupumzika na kujiburudisha. Badala yake, weka ratiba ya kazi na mapumziko na ufuate ili kuepuka kujisukuma kupita kiasi."
-    ],
+        "🚫 **KUTOKUWA NA MPANGO WA KAZI NA MAPUMZIKO** - Kutokuwa na mpango wa kazi na mapumziko kunakufanya ujisukume kupita kiasi na kukosa nafasi ya kupumzika. Utafiti wa Chuo Kikuu cha Oxford (2022) uligundua kuwa Simba wasio na mpango wazi wa kazi na mapumziko wana uwezekano mkubwa wa kupata msongo na uchovu sugu. Unahitaji kupanga muda wako vizuri, kuweka vipaumbele, na kujiruhusu kupumzika na kujiburudisha. Badala yake, weka ratiba ya kazi na mapumziko na ufuate ili kuepuka kujisukuma kupita kiasi."],
+
 
     // ======================================================================================
     // SEHEMU YA 6: WATU WANAOENDANA NAWE (COMPATIBLE) - Uchambuzi wa kina wa pointi 15
     // ======================================================================================
-    compatible: [
-        "♈ **KONDOO (Machi 21 - Aprili 19)** - Utafiti wa Chuo Kikuu cha Harvard (2023) uligundua kuwa Simba na Kondoo wana uwezekano mkubwa wa kuelewana na kusaidiana. Wote ni nyota za Moto na wana nguvu nyingi za kufanya kazi na shauku ya maisha. Kondoo anampa Simba ujasiri na mwendo kasi, na Simba anampa Kondoo heshima na ukarimu. Wanaweza kufanya kazi pamoja na kufanikiwa katika miradi yao, na wanajenga uhusiano wenye msisimuko na nguvu. Utafiti wa Chuo Kikuu cha Stanford (2024) ulionyesha kuwa mahusiano ya Simba na Kondoo yana uwezekano mkubwa wa kuwa na mafanikio katika biashara na miradi ya pamoja.",
+    compatible: ["♈ **KONDOO (Machi 21 - Aprili 19)** - Utafiti wa Chuo Kikuu cha Harvard (2023) uligundua kuwa Simba na Kondoo wana uwezekano mkubwa wa kuelewana na kusaidiana. Wote ni nyota za Moto na wana nguvu nyingi za kufanya kazi na shauku ya maisha. Kondoo anampa Simba ujasiri na mwendo kasi, na Simba anampa Kondoo heshima na ukarimu. Wanaweza kufanya kazi pamoja na kufanikiwa katika miradi yao, na wanajenga uhusiano wenye msisimuko na nguvu. Utafiti wa Chuo Kikuu cha Stanford (2024) ulionyesha kuwa mahusiano ya Simba na Kondoo yana uwezekano mkubwa wa kuwa na mafanikio katika biashara na miradi ya pamoja.",
 
         "♐ **MSHALE (Novemba 22 - Desemba 21)** - Utafiti wa Chuo Kikuu cha Stanford (2024) uligundua kuwa Simba na Mshale wana uwezekano mkubwa wa kuelewana na kusaidiana. Wote ni nyota za Moto na wanapenda kusafiri, kujua mambo mapya, na kufurahia maisha. Mshale anampa Simba hekima na uzoefu wa maisha, na Simba anampa Mshale heshima na ukarimu. Wanaweza kufanya kazi pamoja na kufanikiwa katika miradi yao, na wanajenga uhusiano wenye furaha na msisimuko. Utafiti wa Chuo Kikuu cha Yale (2023) ulibaini kuwa mahusiano haya yana uwezekano mkubwa wa kudumu na kuwa na mafanikio makubwa.",
 
@@ -3138,14 +3107,13 @@
 
         "🌟 **WATU WENYE UCHANGAMFU NA UHAI** - Utafiti wa Chuo Kikuu cha Pennsylvania (2023) uligundua kuwa Simba wana uwezekano mkubwa wa kuelewana na watu wenye uchangamfu na uhai kama wao. Wewe unathamini watu wenye nguvu na wanaoweza kukufurahisha, na unaweza kujenga uhusiano mzuri nao. Watu hawa wanakufaa kwa sababu wanaweza kuendana na kasi yako na kukupa furaha na burudani. Utafiti wa Chuo Kikuu cha Michigan (2005) ulibaini kuwa mahusiano haya yana uwezekano mkubwa wa kuleta furaha na msisimuko katika maisha.",
 
-        "🏆 **WATU WENYE USHINDANI WA HALI YA JUU** - Utafiti wa Chuo Kikuu cha Columbia (2023) uligundua kuwa Simba wana uwezekano mkubwa wa kuelewana na watu wenye ushindani wa hali ya juu na wanaopenda kushindana. Wewe unathamini ushindani na ushindi, na unaweza kujenga uhusiano mzuri na wanariadha, wachezaji, na watu wenye ushindani. Watu hawa wanakufaa kwa sababu wanaweza kukupa changamoto na kukusaidia kuwa bora zaidi. Utafiti wa Chuo Kikuu cha Stanford (2024) ulibaini kuwa mahusiano haya yana uwezekano mkubwa wa kuleta ushindani wa kiafya na mafanikio makubwa."
-    ],
+        "🏆 **WATU WENYE USHINDANI WA HALI YA JUU** - Utafiti wa Chuo Kikuu cha Columbia (2023) uligundua kuwa Simba wana uwezekano mkubwa wa kuelewana na watu wenye ushindani wa hali ya juu na wanaopenda kushindana. Wewe unathamini ushindani na ushindi, na unaweza kujenga uhusiano mzuri na wanariadha, wachezaji, na watu wenye ushindani. Watu hawa wanakufaa kwa sababu wanaweza kukupa changamoto na kukusaidia kuwa bora zaidi. Utafiti wa Chuo Kikuu cha Stanford (2024) ulibaini kuwa mahusiano haya yana uwezekano mkubwa wa kuleta ushindani wa kiafya na mafanikio makubwa."],
+
 
     // ======================================================================================
     // SEHEMU YA 7: KAZI ZINAZOKUFAA (CAREERS) - Uchambuzi wa kina wa pointi 15
     // ======================================================================================
-    careers: [
-        "🎭 **MWIGIZAJI** - Utafiti wa Chuo Kikuu cha California (2022) uligundua kuwa Simba wana uwezo wa kipekee wa kufanya kazi za uigizaji na burudani. Wewe unaweza kuigiza majukumu mbalimbali, kuwafanya watu wacheke au walie, na kuvutia hadhira kwa uchezaji wako. Uwezo wako wa kujitokeza na kuwa kwenye mwangaza unakufaa sana katika kazi hii. Unaweza kufanya kazi kwenye sinema, runinga, au jukwaani, na kuwa nyota maarufu. Utafiti wa Chuo Kikuu cha Stanford (2024) ulibaini kuwa Simba wana uwezekano mkubwa wa kufanikiwa katika tasnia ya burudani na kuwa nyota wakubwa.",
+    careers: ["🎭 **MWIGIZAJI** - Utafiti wa Chuo Kikuu cha California (2022) uligundua kuwa Simba wana uwezo wa kipekee wa kufanya kazi za uigizaji na burudani. Wewe unaweza kuigiza majukumu mbalimbali, kuwafanya watu wacheke au walie, na kuvutia hadhira kwa uchezaji wako. Uwezo wako wa kujitokeza na kuwa kwenye mwangaza unakufaa sana katika kazi hii. Unaweza kufanya kazi kwenye sinema, runinga, au jukwaani, na kuwa nyota maarufu. Utafiti wa Chuo Kikuu cha Stanford (2024) ulibaini kuwa Simba wana uwezekano mkubwa wa kufanikiwa katika tasnia ya burudani na kuwa nyota wakubwa.",
 
         "🎤 **MWIMBAJI** - Utafiti wa Chuo Kikuu cha Berklee (2023) uligundua kuwa Simba wana uwezo wa kipekee wa kuimba na kutumbuiza. Wewe una sauti nzuri na uwezo wa kuvutia hadhira kwa uimbaji wako. Unaweza kuwa mwimbaji maarufu na kugusa mioyo ya watu wengi kwa sauti yako. Utafiti wa Chuo Kikuu cha New York (2022) ulibaini kuwa Simba wana uwezekano mkubwa wa kufanikiwa katika tasnia ya muziki na kuwa nyota wa kimataifa. Unaweza kuimba solo au kuwa kwenye bendi, na kufurahisha mamilioni ya watu.",
 
@@ -3175,14 +3143,13 @@
 
         "🛍️ **MWENYE DAWA LA UREMBO** - Utafiti wa Chuo Kikuu cha London (2022) uligundua kuwa Simba wana uwezo wa kipekee wa kuendesha duka la urembo na kuwashauri wateja kuhusu bidhaa za urembo. Wewe unaweza kuwakaribisha wateja kwa heshima, kuwashauri kuhusu bidhaa zinazowafaa, na kuhakikisha wanaondoka wakiwa wameridhika. Ukarimu wako na uwezo wako wa kuvutia watu unakufaa sana katika kazi hii. Unaweza kufungua duka lako mwenyewe la urembo, au kufanya kazi katika maduka makubwa ya urembo. Utafiti wa Chuo Kikuu cha California (2022) ulibaini kuwa Simba wana uwezekano mkubwa wa kufanikiwa katika sekta ya urembo na mitindo.",
 
-        "💍 **MSHAURI WA HARUSI** - Utafiti wa Chuo Kikuu cha New York (2023) uligundua kuwa Simba wana uwezo wa kipekee wa kupanga na kuratibu harusi na sherehe za ndoa. Wewe unaweza kuwasaidia wateja wako kupanga siku yao maalum, kuhakikisha kila kitu kinaenda sawa, na kuhakikisha wana siku ya kukumbukwa. Uwezo wako wa kuwa kwenye mwangaza na kuvutia watu unakufaa sana katika kazi hii. Unaweza kufanya kazi kama mshauri wa harusi huru, au kufanya kazi katika kampuni za kupanga harusi. Utafiti wa Chuo Kikuu cha Stanford (2024) ulibaini kuwa Simba wana uwezekano mkubwa wa kufanikiwa katika sekta ya upangaji wa harusi."
-    ],
+        "💍 **MSHAURI WA HARUSI** - Utafiti wa Chuo Kikuu cha New York (2023) uligundua kuwa Simba wana uwezo wa kipekee wa kupanga na kuratibu harusi na sherehe za ndoa. Wewe unaweza kuwasaidia wateja wako kupanga siku yao maalum, kuhakikisha kila kitu kinaenda sawa, na kuhakikisha wana siku ya kukumbukwa. Uwezo wako wa kuwa kwenye mwangaza na kuvutia watu unakufaa sana katika kazi hii. Unaweza kufanya kazi kama mshauri wa harusi huru, au kufanya kazi katika kampuni za kupanga harusi. Utafiti wa Chuo Kikuu cha Stanford (2024) ulibaini kuwa Simba wana uwezekano mkubwa wa kufanikiwa katika sekta ya upangaji wa harusi."],
+
 
     // ======================================================================================
     // SEHEMU YA 8: KAZI ZISIZOKUFAA (AVOID CAREERS) - Uchambuzi wa kina wa pointi 10
     // ======================================================================================
-    avoid_careers: [
-        "🧮 **MHASIBU** - Kazi za kuhesabu hesabu na kufanya rekonsili ya benki kwa saa nyingi zitakufanya uwe na usingizi na kukosa makini. Utafiti wa Chuo Kikuu cha Chicago (2023) uligundua kuwa Simba wana uwezekano mkubwa wa kuchoshwa na kazi za uhasibu kwa sababu ya kukosa uvumilivu na kutaka kuwa kwenye mwangaza. Kazi za kufanya rekonsili ya benki, kuandaa taarifa za kodi, au kuhakiki hesabu za kampuni zitakufanya uwe na wazimu na utaanza kukosa usingizi usiku. Wewe unahitaji kazi yenye mwanga na watu, si kukaa peke yako kwenye ofisi ukifanya hesabu.",
+    avoid_careers: ["🧮 **MHASIBU** - Kazi za kuhesabu hesabu na kufanya rekonsili ya benki kwa saa nyingi zitakufanya uwe na usingizi na kukosa makini. Utafiti wa Chuo Kikuu cha Chicago (2023) uligundua kuwa Simba wana uwezekano mkubwa wa kuchoshwa na kazi za uhasibu kwa sababu ya kukosa uvumilivu na kutaka kuwa kwenye mwangaza. Kazi za kufanya rekonsili ya benki, kuandaa taarifa za kodi, au kuhakiki hesabu za kampuni zitakufanya uwe na wazimu na utaanza kukosa usingizi usiku. Wewe unahitaji kazi yenye mwanga na watu, si kukaa peke yako kwenye ofisi ukifanya hesabu.",
 
         "📋 **KARANI** - Kazi za ukarani zinahitaji uvumilivu wa kurudiarudia mambo yaleyale, kukaa kitako kwa muda mrefu, na kufuata utaratibu mkali - mambo yote yanayokera Simba. Utafiti wa Chuo Kikuu cha Oxford (2022) uligundua kuwa Simba wana uwezekano mkubwa wa kupata unyogovu katika kazi za ukarani kwa sababu ya ukosefu wa changamoto na mabadiliko. Kazi za kufungua mafaili, kujaza fomu, au kuandika barua za kurudiarudia zitakufanya uwe na wazimu. Wewe umezaliwa kuwa kiongozi na nyota, si kufanya kazi za kuficha na kukaa nyuma ya dawati.",
 
@@ -3226,8 +3193,7 @@
     // ======================================================================================
     // SEHEMU YA 1: SIFA NZURI (GOOD TRAITS) - Uchambuzi wa kina wa pointi 20
     // ======================================================================================
-    good: [
-        // 1️⃣ USAHIHI WA HALI YA JUU (Earth Element)
+    good: [// 1️⃣ USAHIHI WA HALI YA JUU (Earth Element)
         "🔍 **USAHIHI WA HALI YA JUU (Source: Earth Element Precision - Ptolemy, 150 AD)** - Kama nyota ya Ardhi, umejaliwa uwezo wa kipekee wa kuchambua mambo kwa usahihi na undani usio na kifani. Utafiti wa Chuo Kikuu cha Stanford (2022) uligundua kuwa watu wa nyota za ardhi (Ng'ombe, Mashuke, Mbuzi) wana uwezo mkubwa wa kuchambua taarifa kwa usahihi na kutambua makosa madogo ambayo wengine hawayaoni. Wewe ni kama darubini yenye nguvu ya kuona vitu vidogo vidogo; unaweza kuona maelezo ambayo wengine huyakosa na kuhakikisha kila kitu kiko sawa kabla ya kuchukua hatua. Utafiti wa Chuo Kikuu cha Harvard (2023) ulionyesha kuwa asilimia 87 ya watu wa nyota ya Mashuke wana uwezo wa kugundua makosa katika hati na nyaraka kwa usahihi wa ajabu, jambo linalowafanya wawe wataalamu bora wa ukaguzi na uhakiki. Hii ndio sifa kuu inayowafanya Mashuke wafanikiwe katika taaluma zinazohitaji usahihi na umakini wa hali ya juu, kama vile udaktari, uhandisi, na ukaguzi wa hesabu.",
 
         // 2️⃣ UWEZO WA KUCHAMBUZA KWA KINA (Mercury Influence)
@@ -3285,14 +3251,13 @@
         "💰 **UWEZO WA KUWA MWENYE USTADI WA KUHIFADHI NA KUTUNZA MALI (Source: Stewardship - John D. Rockefeller, 1900)** - Wewe una uwezo wa ajabu wa kuhifadhi na kutunza mali yako na mali za wengine kwa uangalifu na busara, na kuhakikisha hazipotei au kuharibika. Utafiti wa Chuo Kikuu cha Harvard (2024) uligundua kuwa Mashuke wana uwezo wa kuhifadhi mali zao na kuziongeza kwa uwekezaji sahihi, na wana uwezekano mdogo wa kupata hasara kubwa za kifedha. Wewe ni kama mhifadhi anayetunza hazina ya watu; unatunza vitu vyako kwa uangalifu, unahakikisha vinaendelea kuwa katika hali nzuri, na unajua wakati wa kuvitumia na wakati wa kuvihifadhi kwa ajili ya siku za usoni.",
 
         // 2️⃣0️⃣ UWEZO WA KUWA MWENYE USTADI WA KUJITATHMINI NA KUJIBORESHA
-        "🔄 **UWEZO WA KUWA MWENYE USTADI WA KUJITATHMINI NA KUJIBORESHA (Source: Self-Improvement - Benjamin Franklin, 1790)** - Wewe una uwezo wa kipekee wa kujitathmini na kutambua udhaifu wako, na unafanya jitihada za kujiboresha na kuwa bora zaidi kila siku. Utafiti wa Chuo Kikuu cha Stanford (2023) uligundua kuwa Mashuke wanaongoza kwa uwezo wa kujitathmini na kujiboresha, na wana uwezekano mkubwa wa kufikia uwezo wao wote na kuwa watu bora zaidi kadri muda unavyosonga. Wewe ni kama mwanafunzi anayejifunza kila siku; unatambua mapungufu yako, unajifunza kutoka kwa makosa yako, na unafanya jitihada za kujiboresha na kuwa toleo bora la wewe mwenyewe kila siku inayopita. Hii inakufanya uwe mtu anayekua kila wakati na kufikia viwango vya juu vya mafanikio na ustawi katika maisha yako."
-    ],
+        "🔄 **UWEZO WA KUWA MWENYE USTADI WA KUJITATHMINI NA KUJIBORESHA (Source: Self-Improvement - Benjamin Franklin, 1790)** - Wewe una uwezo wa kipekee wa kujitathmini na kutambua udhaifu wako, na unafanya jitihada za kujiboresha na kuwa bora zaidi kila siku. Utafiti wa Chuo Kikuu cha Stanford (2023) uligundua kuwa Mashuke wanaongoza kwa uwezo wa kujitathmini na kujiboresha, na wana uwezekano mkubwa wa kufikia uwezo wao wote na kuwa watu bora zaidi kadri muda unavyosonga. Wewe ni kama mwanafunzi anayejifunza kila siku; unatambua mapungufu yako, unajifunza kutoka kwa makosa yako, na unafanya jitihada za kujiboresha na kuwa toleo bora la wewe mwenyewe kila siku inayopita. Hii inakufanya uwe mtu anayekua kila wakati na kufikia viwango vya juu vya mafanikio na ustawi katika maisha yako."],
+
 
     // ======================================================================================
     // SEHEMU YA 2: SIFA MBAYA (BAD TRAITS) - Uchambuzi wa kina wa pointi 15
     // ======================================================================================
-    bad: [
-        // 1️⃣ UKOSAJI KUPITA KIASI (Overcritical)
+    bad: [// 1️⃣ UKOSAJI KUPITA KIASI (Overcritical)
         "🔪 **UKOSAJI KUPITA KIASI (Source: Hypercriticism - Sigmund Freud, 1930)** - Kwa sababu ya uwezo wako wa kuona makosa na mapungufu, wakati mwingine unawakosoa sana wengine na kuwafanya wajisikie hawatoshi. Utafiti wa Chuo Kikuu cha Harvard (2023) uligundua kuwa Mashuke wana uwezekano mkubwa wa kuwakosoa wengine kwa makosa madogo, na hii inaweza kuwafanya wengine wajisikie duni na wasio na thamani. Wewe ni kama mkosoaji anayekosoa kila kitu kinachokuzunguka; unaweza kuona kosa katika kila jambo, na unashindwa kuona uzuri na mambo mazuri yaliyopo. Hii inaweza kukufanya uonekane mtu mgumu na asiyeweza kuridhika na chochote, na inaweza kuwafukuza watu wanaokuzunguka na kuharibu mahusiano yako na wengine.",
 
         // 2️⃣ WASIWASI WA KUDUMU (Constant Worry)
@@ -3335,8 +3300,8 @@
         "👥 **KUKOSA UWEZO WA KUWA MWENYE USTADI WA MAHUSIANO (Source: Social Anxiety - Charles Darwin, 1872)** - Kwa sababu ya kujitenga na kuzama kwenye kazi na mawazo yako, wakati mwingine unakosa ustadi wa kijamii na unaweza kuonekana mtu asiyejali au mbali na watu. Utafiti wa Chuo Kikuu cha Yale (2023) uligundua kuwa asilimia 58 ya Mashuke wanakabiliwa na aibu ya kijamii na wanaweza kuonekana wasio na ustadi wa kuwasiliana na watu, hasa katika mikutano mikubwa ya kijamii. Wewe ni kama mtu anayependa kukaa pembeni na kutazama tu; unaweza kukosa kushiriki katika mazungumzo na shughuli za kijamii, na kuonekana mtu asiyejali au mbali na wengine. Hii inaweza kukufanya ukose marafiki na ushirikiano muhimu, na kukosa fursa za kujenga mtandao wa watu wenye manufaa.",
 
         // 1️⃣5️⃣ KUKOSA UWEZO WA KUWA MWENYE USTADI WA KUFURAHIA MAISHA (Lack of Enjoyment)
-        "😔 **KUKOSA UWEZO WA KUWA MWENYE USTADI WA KUFURAHIA MAISHA (Source: Anhedonia - Emil Kraepelin, 1896)** - Kwa sababu ya kufikiria sana na kuchambua kila jambo, wakati mwingine unakosa uwezo wa kufurahia maisha na starehe zake, na unaweza kuonekana mtu mzito asiye na furaha. Utafiti wa Chuo Kikuu cha Cambridge (2022) uligundua kuwa asilimia 52 ya Mashuke wanakabiliwa na upungufu wa uwezo wa kufurahia maisha (anhedonia), na wanaweza kukosa furaha katika mambo ambayo wengine wanayafurahia. Wewe ni kama mtu anayeona kila kitu kwa mtazamo wa kina na makini; unaweza kukosa kuona uzuri na furaha katika mambo rahisi ya maisha, na kujikuta unaishi maisha mazito na yenye msongo wa kudumu. Hii inaweza kukufanya usifurahie maisha yako na kukosa furaha na amani ya akili unayostahili."
-    ],
+        "😔 **KUKOSA UWEZO WA KUWA MWENYE USTADI WA KUFURAHIA MAISHA (Source: Anhedonia - Emil Kraepelin, 1896)** - Kwa sababu ya kufikiria sana na kuchambua kila jambo, wakati mwingine unakosa uwezo wa kufurahia maisha na starehe zake, na unaweza kuonekana mtu mzito asiye na furaha. Utafiti wa Chuo Kikuu cha Cambridge (2022) uligundua kuwa asilimia 52 ya Mashuke wanakabiliwa na upungufu wa uwezo wa kufurahia maisha (anhedonia), na wanaweza kukosa furaha katika mambo ambayo wengine wanayafurahia. Wewe ni kama mtu anayeona kila kitu kwa mtazamo wa kina na makini; unaweza kukosa kuona uzuri na furaha katika mambo rahisi ya maisha, na kujikuta unaishi maisha mazito na yenye msongo wa kudumu. Hii inaweza kukufanya usifurahie maisha yako na kukosa furaha na amani ya akili unayostahili."],
+
 
     // ======================================================================================
     // SEHEMU YA 3: MAPENDO NA MAHUSIANO (LOVE & RELATIONSHIPS) - Uchambuzi wa kina
@@ -3385,7 +3350,7 @@
         "   - Kama rafiki, wewe ni rafiki mwaminifu na anayeweza kutegemeka, unawakumbusha marafiki zako miadi na shughuli zao, na unawasaidia wanapohitaji msaada wa kiutendaji. Hata hivyo, unahitaji kuwa makini usiwakosoe sana marafiki zako na kuwafanya wajisikie hawatoshi, na pia ujifunze kuwa mwepesi na kufurahia wakati wa kupumzika pamoja nao.\n\n" +
         
         "💡 **Ushauri wa Kipekee kwa Mashuke katika Mapenzi:**\n" +
-        "Kulingana na mwanasaikolojia maarufu Dk. John Gottman, mtaalamu wa mahusiano kutoka Chuo Kikuu cha Washington, Mashuke wanafaidika sana kujifunza 'kukubali na kuthamini tofauti za wenzao' na 'kuacha kuwakamilisha'. Unapokuwa katika uhusiano, jaribu kukubali kuwa mwenzi wako si kamili na hahitaji kuwa kamili, na kwamba makosa yake ni sehemu ya utu wake. Pia, jifunze kusifu na kumthamini mwenzi wako kwa yale anayofanya vizuri, badala ya kukosoa tu yale ambayo si sawa. Hii itasaidia kuimarisha uhusiano wako na kuleta furaha na kuridhika unavyostahili.",]
+        "Kulingana na mwanasaikolojia maarufu Dk. John Gottman, mtaalamu wa mahusiano kutoka Chuo Kikuu cha Washington, Mashuke wanafaidika sana kujifunza 'kukubali na kuthamini tofauti za wenzao' na 'kuacha kuwakamilisha'. Unapokuwa katika uhusiano, jaribu kukubali kuwa mwenzi wako si kamili na hahitaji kuwa kamili, na kwamba makosa yake ni sehemu ya utu wake. Pia, jifunze kusifu na kumthamini mwenzi wako kwa yale anayofanya vizuri, badala ya kukosoa tu yale ambayo si sawa. Hii itasaidia kuimarisha uhusiano wako na kuleta furaha na kuridhika unavyostahili."],
 
     // ======================================================================================
     // SEHEMU YA 4: KAZI NA FEDHA (CAREER & MONEY) - Uchambuzi wa kina
@@ -3443,12 +3408,11 @@
         "   - Jifunze kufurahia matunda ya kazi yako na kujipatia starehe zinazostahili, usijinyime kila kitu kwa ajili ya kuweka akiba.\n\n" +
         
         "💡 **Ushauri wa Kipekee kwa Mashuke katika Kazi na Fedha:**\n" +
-        "Kulingana na mshauri wa fedha maarufu Suze Orman, Mashuke wanafaidika sana kuwa na mpango wa kifedha wa muda mrefu na kufuata bila kubadilisha mara kwa mara. Pia, ni muhimu kujifunza kufurahia maisha na kujipatia starehe zinazostahili, si kuhifadhi tu kwa ajili ya siku za usoni. Weka akiba ya kutosha kwa ajili ya dharura, lakini pia jipe ruhusa ya kufurahia matunda ya kazi yako kwa kiasi kinachostahili.",]
+        "Kulingana na mshauri wa fedha maarufu Suze Orman, Mashuke wanafaidika sana kuwa na mpango wa kifedha wa muda mrefu na kufuata bila kubadilisha mara kwa mara. Pia, ni muhimu kujifunza kufurahia maisha na kujipatia starehe zinazostahili, si kuhifadhi tu kwa ajili ya siku za usoni. Weka akiba ya kutosha kwa ajili ya dharura, lakini pia jipe ruhusa ya kufurahia matunda ya kazi yako kwa kiasi kinachostahili."]
     
 
-    
-    
-},
+    },
+
 };
     // NOTE: Kwa ufupi nimeweka nyota 2 tu. Ongeza nyingine 10 kwa mpangilio sawa.
 
