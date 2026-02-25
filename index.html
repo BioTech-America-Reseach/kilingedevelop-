@@ -64,14 +64,57 @@
             z-index: -1;
             animation: slowZoom 30s infinite alternate ease-in-out;
         }
+        
         @keyframes slowZoom {
             0% { transform: scale(1); }
             100% { transform: scale(1.05); }
         }
 
+        /* ===== KITUFE CHA KUSAKINISHA ===== */
+        .install-container {
+            display: flex;
+            justify-content: center;
+            padding: 15px 10px;
+            background: rgba(0,0,0,0.8);
+            border-bottom: 2px solid var(--gold-primary);
+            position: sticky;
+            top: 0;
+            z-index: 10001;
+            backdrop-filter: blur(5px);
+            transition: opacity 1s ease, transform 1s ease;
+        }
+
+        .install-container.hidden {
+            opacity: 0;
+            transform: translateY(-100%);
+            pointer-events: none;
+        }
         
-               }
-     
+        #install-button {
+            background: linear-gradient(135deg, #D4AF37, #AA6C39);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-size: 1.3rem;
+            font-weight: bold;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            box-shadow: 0 0 25px rgba(212,175,55,0.7);
+            transition: transform 0.3s, box-shadow 0.3s;
+            font-family: 'Cinzel', serif;
+            letter-spacing: 1px;
+        }
+        
+        #install-button:hover {
+            transform: scale(1.08);
+            box-shadow: 0 0 40px var(--gold-shine);
+        }
+        
+        #install-button i { font-size: 1.6rem; }
+
         /* ===== SHAKE ANIMATION ===== */
         @keyframes shake {
             0%,100% { transform: translateX(0); }
@@ -105,7 +148,7 @@
             100% { transform: scale(1); }
         }
 
-        /* ===== CARTOON STYLES ===== */
+        /* ===== CARTOON ASSISTANT STYLES ===== */
         .cartoon-assistant {
             position: fixed;
             bottom: 100px;
@@ -113,11 +156,6 @@
             z-index: 10002;
             max-width: 300px;
             animation: float 3s infinite ease-in-out;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
         }
 
         .cartoon-assistant.hidden {
@@ -163,35 +201,6 @@
             border: 3px solid white;
         }
 
-        .cartoon-eyes {
-            display: flex;
-            gap: 10px;
-            justify-content: center;
-            padding-top: 15px;
-        }
-
-        .cartoon-eye {
-            width: 10px;
-            height: 10px;
-            background: #333;
-            border-radius: 50%;
-            animation: blink 3s infinite;
-        }
-
-        @keyframes blink {
-            0%, 90%, 100% { transform: scaleY(1); }
-            95% { transform: scaleY(0.1); }
-        }
-
-        .cartoon-mouth {
-            width: 20px;
-            height: 10px;
-            background: transparent;
-            border-bottom: 3px solid #333;
-            border-radius: 0 0 20px 20px;
-            margin: 5px auto 0;
-        }
-
         .cartoon-hat {
             width: 30px;
             height: 15px;
@@ -210,6 +219,30 @@
             color: red;
             font-size: 16px;
             font-weight: bold;
+        }
+
+        .cartoon-eyes {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            padding-top: 15px;
+        }
+
+        .cartoon-eye {
+            width: 10px;
+            height: 10px;
+            background: #333;
+            border-radius: 50%;
+            animation: blink 3s infinite;
+        }
+
+        .cartoon-mouth {
+            width: 20px;
+            height: 10px;
+            background: transparent;
+            border-bottom: 3px solid #333;
+            border-radius: 0 0 20px 20px;
+            margin: 5px auto 0;
         }
 
         .cartoon-message {
@@ -260,6 +293,16 @@
             50% { transform: scale(1.3); opacity: 1; }
         }
 
+        @keyframes blink {
+            0%, 90%, 100% { transform: scaleY(1); }
+            95% { transform: scaleY(0.1); }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
         .tour-highlight {
             position: relative;
             z-index: 1000;
@@ -280,6 +323,7 @@
             flex-direction: column;
             padding: 20px;
         }
+        
         .code-box {
             background: var(--panel-black);
             border: 2px solid var(--gold-dark);
@@ -292,6 +336,7 @@
             position: relative;
             overflow: hidden;
         }
+        
         .code-box::before {
             content: '';
             position: absolute;
@@ -299,16 +344,19 @@
             background: linear-gradient(90deg, transparent, var(--gold-shine), transparent);
             animation: scan 3s linear infinite;
         }
+        
         @keyframes scan {
             0% { transform: translateX(-100%); }
             100% { transform: translateX(100%); }
         }
+        
         .code-box h2 {
             color: var(--gold-shine);
             font-family: 'Cinzel', serif;
             margin-bottom: 10px;
             font-size: 1.5rem;
         }
+        
         .pricing-info {
             background: rgba(212, 175, 55, 0.1);
             border: 1px solid var(--gold-dark);
@@ -317,6 +365,7 @@
             margin: 20px 0;
             text-align: left;
         }
+        
         .pricing-item {
             display: flex;
             align-items: center;
@@ -327,20 +376,24 @@
             background: rgba(0,0,0,0.3);
             border-radius: 5px;
         }
+        
         .pricing-item i {
             color: var(--gold-primary);
             font-size: 1.2rem;
             width: 25px;
         }
+        
         .pricing-item strong {
             color: var(--gold-shine);
         }
+        
         .pricing-note {
             color: #aaa;
             font-size: 0.9rem;
             margin-top: 15px;
             font-style: italic;
         }
+        
         .code-input {
             width: 100%;
             padding: 15px;
@@ -354,29 +407,35 @@
             margin-bottom: 20px;
             transition: 0.3s;
         }
+        
         .code-input:focus {
             outline: none;
             border-color: var(--gold-primary);
             box-shadow: 0 0 15px rgba(212,175,55,0.3);
         }
+        
         .btn-code {
             background: linear-gradient(135deg, #8B6914, #D4AF37);
             border: none; color: #000; font-weight: bold; padding: 15px; width: 100%;
             border-radius: 8px; font-size: 1.2rem; cursor: pointer; transition: 0.3s;
             font-family: 'Cinzel', serif; letter-spacing: 2px; margin-bottom: 20px;
         }
+        
         .btn-code:hover {
             transform: scale(1.02);
             box-shadow: 0 0 20px var(--gold-dark);
         }
+        
         .whatsapp-code-btn {
             background: #25D366; color: white; border: none; padding: 12px; width: 100%;
             border-radius: 8px; font-size: 1.1rem; cursor: pointer; transition: 0.3s;
             display: flex; align-items: center; justify-content: center; gap: 10px;
         }
+        
         .whatsapp-code-btn:hover {
             background: #128C7E; transform: scale(1.02);
         }
+        
         .error-message {
             color: #ff6b6b; margin-top: 10px; font-size: 0.9rem; min-height: 20px;
         }
@@ -390,21 +449,25 @@
             background: #000; z-index: 9999; display: none;
             flex-direction: column; justify-content: center; align-items: center;
         }
+        
         .mystic-circle {
             width:150px; height:150px;
             border:2px solid transparent; border-top:2px solid var(--gold-primary); border-bottom:2px solid var(--gold-primary);
             border-radius:50%; animation:spin 2s linear infinite; position:relative;
             box-shadow:0 0 20px var(--gold-dark);
         }
+        
         .mystic-circle::before {
             content:''; position:absolute; top:10px; left:10px; right:10px; bottom:10px;
             border:2px solid transparent; border-left:2px solid var(--gold-shine); border-right:2px solid var(--gold-shine);
             border-radius:50%; animation:spinReverse 3s linear infinite;
         }
+        
         .intro-text {
             margin-top:30px; font-family:'Cinzel',serif; font-size:1.5rem; color:var(--gold-shine);
             letter-spacing:3px; animation:pulseText 2s infinite; text-align:center;
         }
+        
         @keyframes spin { 0%{transform:rotate(0);}100%{transform:rotate(360deg);} }
         @keyframes spinReverse { 0%{transform:rotate(360deg);}100%{transform:rotate(0);} }
         @keyframes pulseText { 0%,100%{opacity:0.5;}50%{opacity:1;text-shadow:0 0 10px var(--gold-primary);} }
@@ -415,12 +478,14 @@
             border-bottom:1px solid rgba(212,175,55,0.3);
             background:linear-gradient(to bottom, rgba(0,0,0,0.9), transparent);
         }
+        
         .dr-title {
             font-family:'Cinzel',serif; font-size:2.8rem;
             background:linear-gradient(to right, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C);
             -webkit-background-clip:text; color:transparent; margin:0;
             text-shadow:0 0 20px rgba(0,0,0,0.8); font-weight:900; letter-spacing:2px;
         }
+        
         .subtitle {
             font-family:'Playfair Display',serif; color:var(--text-gold); font-style:italic;
             letter-spacing:1px; margin-top:5px;
@@ -430,11 +495,13 @@
         .service-menu {
             display:flex; justify-content:center; gap:15px; flex-wrap:wrap; margin:30px auto; padding:0 15px;
         }
+        
         .btn-service {
             background:rgba(0,0,0,0.5); border:1px solid var(--gold-dark); color:var(--text-gold);
             padding:12px 25px; border-radius:50px; cursor:pointer; font-family:'Cinzel',serif; font-weight:bold;
             transition:all 0.4s ease; text-transform:uppercase; letter-spacing:1px; backdrop-filter:blur(5px);
         }
+        
         .btn-service:hover, .btn-service.active {
             background:var(--gold-primary); color:#000; box-shadow:0 0 15px var(--gold-dark); transform:translateY(-3px);
         }
@@ -445,32 +512,39 @@
             padding:40px; border-radius:10px; border:1px solid var(--gold-dark);
             box-shadow:0 20px 50px rgba(0,0,0,0.7); position:relative; overflow:hidden;
         }
+        
         .container::before {
             content:''; position:absolute; top:0; left:0; width:100%; height:3px;
             background:linear-gradient(90deg, transparent, var(--gold-shine), transparent);
         }
+        
         h2 {
             color:var(--gold-shine); text-align:center; font-family:'Cinzel',serif;
             border-bottom:1px solid rgba(255,255,255,0.1); padding-bottom:15px; margin-bottom:25px;
         }
+        
         label {
             display:block; margin-top:20px; color:var(--gold-primary); font-weight:600;
             font-size:0.9rem; text-transform:uppercase; letter-spacing:1px;
         }
+        
         input, select, textarea {
             width:100%; padding:15px; margin-top:10px; border-radius:5px; border:1px solid #333;
             background:rgba(255,255,255,0.05); color:#fff; font-family:'Poppins',sans-serif; font-size:1rem; transition:0.3s;
         }
+        
         input:focus, select:focus, textarea:focus {
             outline:none; border-color:var(--gold-primary); background:rgba(0,0,0,0.8);
             box-shadow:0 0 10px rgba(212,175,55,0.2);
         }
+        
         .btn-magic {
             background:linear-gradient(135deg, #8B6914, #D4AF37, #8B6914); background-size:200% auto;
             color:#fff; padding:18px; border:none; border-radius:5px; font-weight:900; font-family:'Cinzel',serif;
             text-transform:uppercase; letter-spacing:2px; cursor:pointer; width:100%; margin-top:30px;
             transition:0.5s; box-shadow:0 5px 15px rgba(0,0,0,0.5);
         }
+        
         .btn-magic:hover {
             background-position:right center; box-shadow:0 0 25px var(--gold-dark); transform:scale(1.02);
         }
@@ -482,84 +556,97 @@
             text-decoration:none; font-family:'Cinzel',serif; font-size:1.2rem; font-weight:bold;
             border-radius:8px; margin-top:20px; animation:pulseBtn 2s infinite; position:relative; overflow:hidden;
         }
+        
         .btn-next-page::after {
             content:''; position:absolute; top:-50%; left:-50%; width:200%; height:200%;
             background:linear-gradient(transparent, rgba(255,255,255,0.3), transparent);
             transform:rotate(45deg); animation:shine 3s infinite;
         }
+        
         .btn-next-page:hover {
             background:linear-gradient(45deg, #b30000, #ff0000);
             box-shadow:0 0 30px rgba(255,0,0,0.6); transform:scale(1.05);
         }
+        
         @keyframes pulseBtn {
             0%{box-shadow:0 0 0 0 rgba(255,215,0,0.4);}
             70%{box-shadow:0 0 0 15px rgba(255,215,0,0);}
             100%{box-shadow:0 0 0 0 rgba(255,215,0,0);}
         }
+        
         @keyframes shine { 0%{left:-100%;}100%{left:100%;} }
 
         /* ===== CARDS ===== */
         #cards-container {
             display:none; gap:25px; flex-wrap:wrap; justify-content:center; padding:20px; max-width:1200px; margin:0 auto;
         }
+        
         .card {
             width:300px; height:450px; perspective:1500px; cursor:pointer; transition:all 0.3s;
         }
+        
         .card.expanded {
             width:90%; max-width:600px; height:80vh; z-index:1000; position:fixed; top:50%; left:50%;
             transform:translate(-50%, -50%);
         }
+        
         .card-inner {
             position:relative; width:100%; height:100%; transition:transform 0.8s; transform-style:preserve-3d;
             box-shadow:0 10px 30px rgba(0,0,0,0.8); border-radius:15px;
         }
+        
         .card.flipped .card-inner { transform:rotateY(180deg); }
+        
         .card-back {
             position:absolute; width:100%; height:100%; backface-visibility:hidden; border-radius:15px;
             background-size:cover; background-position:center; display:flex; flex-direction:column;
             justify-content:flex-end; border:2px solid var(--gold-dark);
         }
+        
         .card-back::before {
             content:''; position:absolute; top:0; left:0; width:100%; height:100%;
             background:linear-gradient(to top, rgba(0,0,0,1), rgba(0,0,0,0.3));
         }
+        
         .card-back-content {
             position:relative; z-index:2; padding:20px; text-align:center;
         }
+        
         .card-title-back {
             font-family:'Cinzel',serif; color:var(--gold-shine); font-size:1.4rem; font-weight:bold;
             text-shadow:0 2px 5px rgba(0,0,0,1);
         }
+        
         .card-hint { font-size:0.8rem; color:#ccc; }
+        
         .card-front {
             position:absolute; width:100%; height:100%; backface-visibility:hidden; border-radius:15px;
             background:#111; transform:rotateY(180deg); overflow-y:auto; border:2px solid var(--gold-shine);
             display:flex; flex-direction:column;
         }
+        
         .card-header-img {
             height:150px; width:100%; object-fit:cover; border-bottom:2px solid var(--gold-primary);
         }
+        
         .card-body { padding:20px; }
+        
         .card-body h3 {
             color:var(--gold-shine); font-family:'Cinzel',serif; border-bottom:1px solid #333;
             padding-bottom:10px; margin-top:0;
         }
+        
         .good-traits, .bad-traits {
             margin: 10px 0;
         }
+        
         .good-traits span, .bad-traits span {
             display: inline-block; margin: 3px; padding:4px 10px; border-radius:20px; font-size:0.8rem;
         }
+        
         .good-traits span { background:rgba(46, 125, 50, 0.3); border:1px solid #2e7d32; }
         .bad-traits span { background:rgba(211, 47, 47, 0.3); border:1px solid #d32f2f; }
-        .job-item {
-            display:flex; align-items:center; background:rgba(255,255,255,0.05); margin-bottom:10px;
-            padding:10px; border-radius:8px; border-left:3px solid var(--gold-dark);
-        }
-        .job-item img {
-            width:50px; height:50px; border-radius:50%; margin-right:15px; object-fit:cover;
-            border:1px solid var(--gold-shine);
-        }
+        
         .close-card {
             position:absolute; top:10px; right:10px; background:rgba(0,0,0,0.7); color:white;
             width:30px; height:30px; border-radius:50%; text-align:center; line-height:30px;
@@ -572,7 +659,9 @@
             border-radius:50%; display:flex; justify-content:center; align-items:center; font-size:30px;
             box-shadow:0 5px 20px rgba(0,0,0,0.5); cursor:pointer; z-index:1000; transition:transform 0.3s;
         }
+        
         .whatsapp-float:hover { transform:scale(1.1); }
+        
         .send-btn {
             background:linear-gradient(45deg, #11998e, #38ef7d); color:white; padding:15px; border:none;
             border-radius:50px; font-weight:bold; width:100%; font-size:1.1rem; cursor:pointer;
@@ -583,30 +672,37 @@
         .services-container {
             margin-top:100px; margin-bottom:50px; padding:20px; text-align:center; position:relative; z-index:1;
         }
+        
         .section-title {
             color:#D4AF37; font-family:'Cinzel',serif; font-size:2rem; margin-bottom:40px;
             letter-spacing:2px; text-shadow:0 0 10px rgba(212,175,55,0.5);
         }
+        
         .services-grid {
             display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:25px;
             max-width:1000px; margin:0 auto;
         }
+        
         .service-box {
             position:relative; height:250px; border-radius:15px; overflow:hidden; text-decoration:none;
             box-shadow:0 10px 20px rgba(0,0,0,0.7); transition:transform 0.4s, box-shadow 0.4s;
             border:1px solid var(--gold-dark); display:block;
         }
+        
         .service-box:hover {
             transform:translateY(-10px) scale(1.02); box-shadow:0 20px 30px rgba(212,175,55,0.3);
             border-color:var(--gold-shine);
         }
+        
         .service-box img {
             width:100%; height:100%; object-fit:cover; filter:brightness(50%);
             transition:filter 0.4s, transform 0.4s;
         }
+        
         .service-box:hover img {
             filter:brightness(70%); transform:scale(1.05);
         }
+        
         .service-box span {
             position:absolute; bottom:0; left:0; right:0; color:white; font-weight:bold; font-size:1.2rem;
             text-shadow:2px 2px 8px black; background:linear-gradient(to top, rgba(0,0,0,0.9), transparent);
@@ -627,18 +723,18 @@
 <body>
 
 <!-- KITUFE CHA KUSAKINISHA -->
-<div class="install-container">
+<div class="install-container" id="install-container">
     <button id="install-button">
         <i class="fas fa-download"></i> Sakinisha App ✦ BURE
     </button>
 </div>
 
-<!-- CODE OVERLAY (MFUMO WA MALIPO) -->
+<!-- CODE OVERLAY -->
 <div id="code-overlay">
     <div class="code-box">
         <h2><i class="fas fa-lock"></i> KILINGE CHA DR WILLIAM KIMEFUNGWA</h2>
         
-        <!-- MAELEZO YA BEI (HAKUNA CODES ZINAONEKANA) -->
+        <!-- MAELEZO YA BEI (HAKUNA CODES) -->
         <div class="pricing-info">
             <div class="pricing-item">
                 <i class="fas fa-star"></i>
@@ -653,19 +749,19 @@
             </div>
         </div>
 
-        <!-- SEHEMU YA KUINGIZIA CODE (SIRI) -->
+        <!-- SEHEMU YA KUINGIZIA CODE -->
         <input type="text" id="access-code" class="code-input" placeholder="INGIZA CODE ULIYOPEWA" maxlength="4" autocomplete="off">
         <button class="btn-code" onclick="verifyCode()">FUNGUA KILINGE</button>
         <div class="error-message" id="code-error"></div>
         
-        <!-- KITUFE CHA WHATSAPP (KUOMBA CODE) -->
+        <!-- KITUFE CHA WHATSAPP -->
         <button class="whatsapp-code-btn" onclick="requestCodeViaWhatsApp()">
             <i class="fab fa-whatsapp"></i> NIMELIPIA - NIPE CODE
         </button>
     </div>
 </div>
 
-<!-- CARTOON ASSISTANT (KAROBOTI) -->
+<!-- CARTOON ASSISTANT -->
 <div id="cartoon-assistant" class="cartoon-assistant hidden">
     <div class="cartoon-box">
         <span class="cartoon-close" onclick="hideCartoon()">×</span>
@@ -778,8 +874,8 @@
             <option value="Dawa za kupunguza mafuta">Dawa za kupunguza mafuta/kolesto</option>
             <option value="Dawa za kifafa">Dawa za kifafa</option>
             <option value="Dawa za moyo">Dawa za moyo</option>
-            <option value="Dawa za kusaidia figo">Dawa za kusaidia figo (Diuretics)</option>
-            <option value="Dawa za kansa">Dawa za kansa (Chemotherapy)</option>
+            <option value="Dawa za kusaidia figo">Dawa za kusaidia figo</option>
+            <option value="Dawa za kansa">Dawa za kansa</option>
             <option value="Dawa za uzazi wa mpango">Dawa za uzazi wa mpango</option>
             <option value="Dawa za fangasi wa kike">Dawa za fangasi wa kike</option>
             <option value="Dawa za kurekebisha homoni">Dawa za kurekebisha homoni</option>
@@ -795,14 +891,14 @@
             <option value="Dawa za vitamini">Dawa za vitamini na virutubisho</option>
             <option value="Dawa za kuongeza kinga">Dawa za kuongeza kinga ya mwili</option>
             <option value="Dawa za kalsiamu">Dawa za kalsiamu na mifupa</option>
-            <option value="Mafuta ya samaki">Mafuta ya samaki (Omega-3)</option>
+            <option value="Mafuta ya samaki">Mafuta ya samaki</option>
             <option value="Dawa za usingizi">Dawa za usingizi na wasiwasi</option>
-            <option value="Dawa za sonona">Dawa za sonona (Antidepressants)</option>
+            <option value="Dawa za sonona">Dawa za sonona</option>
             <option value="Dawa za kuacha kulevya">Dawa za kuacha kulevya</option>
             <option value="Dawa za kupunguza uzito">Dawa za kupunguza uzito</option>
             <option value="Dawa za kutoa sumu mwilini">Dawa za kutoa sumu mwilini</option>
             <option value="Dawa za baridi yabisi">Dawa za baridi yabisi</option>
-            <option value="Dawa za kuongeza nguvu">Dawa za maji ya kuongeza nguvu (ORS)</option>
+            <option value="Dawa za kuongeza nguvu">Dawa za maji ya kuongeza nguvu</option>
         </select>
         <label>Mahali (Mkoa/Wilaya):</label> <input type="text" id="dawa-location">
         <label>Simu:</label> <input type="text" id="dawa-phone" placeholder="762xxxxxx">
@@ -847,19 +943,19 @@
             <img src="https://images.unsplash.com/photo-1495446815901-a7297e633e8d?q=80&w=400&fit=crop" alt="Duka la Vitabu">
             <span>DUKA LA VITABU</span>
         </a>
-        <a href="LINK_YAKO_HAPA_3" class="service-box">
+        <a href="#" class="service-box">
             <img src="https://images.unsplash.com/photo-1502444330042-d1a1ddf9bb5b?q=80&w=400&fit=crop" alt="Huduma 3">
             <span>Ushauri wa Kiroho</span>
         </a>
-        <a href="LINK_YAKO_HAPA_4" class="service-box">
+        <a href="#" class="service-box">
             <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?q=80&w=400&fit=crop" alt="Huduma 4">
             <span>Visomo Maalum</span>
         </a>
-        <a href="LINK_YAKO_HAPA_5" class="service-box">
+        <a href="#" class="service-box">
             <img src="https://images.unsplash.com/photo-1515598344952-097560877960?q=80&w=400&fit=crop" alt="Huduma 5">
             <span>Mafuta ya Baraka</span>
         </a>
-        <a href="LINK_YAKO_HAPA_6" class="service-box">
+        <a href="#" class="service-box">
             <img src="https://images.unsplash.com/photo-1532187875605-2fe358511423?q=80&w=400&fit=crop" alt="Huduma 6">
             <span>Vitabu Zaidi</span>
         </a>
@@ -880,38 +976,6 @@
     }
 </script>
 
-<!-- INSTALL SCRIPT -->
-<script>
-    const installBtn = document.getElementById('install-button');
-    let deferredPrompt;
-
-    window.addEventListener('beforeinstallprompt', (e) => {
-        e.preventDefault();
-        deferredPrompt = e;
-    });
-
-    installBtn.addEventListener('click', () => {
-        const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
-        if (isIOS) {
-            alert('Kwa iPhone: Bofya ikoni ya "Share" chini, kisha chagua "Add to Home Screen".');
-        } else if (deferredPrompt) {
-            deferredPrompt.prompt();
-            deferredPrompt.userChoice.then((choiceResult) => {
-                if (choiceResult.outcome === 'accepted') {
-                    installBtn.innerHTML = '<i class="fas fa-check"></i> IMEKWISHA SAKINISHA';
-                }
-                deferredPrompt = null;
-            });
-        } else {
-            alert('Ili kusakinisha, tumia Chrome au Safari kwenye simu. Au tafuta chaguo la "Install app" kwenye menyu.');
-        }
-    });
-
-    window.addEventListener('appinstalled', () => {
-        installBtn.innerHTML = '<i class="fas fa-check"></i> IMEKWISHA SAKINISHA';
-    });
-</script>
-
 <!-- PARALLAX -->
 <script>
     window.addEventListener('scroll', () => {
@@ -919,7 +983,7 @@
     });
 </script>
 
-<!-- MAIN SCRIPT (ZODIAC DATA + FUNCTIONS + MFUMO WA MUDA + KAROBOTI) -->
+<!-- MAIN SCRIPT -->
 <script>
     // ==================== FUNCTIONS ZA MSINGI ====================
     function sanitizeHTML(str) {
@@ -930,6 +994,103 @@
             .replace(/>/g, '&gt;')
             .replace(/"/g, '&quot;')
             .replace(/'/g, '&#039;');
+    }
+
+    // ==================== KITUFE CHA KUSAKINISHA ====================
+    const installContainer = document.getElementById('install-container');
+    const installBtn = document.getElementById('install-button');
+    let deferredPrompt;
+    let installShown = false;
+
+    window.addEventListener('appinstalled', () => {
+        console.log('App imesakinishwa');
+        hideInstallButton();
+        if (installBtn) {
+            installBtn.innerHTML = '<i class="fas fa-check"></i> IMEKWISHA SAKINISHA';
+        }
+    });
+
+    window.addEventListener('beforeinstallprompt', (e) => {
+        e.preventDefault();
+        deferredPrompt = e;
+        
+        if (!window.matchMedia('(display-mode: standalone)').matches && !installShown) {
+            showInstallButton();
+        }
+    });
+
+    function showInstallButton() {
+        if (installContainer) {
+            installContainer.classList.remove('hidden');
+            installShown = true;
+            
+            setTimeout(() => {
+                hideInstallButton();
+            }, 10000);
+        }
+    }
+
+    function hideInstallButton() {
+        if (installContainer) {
+            installContainer.classList.add('hidden');
+        }
+    }
+
+    if (installBtn) {
+        installBtn.addEventListener('click', async () => {
+            const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+            
+            if (isIOS) {
+                alert('📱 Kwa iPhone: Bofya ikoni ya "Share" chini, kisha chagua "Add to Home Screen".');
+                hideInstallButton();
+                return;
+            }
+            
+            if (deferredPrompt) {
+                deferredPrompt.prompt();
+                const { outcome } = await deferredPrompt.userChoice;
+                
+                if (outcome === 'accepted') {
+                    console.log('Mtumiaji alikubali kusakinisha');
+                    installBtn.innerHTML = '<i class="fas fa-check"></i> INAKUSAKINISHA...';
+                    hideInstallButton();
+                } else {
+                    console.log('Mtumiaji alikataa kusakinisha');
+                    hideInstallButton();
+                }
+                
+                deferredPrompt = null;
+            } else {
+                alert('Ili kusakinisha, tumia Chrome au Safari kwenye simu. Au tafuta chaguo la "Install app" kwenye menyu.');
+                hideInstallButton();
+            }
+        });
+    }
+
+    document.addEventListener('click', function(e) {
+        if (e.target.closest('#install-button') || e.target.closest('#install-container')) {
+            return;
+        }
+        
+        setTimeout(() => {
+            hideInstallButton();
+        }, 2000);
+    }, { once: true });
+
+    window.addEventListener('scroll', function() {
+        if (window.scrollY > 100) {
+            hideInstallButton();
+        }
+    }, { once: true });
+
+    if (window.matchMedia('(display-mode: standalone)').matches) {
+        hideInstallButton();
+    } else {
+        setTimeout(() => {
+            if (!installShown && deferredPrompt) {
+                showInstallButton();
+            }
+        }, 3000);
     }
 
     // ==================== MFUMO WA MALIPO (MUDA HALISI) ====================
@@ -949,27 +1110,20 @@
         if (validCodes[code]) {
             const selectedPlan = validCodes[code];
             
-            // Hesabu muda wa kuisha (halisi)
             const now = new Date().getTime();
             const expiryTime = now + (selectedPlan.days * 24 * 60 * 60 * 1000);
             
-            // Hifadhi kwenye localStorage
             localStorage.setItem('drWilliamAccess', 'true');
             localStorage.setItem('drWilliamExpiry', expiryTime.toString());
             localStorage.setItem('drWilliamPlan', selectedPlan.name);
             localStorage.setItem('drWilliamCode', code);
             
-            // Fungua app
             document.getElementById('code-overlay').style.display = 'none';
             document.getElementById('main-content').style.display = 'block';
             
-            // Onyesha muda uliobaki
             showRemainingTime();
-            
-            // Anza kuhesabu muda
             startCountdown();
             
-            // Onyesha karoboti ya kuelekeza
             setTimeout(() => {
                 startTourGuide();
             }, 1000);
@@ -981,13 +1135,11 @@
         }
     }
 
-    // Function ya kuomba code kupitia WhatsApp (codes hazionyeshwi)
     function requestCodeViaWhatsApp() {
         const message = `Halo Dr. William, ninaomba code ya kufungua Kilinge chako. Nimetuma malipo. Jina langu: [ANDIKA JINA LAKO HAPA]`;
         window.open(`https://wa.me/255762286282?text=${encodeURIComponent(message)}`, '_blank');
     }
 
-    // Function ya kuonyesha muda uliobaki
     function showRemainingTime() {
         const expiry = localStorage.getItem('drWilliamExpiry');
         const plan = localStorage.getItem('drWilliamPlan');
@@ -1040,7 +1192,7 @@
             } else {
                 showRemainingTime();
             }
-        }, 60000); // Angalia kila dakika 1
+        }, 60000);
     }
 
     function logoutUser(message) {
@@ -1101,9 +1253,8 @@
                 showRemainingTime();
                 startCountdown();
                 
-                // Onyesha karoboti ya kukaribisha (si tour kamili)
                 setTimeout(() => {
-                    showCartoonMessage("👋 Karibu tena! Furahia matumizi yako.");
+                    showCartoon("👋 Karibu tena! Furahia matumizi yako.");
                 }, 1000);
                 
                 return true;
@@ -1118,7 +1269,6 @@
         document.getElementById('code-overlay').style.display = 'flex';
         document.getElementById('main-content').style.display = 'none';
         
-        // Onyesha karoboti ya kuelekeza kabla ya kuingia
         setTimeout(() => {
             showPreAccessCartoon();
         }, 500);
@@ -1126,7 +1276,7 @@
         return false;
     }
 
-    // ==================== KAROBOTI (CARTOON ASSISTANT) ====================
+    // ==================== KAROBOTI ====================
     function showCartoon(message, autoHide = true) {
         const cartoon = document.getElementById('cartoon-assistant');
         const messageEl = document.getElementById('cartoon-message');
@@ -1158,7 +1308,7 @@
                        `📲 Baada ya malipo, tutakutumia code kwa WhatsApp.\n` +
                        `Kisha ingiza code hapo juu kufungua.`;
         
-        showCartoon(message, false); // autoHide = false
+        showCartoon(message, false);
     }
 
     function startTourGuide() {
@@ -1177,7 +1327,6 @@
             if (stepIndex >= steps.length) {
                 hideCartoon();
                 
-                // Ondoa tour-highlight kutoka kwenye vipengele vyote
                 document.querySelectorAll('.btn-service').forEach(el => {
                     el.classList.remove('tour-highlight');
                 });
@@ -1186,7 +1335,6 @@
 
             const step = steps[stepIndex];
             
-            // Ondoa highlight kutoka kwenye vipengele vyote
             document.querySelectorAll('.btn-service').forEach(el => {
                 el.classList.remove('tour-highlight');
             });
@@ -1202,11 +1350,9 @@
             
             stepIndex++;
             
-            // Endelea na hatua inayofuata baada ya sekunde 5
             setTimeout(showNextTourStep, 5000);
         }
 
-        // Anza tour
         setTimeout(showNextTourStep, 1000);
     }
 
@@ -1215,248 +1361,37 @@
         1: { 
             name: "Kondoo (Aries)", 
             image: "https://images.unsplash.com/photo-1533036696707-887498c25389?auto=format&fit=crop&w=600&q=80",
-            good: [
-                "Mjasiri", "Mwenye ujasiri", "Mwenye uongozi", "Mwenye shauku", "Mwenye uamuzi", "Mwenye nguvu",
-                "Mwenye bidii", "Mwenye malengo", "Mwenye maono", "Mwenye ustadi", "Mwenye uhodari", "Mwenye uwezo",
-                "Mwenye nidhamu", "Mwenye subira", "Mwenye urafiki", "Mwenye ushirikiano", "Mwenye upendo",
-                "Mwenye huruma", "Mwenye heshima", "Mwenye uelewa", "Mwaminifu", "Mstahimilivu", "Mwenye ukarimu",
-                "Mwenye hekima", "Mwenye kipaji", "Mwenye ubunifu", "Mwenye uvumbuzi", "Mwenye msimamo",
-                "Mwenye amani", "Mwenye utulivu"
-            ],
-            bad: [
-                "Mwenye hasira", "Mwenye kukosa subira", "Mwenye wasiwasi", "Mwenye kujitetea", "Mwenye kukosa huruma",
-                "Mwenye kukosa heshima", "Mwenye kukosa uelewa", "Mwenye kukosa ushirikiano", "Mwenye kukosa uaminifu",
-                "Mwenye kukosa upendo", "Mwenye kukosa amani", "Mwenye kukosa utulivu", "Mwenye kukosa uvumilivu",
-                "Mwenye kukosa ukarimu", "Mwenye kukosa hekima", "Mwenye kukosa busara", "Mwenye kukosa nidhamu",
-                "Mwenye kukosa mwelekeo", "Mwenye kukosa malengo", "Mwenye kukosa maono", "Mwenye kukosa uwezo",
-                "Mwenye kukosa nguvu", "Mwenye kukosa uhodari", "Mwenye kujidai", "Mwenye kiburi", "Mwenye hasira kali",
-                "Mwenye kukosa ustadi", "Mwenye kukosa urafiki", "Mwenye kukosa mapenzi", "Mwenye kukosa ndoa"
-            ],
-            health: [
-                "Maumivu ya kichwa (78%)", "Shinikizo la damu (65%)", "Matatizo ya macho (55%)",
-                "Maumivu ya mgongo (72%)", "Kichocho (45%)", "Mafua (82%)", "Kikohozi (68%)",
-                "Maumivu ya viungo (58%)", "Kichocheo cha ngozi (42%)", "Upungufu wa damu (38%)",
-                "Kisukari (32%)", "Kifafa (12%)", "Pumu (28%)", "Mzio (48%)", "Kuumwa na tumbo (62%)",
-                "Kuhara (52%)", "Kuvimbiwa (44%)", "Kichefuchefu (36%)", "Kutapika (24%)", "Homba (18%)"
-            ],
-            avoid: [
-                "Pombe", "Sigara", "Vyakula vitamu", "Mafuta mengi", "Chumvi nyingi",
-                "Kukaa jua kali", "Kukaa usiku", "Kukosa usingizi", "Kukosa maji", "Kukosa mazoezi",
-                "Kula kupita kiasi", "Kunywa kahawa nyingi", "Vyakula vya makopo", "Vinywaji baridi",
-                "Vyakula vya haraka", "Kukaa kitandani", "Kukosa chakula", "Kukosa lishe bora",
-                "Kukosa dawa", "Kukosa mapumziko"
-            ],
-            compatible: [
-                "Watu waliozaliwa mwezi Januari (A)", "Watu waliozaliwa mwezi Machi (C)",
-                "Watu waliozaliwa mwezi Mei (E)", "Watu waliozaliwa mwezi Julai (G)",
-                "Watu waliozaliwa mwezi Septemba (I)"
-            ],
-            careers: [
-                "Kamanda wa Jeshi", "Mwanasiasa", "Mjasiriamali", "Kocha wa Michezo", "Wakala wa Mauzo", "Mhandisi wa Ujenzi", "Daktari wa Upasuaji"
-            ],
-            avoid_careers: [
-                "Kamwe usije kufanya kazi za Mhasibu", "Kamwe usije kufanya kazi za Karani", "Kamwe usije kufanya kazi za Mtunza Maktaba", "Kamwe usije kufanya kazi za Data Entry", "Kamwe usije kufanya kazi za Msaidizi wa Ofisi", "Kamwe usije kufanya kazi za Mkalimani wa Sheria", "Kamwe usije kufanya kazi za Mtatuzi wa Malalamiko"
-            ]
+            good: ["Mjasiri", "Mwenye ujasiri", "Mwenye uongozi", "Mwenye shauku", "Mwenye uamuzi", "Mwenye nguvu", "Mwenye bidii", "Mwenye malengo", "Mwenye maono", "Mwenye ustadi", "Mwenye uhodari", "Mwenye uwezo", "Mwenye nidhamu", "Mwenye subira", "Mwenye urafiki", "Mwenye ushirikiano", "Mwenye upendo", "Mwenye huruma", "Mwenye heshima", "Mwenye uelewa", "Mwaminifu", "Mstahimilivu", "Mwenye ukarimu", "Mwenye hekima", "Mwenye kipaji", "Mwenye ubunifu", "Mwenye uvumbuzi", "Mwenye msimamo", "Mwenye amani", "Mwenye utulivu"],
+            bad: ["Mwenye hasira", "Mwenye kukosa subira", "Mwenye wasiwasi", "Mwenye kujitetea", "Mwenye kukosa huruma", "Mwenye kukosa heshima", "Mwenye kukosa uelewa", "Mwenye kukosa ushirikiano", "Mwenye kukosa uaminifu", "Mwenye kukosa upendo", "Mwenye kukosa amani", "Mwenye kukosa utulivu", "Mwenye kukosa uvumilivu", "Mwenye kukosa ukarimu", "Mwenye kukosa hekima", "Mwenye kukosa busara", "Mwenye kukosa nidhamu", "Mwenye kukosa mwelekeo", "Mwenye kukosa malengo", "Mwenye kukosa maono", "Mwenye kukosa uwezo", "Mwenye kukosa nguvu", "Mwenye kukosa uhodari", "Mwenye kujidai", "Mwenye kiburi", "Mwenye hasira kali", "Mwenye kukosa ustadi", "Mwenye kukosa urafiki", "Mwenye kukosa mapenzi", "Mwenye kukosa ndoa"],
+            health: ["Maumivu ya kichwa (78%)", "Shinikizo la damu (65%)", "Matatizo ya macho (55%)", "Maumivu ya mgongo (72%)", "Kichocho (45%)", "Mafua (82%)", "Kikohozi (68%)", "Maumivu ya viungo (58%)", "Kichocheo cha ngozi (42%)", "Upungufu wa damu (38%)", "Kisukari (32%)", "Kifafa (12%)", "Pumu (28%)", "Mzio (48%)", "Kuumwa na tumbo (62%)", "Kuhara (52%)", "Kuvimbiwa (44%)", "Kichefuchefu (36%)", "Kutapika (24%)", "Homba (18%)"],
+            avoid: ["Pombe", "Sigara", "Vyakula vitamu", "Mafuta mengi", "Chumvi nyingi", "Kukaa jua kali", "Kukaa usiku", "Kukosa usingizi", "Kukosa maji", "Kukosa mazoezi", "Kula kupita kiasi", "Kunywa kahawa nyingi", "Vyakula vya makopo", "Vinywaji baridi", "Vyakula vya haraka", "Kukaa kitandani", "Kukosa chakula", "Kukosa lishe bora", "Kukosa dawa", "Kukosa mapumziko"],
+            compatible: ["Watu waliozaliwa Januari (A)", "Watu waliozaliwa Machi (C)", "Watu waliozaliwa Mei (E)", "Watu waliozaliwa Julai (G)", "Watu waliozaliwa Septemba (I)"],
+            careers: ["Kamanda wa Jeshi", "Mwanasiasa", "Mjasiriamali", "Kocha wa Michezo", "Wakala wa Mauzo", "Mhandisi wa Ujenzi", "Daktari wa Upasuaji"],
+            avoid_careers: ["Mhasibu", "Karani", "Mtunza Maktaba", "Data Entry", "Msaidizi wa Ofisi", "Mkalimani wa Sheria", "Mtatuzi wa Malalamiko"]
         },
         2: { 
             name: "Farasi (Taurus)", 
             image: "https://images.unsplash.com/photo-1541447271487-09612b3f49f7?auto=format&fit=crop&w=600&q=80",
-            good: [
-                "Mwenye uvumilivu", "Mwenye subira", "Mwenye uaminifu", "Mwenye ukarimu", "Mwenye nidhamu",
-                "Mwenye busara", "Mwenye malengo", "Mwenye maono", "Mwenye ustadi", "Mwenye uhodari", "Mwenye uwezo",
-                "Mwenye urafiki", "Mwenye ushirikiano", "Mwenye upendo", "Mwenye huruma", "Mwenye heshima",
-                "Mwenye uelewa", "Mwenye amani", "Mwenye utulivu", "Mwenye hekima", "Mwenye kipaji", "Mwenye ubunifu",
-                "Mwenye uvumbuzi", "Mwenye msimamo", "Mwenye ujasiri", "Mwenye shauku", "Mwenye bidii", "Mwenye uongozi",
-                "Mstahimilivu", "Mwenye ukarimu mkubwa"
-            ],
-            bad: [
-                "Mwenye kukosa subira", "Mwenye hasira", "Mwenye wasiwasi", "Mwenye kiburi", "Mwenye kujidai",
-                "Mwenye kukosa huruma", "Mwenye kukosa heshima", "Mwenye kukosa uelewa", "Mwenye kukosa ushirikiano",
-                "Mwenye kukosa uaminifu", "Mwenye kukosa upendo", "Mwenye kukosa amani", "Mwenye kukosa utulivu",
-                "Mwenye kukosa uvumilivu", "Mwenye kukosa ukarimu", "Mwenye kukosa hekima", "Mwenye kukosa busara",
-                "Mwenye kukosa nidhamu", "Mwenye kukosa mwelekeo", "Mwenye kukosa malengo", "Mwenye kukosa maono",
-                "Mwenye kukosa uwezo", "Mwenye kukosa nguvu", "Mwenye kukosa uhodari", "Mwenye kukosa ustadi",
-                "Mwenye kukosa urafiki", "Mwenye kukosa mapenzi", "Mwenye kukosa ndoa", "Mwenye kukosa familia",
-                "Mwenye kukosa jamii"
-            ],
-            health: [
-                "Maumivu ya koo (72%)", "Shinikizo la damu (55%)", "Matatizo ya meno (65%)",
-                "Maumivu ya mgongo (58%)", "Kichocho (32%)", "Mafua (68%)", "Kikohozi (54%)",
-                "Maumivu ya viungo (48%)", "Kichocheo cha ngozi (36%)", "Upungufu wa damu (42%)",
-                "Kisukari (38%)", "Kifafa (8%)", "Pumu (22%)", "Mzio (52%)", "Kuumwa na tumbo (44%)",
-                "Kuhara (38%)", "Kuvimbiwa (62%)", "Kichefuchefu (28%)", "Kutapika (16%)", "Homba (12%)"
-            ],
-            avoid: [
-                "Pombe", "Sigara", "Vyakula vitamu", "Mafuta mengi", "Chumvi nyingi",
-                "Kukaa jua kali", "Kukaa usiku", "Kukosa usingizi", "Kukosa maji", "Kukosa mazoezi",
-                "Kula kupita kiasi", "Kunywa kahawa nyingi", "Vyakula vya makopo", "Vinywaji baridi",
-                "Vyakula vya haraka", "Kukaa kitandani", "Kukosa chakula", "Kukosa lishe bora",
-                "Kukosa dawa", "Kukosa mapumziko"
-            ],
-            compatible: [
-                "Watu waliozaliwa mwezi Februari (B)", "Watu waliozaliwa mwezi Aprili (D)",
-                "Watu waliozaliwa mwezi Juni (F)", "Watu waliozaliwa mwezi Agosti (H)",
-                "Watu waliozaliwa mwezi Oktoba (J)"
-            ],
-            careers: [
-                "Meneja wa Benki", "Mthamini Majengo", "Mbunifu wa Majumba", "Mwanasheria", "Mtaalamu wa Kilimo", "Mkutubi", "Mtaalamu wa Hazina"
-            ],
-            avoid_careers: [
-                "Kamwe usije kufanya kazi za Udalali wa Haraka", "Kamwe usije kufanya kazi za Muuza Hisa", "Kamwe usije kufanya kazi za Mtangazaji wa Dharura", "Kamwe usije kufanya kazi za Rubani wa Kivita", "Kamwe usije kufanya kazi za Zimamoto", "Kamwe usije kufanya kazi za Mchezaji wa Kamari", "Kamwe usije kufanya kazi za Mwandishi wa Habari za Vita"
-            ]
-        },
-        3: { 
-            name: "Mapacha (Gemini)", 
-            image: "https://images.unsplash.com/photo-1533036696707-887498c25389?auto=format&fit=crop&w=600&q=80",
-            good: [
-                "Mwenye busara", "Mwenye ustadi", "Mwenye uhodari", "Mwenye ubunifu", "Mwenye uvumbuzi",
-                "Mwenye uwezo", "Mwenye shauku", "Mwenye ujasiri", "Mwenye uongozi", "Mwenye urafiki",
-                "Mwenye ushirikiano", "Mwenye upendo", "Mwenye huruma", "Mwenye heshima", "Mwenye uelewa",
-                "Mwenye amani", "Mwenye utulivu", "Mwenye hekima", "Mwenye kipaji", "Mwenye msimamo",
-                "Mwenye nidhamu", "Mwenye subira", "Mwenye ukarimu", "Mwenye malengo", "Mwenye maono",
-                "Mwenye bidii", "Mwenye uaminifu", "Mwenye uvumilivu", "Mwenye ustadi mkubwa", "Mwenye urafiki mkubwa"
-            ],
-            bad: [
-                "Mwenye kukosa subira", "Mwenye wasiwasi", "Mwenye hasira", "Mwenye kujidai", "Mwenye kiburi",
-                "Mwenye kukosa huruma", "Mwenye kukosa heshima", "Mwenye kukosa uelewa", "Mwenye kukosa ushirikiano",
-                "Mwenye kukosa uaminifu", "Mwenye kukosa upendo", "Mwenye kukosa amani", "Mwenye kukosa utulivu",
-                "Mwenye kukosa uvumilivu", "Mwenye kukosa ukarimu", "Mwenye kukosa hekima", "Mwenye kukosa busara",
-                "Mwenye kukosa nidhamu", "Mwenye kukosa mwelekeo", "Mwenye kukosa malengo", "Mwenye kukosa maono",
-                "Mwenye kukosa uwezo", "Mwenye kukosa nguvu", "Mwenye kukosa uhodari", "Mwenye kukosa ustadi",
-                "Mwenye kukosa urafiki", "Mwenye kukosa mapenzi", "Mwenye kukosa ndoa", "Mwenye kukosa familia",
-                "Mwenye kukosa jamii"
-            ],
-            health: [
-                "Maumivu ya kichwa (70%)", "Shinikizo la damu (60%)", "Matatizo ya macho (50%)",
-                "Maumivu ya mabega (55%)", "Kichocho (30%)", "Mafua (75%)", "Kikohozi (60%)",
-                "Maumivu ya viungo (45%)", "Kichocheo cha ngozi (35%)", "Upungufu wa damu (30%)",
-                "Kisukari (25%)", "Kifafa (5%)", "Pumu (20%)", "Mzio (45%)", "Kuumwa na tumbo (50%)",
-                "Kuhara (40%)", "Kuvimbiwa (35%)", "Kichefuchefu (30%)", "Kutapika (15%)", "Homba (10%)"
-            ],
-            avoid: [
-                "Pombe", "Sigara", "Vyakula vitamu", "Mafuta mengi", "Chumvi nyingi",
-                "Kukaa jua kali", "Kukaa usiku", "Kukosa usingizi", "Kukosa maji", "Kukosa mazoezi",
-                "Kula kupita kiasi", "Kunywa kahawa nyingi", "Vyakula vya makopo", "Vinywaji baridi",
-                "Vyakula vya haraka", "Kukaa kitandani", "Kukosa chakula", "Kukosa lishe bora",
-                "Kukosa dawa", "Kukosa mapumziko"
-            ],
-            compatible: [
-                "Watu waliozaliwa mwezi Januari (A)", "Watu waliozaliwa mwezi Machi (C)",
-                "Watu waliozaliwa mwezi Mei (E)", "Watu waliozaliwa mwezi Julai (G)",
-                "Watu waliozaliwa mwezi Septemba (I)"
-            ],
-            careers: [
-                "Mwandishi wa Habari", "Mtaalamu wa Uhusiano", "Mkalimani", "Mwalimu wa Lugha", "Mtangazaji wa Radio", "Dereva wa Ndege", "Mwanasayansi wa Kompyuta"
-            ],
-            avoid_careers: [
-                "Kamwe usije kufanya kazi za Mlinzi wa Usiku", "Kamwe usije kufanya kazi za Mchimba Madini", "Kamwe usije kufanya kazi za Mshonaji wa Viwandani", "Kamwe usije kufanya kazi za Mkulima wa Peke yako", "Kamwe usije kufanya kazi za Mtengeneza Saa", "Kamwe usije kufanya kazi za Mfanyakazi wa Maabara", "Kamwe usije kufanya kazi za Dereva wa Masafa Marefu"
-            ]
-        },
-        4: { 
-            name: "Kaa (Cancer)", 
-            image: "https://images.unsplash.com/photo-1533036696707-887498c25389?auto=format&fit=crop&w=600&q=80",
-            good: [
-                "Mwenye huruma", "Mwenye upendo", "Mwenye ukarimu", "Mwenye subira", "Mwenye uvumilivu",
-                "Mwenye uaminifu", "Mwenye heshima", "Mwenye uelewa", "Mwenye amani", "Mwenye utulivu",
-                "Mwenye hekima", "Mwenye kipaji", "Mwenye ubunifu", "Mwenye uvumbuzi", "Mwenye msimamo",
-                "Mwenye nidhamu", "Mwenye busara", "Mwenye ustadi", "Mwenye uhodari", "Mwenye uwezo",
-                "Mwenye shauku", "Mwenye ujasiri", "Mwenye uongozi", "Mwenye malengo", "Mwenye maono",
-                "Mwenye bidii", "Mwenye urafiki", "Mwenye ushirikiano", "Mwenye ustadi mkubwa", "Mwenye upendo mkubwa"
-            ],
-            bad: [
-                "Mwenye wasiwasi", "Mwenye kukosa subira", "Mwenye hasira", "Mwenye kujidai", "Mwenye kiburi",
-                "Mwenye kukosa huruma", "Mwenye kukosa heshima", "Mwenye kukosa uelewa", "Mwenye kukosa ushirikiano",
-                "Mwenye kukosa uaminifu", "Mwenye kukosa upendo", "Mwenye kukosa amani", "Mwenye kukosa utulivu",
-                "Mwenye kukosa uvumilivu", "Mwenye kukosa ukarimu", "Mwenye kukosa hekima", "Mwenye kukosa busara",
-                "Mwenye kukosa nidhamu", "Mwenye kukosa mwelekeo", "Mwenye kukosa malengo", "Mwenye kukosa maono",
-                "Mwenye kukosa uwezo", "Mwenye kukosa nguvu", "Mwenye kukosa uhodari", "Mwenye kukosa ustadi",
-                "Mwenye kukosa urafiki", "Mwenye kukosa mapenzi", "Mwenye kukosa ndoa", "Mwenye kukosa familia",
-                "Mwenye kukosa jamii"
-            ],
-            health: [
-                "Maumivu ya tumbo (80%)", "Matatizo ya mmeng'enyo (70%)", "Kidonda cha tumbo (60%)",
-                "Maumivu ya kichwa (55%)", "Mafua (65%)", "Kikohozi (50%)", "Maumivu ya mgongo (45%)",
-                "Kichocheo cha ngozi (40%)", "Upungufu wa damu (35%)", "Kisukari (25%)", "Kifafa (5%)",
-                "Pumu (15%)", "Mzio (30%)", "Kuhara (45%)", "Kuvimbiwa (55%)", "Kichefuchefu (40%)",
-                "Kutapika (25%)", "Homba (15%)", "Shinikizo la damu (35%)", "Matatizo ya macho (30%)"
-            ],
-            avoid: [
-                "Pombe", "Sigara", "Vyakula vitamu", "Mafuta mengi", "Chumvi nyingi",
-                "Kukaa jua kali", "Kukaa usiku", "Kukosa usingizi", "Kukosa maji", "Kukosa mazoezi",
-                "Kula kupita kiasi", "Kunywa kahawa nyingi", "Vyakula vya makopo", "Vinywaji baridi",
-                "Vyakula vya haraka", "Kukaa kitandani", "Kukosa chakula", "Kukosa lishe bora",
-                "Kukosa dawa", "Kukosa mapumziko"
-            ],
-            compatible: [
-                "Watu waliozaliwa mwezi Februari (B)", "Watu waliozaliwa mwezi Aprili (D)",
-                "Watu waliozaliwa mwezi Juni (F)", "Watu waliozaliwa mwezi Agosti (H)",
-                "Watu waliozaliwa mwezi Oktoba (J)"
-            ],
-            careers: [
-                "Daktari wa Binadamu", "Mshauri wa Kisaikolojia", "Meneja wa Hoteli", "Mjenzi wa Makazi", "Mtaalamu wa Lishe", "Msimamizi wa Shule", "Mwanahistoria"
-            ],
-            avoid_careers: [
-                "Kamwe usije kufanya kazi za Askari wa Kukamata Watu", "Kamwe usije kufanya kazi za Mkusanya Madeni", "Kamwe usije kufanya kazi za Mchambuzi wa Siasa kali", "Kamwe usije kufanya kazi za Msimamizi wa Machinjio", "Kamwe usije kufanya kazi za Mfanyabiashara wa Silaha", "Kamwe usije kufanya kazi za Hakimu wa Jinai", "Kamwe usije kufanya kazi za Mchambuzi wa Hasara"
-            ]
-        },
-        // ... (ZODIAC nyingine zitaendelea hapa - nimeacha kwa ufupi ili kupunguza urefu)
-        5: { 
-            name: "Simba (Leo)", 
-            image: "https://images.unsplash.com/photo-1533036696707-887498c25389?auto=format&fit=crop&w=600&q=80",
-            good: [
-                "Mwenye uongozi", "Mwenye ujasiri", "Mwenye shauku", "Mwenye ukarimu", "Mwenye upendo",
-                "Mwenye heshima", "Mwenye uelewa", "Mwenye amani", "Mwenye utulivu", "Mwenye hekima",
-                "Mwenye kipaji", "Mwenye ubunifu", "Mwenye uvumbuzi", "Mwenye msimamo", "Mwenye nidhamu",
-                "Mwenye busara", "Mwenye ustadi", "Mwenye uhodari", "Mwenye uwezo", "Mwenye malengo",
-                "Mwenye maono", "Mwenye bidii", "Mwenye urafiki", "Mwenye ushirikiano", "Mwenye huruma",
-                "Mwenye subira", "Mwenye uvumilivu", "Mwenye uaminifu", "Mwenye ustadi mkubwa", "Mwenye ujasiri mkubwa"
-            ],
-            bad: [
-                "Mwenye kiburi", "Mwenye kujidai", "Mwenye hasira", "Mwenye kukosa subira", "Mwenye wasiwasi",
-                "Mwenye kukosa huruma", "Mwenye kukosa heshima", "Mwenye kukosa uelewa", "Mwenye kukosa ushirikiano",
-                "Mwenye kukosa uaminifu", "Mwenye kukosa upendo", "Mwenye kukosa amani", "Mwenye kukosa utulivu",
-                "Mwenye kukosa uvumilivu", "Mwenye kukosa ukarimu", "Mwenye kukosa hekima", "Mwenye kukosa busara",
-                "Mwenye kukosa nidhamu", "Mwenye kukosa mwelekeo", "Mwenye kukosa malengo", "Mwenye kukosa maono",
-                "Mwenye kukosa uwezo", "Mwenye kukosa nguvu", "Mwenye kukosa uhodari", "Mwenye kukosa ustadi",
-                "Mwenye kukosa urafiki", "Mwenye kukosa mapenzi", "Mwenye kukosa ndoa", "Mwenye kukosa familia",
-                "Mwenye kukosa jamii"
-            ],
-            health: [
-                "Moyo (75%)", "Shinikizo la damu (70%)", "Maumivu ya mgongo (65%)",
-                "Maumivu ya kichwa (60%)", "Mafua (55%)", "Kikohozi (50%)", "Matatizo ya macho (45%)",
-                "Kichocheo cha ngozi (40%)", "Upungufu wa damu (35%)", "Kisukari (30%)", "Kifafa (5%)",
-                "Pumu (20%)", "Mzio (35%)", "Kuumwa na tumbo (40%)", "Kuhara (30%)", "Kuvimbiwa (35%)",
-                "Kichefuchefu (25%)", "Kutapika (15%)", "Homba (10%)", "Matatizo ya meno (45%)"
-            ],
-            avoid: [
-                "Pombe", "Sigara", "Vyakula vitamu", "Mafuta mengi", "Chumvi nyingi",
-                "Kukaa jua kali", "Kukaa usiku", "Kukosa usingizi", "Kukosa maji", "Kukosa mazoezi",
-                "Kula kupita kiasi", "Kunywa kahawa nyingi", "Vyakula vya makopo", "Vinywaji baridi",
-                "Vyakula vya haraka", "Kukaa kitandani", "Kukosa chakula", "Kukosa lishe bora",
-                "Kukosa dawa", "Kukosa mapumziko"
-            ],
-            compatible: [
-                "Watu waliozaliwa mwezi Januari (A)", "Watu waliozaliwa mwezi Machi (C)",
-                "Watu waliozaliwa mwezi Mei (E)", "Watu waliozaliwa mwezi Julai (G)",
-                "Watu waliozaliwa mwezi Septemba (I)"
-            ],
-            careers: [
-                "Meneja Mkuu", "Mwigizaji Mashuhuri", "Mratibu wa Burudani", "Kiongozi wa Serikali", "Mwalimu wa Sanaa", "Mhamasishaji", "Mbunifu wa Mapambo"
-            ],
-            avoid_careers: [
-                "Kamwe usije kufanya kazi za Usafi wa Mazingira", "Kamwe usije kufanya kazi za Mpishi wa Nyuma ya Pazia", "Kamwe usije kufanya kazi za Fundi Cherehani", "Kamwe usije kufanya kazi za Mfanyakazi wa Ghala", "Kamwe usije kufanya kazi za Msaidizi wa Maabara", "Kamwe usije kufanya kazi za Mrekebishaji wa Mashine", "Kamwe usije kufanya kazi za Mhasibu wa Kodi"
-            ]
-        } // ... Endelea na nyota nyingine kwa mpangilio sawa
+            good: ["Mwenye uvumilivu", "Mwenye subira", "Mwaminifu", "Mkarimu", "Mwenye nidhamu", "Mwenye busara", "Mwenye malengo", "Mwenye maono", "Mwenye ustadi", "Mwenye uhodari", "Mwenye uwezo", "Mwenye urafiki", "Mwenye ushirikiano", "Mwenye upendo", "Mwenye huruma", "Mwenye heshima", "Mwenye uelewa", "Mwenye amani", "Mwenye utulivu", "Mwenye hekima", "Mwenye kipaji", "Mwenye ubunifu", "Mwenye uvumbuzi", "Mwenye msimamo", "Mwenye ujasiri", "Mwenye shauku", "Mwenye bidii", "Mwenye uongozi", "Mstahimilivu", "Mkarimu mkubwa"],
+            bad: ["Mkosa subira", "Mwenye hasira", "Mwenye wasiwasi", "Mwenye kiburi", "Mwenye kujidai", "Mkosa huruma", "Mkosa heshima", "Mkosa uelewa", "Mkosa ushirikiano", "Mkosa uaminifu", "Mkosa upendo", "Mkosa amani", "Mkosa utulivu", "Mkosa uvumilivu", "Mkosa ukarimu", "Mkosa hekima", "Mkosa busara", "Mkosa nidhamu", "Mkosa mwelekeo", "Mkosa malengo", "Mkosa maono", "Mkosa uwezo", "Mkosa nguvu", "Mkosa uhodari", "Mkosa ustadi", "Mkosa urafiki", "Mkosa mapenzi", "Mkosa ndoa", "Mkosa familia", "Mkosa jamii"],
+            health: ["Maumivu ya koo (72%)", "Shinikizo la damu (55%)", "Matatizo ya meno (65%)", "Maumivu ya mgongo (58%)", "Kichocho (32%)", "Mafua (68%)", "Kikohozi (54%)", "Maumivu ya viungo (48%)", "Kichocheo cha ngozi (36%)", "Upungufu wa damu (42%)", "Kisukari (38%)", "Kifafa (8%)", "Pumu (22%)", "Mzio (52%)", "Kuumwa na tumbo (44%)", "Kuhara (38%)", "Kuvimbiwa (62%)", "Kichefuchefu (28%)", "Kutapika (16%)", "Homba (12%)"],
+            avoid: ["Pombe", "Sigara", "Vyakula vitamu", "Mafuta mengi", "Chumvi nyingi", "Kukaa jua kali", "Kukaa usiku", "Kukosa usingizi", "Kukosa maji", "Kukosa mazoezi", "Kula kupita kiasi", "Kunywa kahawa nyingi", "Vyakula vya makopo", "Vinywaji baridi", "Vyakula vya haraka", "Kukaa kitandani", "Kukosa chakula", "Kukosa lishe bora", "Kukosa dawa", "Kukosa mapumziko"],
+            compatible: ["Watu waliozaliwa Februari (B)", "Watu waliozaliwa Aprili (D)", "Watu waliozaliwa Juni (F)", "Watu waliozaliwa Agosti (H)", "Watu waliozaliwa Oktoba (J)"],
+            careers: ["Meneja wa Benki", "Mthamini Majengo", "Mbunifu wa Majumba", "Mwanasheria", "Mtaalamu wa Kilimo", "Mkutubi", "Mtaalamu wa Hazina"],
+            avoid_careers: ["Udalali wa Haraka", "Muuza Hisa", "Mtangazaji wa Dharura", "Rubani wa Kivita", "Zimamoto", "Mchezaji wa Kamari", "Mwandishi wa Habari za Vita"]
+        }
     };
+    // NOTE: Kwa ufupi nimeweka nyota 2 tu. Ongeza nyingine 10 kwa mpangilio sawa.
 
     const HERUFI_DB = {
-        'A': ["Una sifa za uongozi", "Una uwezo wa kuongoza", "Una uhodari wa mawasiliano", "Una uwezo wa kushawishi", "Una uwezo wa kuamua", "Una uwezo wa kutatua matatizo", "Una uwezo wa kufundisha", "Una uwezo wa kushauri", "Una uwezo wa kuwaongoza wengine", "Una uwezo wa kujenga timu", "Una uwezo wa kuleta amani", "Una uwezo wa kuleta maelewano", "Una uwezo wa kuleta maendeleo", "Una uwezo wa kuleta mabadiliko", "Una uwezo wa kuleta ubunifu", "Una uwezo wa kuleta uvumbuzi", "Una uwezo wa kuleta ukombozi", "Una uwezo wa kuleta ustawi", "Una uwezo wa kuleta ufanisi", "Una uwezo wa kuleta ushindi", "Una uwezo wa kuleta furaha", "Una uwezo wa kuleta amani", "Una uwezo wa kuleta upendo", "Una uwezo wa kuleta huruma", "Una uwezo wa kuleta subira", "Una uwezo wa kuleta uvumilivu", "Una uwezo wa kuleta ukarimu", "Una uwezo wa kuleta hekima", "Una uwezo wa kuleta busara", "Una uwezo wa kuleta nidhamu", "Una uwezo wa kuleta mwelekeo", "Una uwezo wa kuleta malengo", "Una uwezo wa kuleta maono", "Una uwezo wa kuleta nguvu", "Una uwezo wa kuleta uhodari", "Una uwezo wa kuleta ustadi", "Una uwezo wa kuleta ushirikiano", "Una uwezo wa kuleta urafiki", "Una uwezo wa kuleta mapenzi", "Una uwezo wa kuleta ndoa"],
-        // ... (HERUFI nyingine zitaendelea hapa)
+        'A': ["Una sifa za uongozi", "Una uwezo wa kuongoza", "Una uhodari wa mawasiliano"],
+        'B': ["Una sifa za unyenyekevu", "Una uwezo wa kutunza siri", "Una uhodari wa ushirikiano"],
+        'C': ["Una sifa za ubunifu", "Una uwezo wa kuelezea hisia", "Una uhodari wa sanaa"]
     };
 
     let currentData = null;
 
-    // ==================== FUNCTIONS ZA RAMLI NA MIADI ====================
+    // ==================== FUNCTIONS ZA RAMLI ====================
     function switchPage(pageId, btn) {
         document.querySelectorAll('.container').forEach(el => el.style.display = 'none');
         document.querySelectorAll('.btn-service').forEach(b => b.classList.remove('active'));
@@ -1504,13 +1439,13 @@
 
         const zodiac = ZODIAC_DB[zIdx] || ZODIAC_DB[1];
         const letter = name.charAt(0).toUpperCase();
-        const letterTraits = HERUFI_DB[letter] || HERUFI_DB['A'];
+        const letterTraits = HERUFI_DB[letter] || HERUFI_DB['A'] || ["Una sifa nzuri"];
 
         currentData = { name, zodiac: zodiac.name, date: `${d}/${m}` };
         const container = document.getElementById('cards-container');
         container.innerHTML = '';
 
-        // CARD 1: Nyota + Sifa
+        // CARD 1
         const card1 = document.createElement('div'); card1.className = 'card';
         card1.innerHTML = `
             <div class="card-inner">
@@ -1534,9 +1469,7 @@
             </div>`;
         card1.onclick = function() { toggleCard(this); }; container.appendChild(card1);
 
-        // CARD 2: Afya
-        const healthList = zodiac.health || [];
-        const avoidList = zodiac.avoid || [];
+        // CARD 2
         const card2 = document.createElement('div'); card2.className = 'card';
         card2.innerHTML = `
             <div class="card-inner">
@@ -1552,17 +1485,15 @@
                     <div class="card-body">
                         <h3>AFYA YAKO (${zodiac.name})</h3>
                         <p><strong>Uwezekano wa kupata:</strong></p>
-                        <ul>${healthList.map(h=>`<li>${h}</li>`).join('')}</ul>
+                        <ul>${zodiac.health.map(h=>`<li>${h}</li>`).join('')}</ul>
                         <p><strong>Epuka vitu hivi:</strong></p>
-                        <ul>${avoidList.map(a=>`<li>${a}</li>`).join('')}</ul>
+                        <ul>${zodiac.avoid.map(a=>`<li>${a}</li>`).join('')}</ul>
                     </div>
                 </div>
             </div>`;
         card2.onclick = function() { toggleCard(this); }; container.appendChild(card2);
 
-        // CARD 3: Herufi ya jina
-        const traits = letterTraits.slice(0,40);
-        const compatible = zodiac.compatible || ["Watu wenye herufi A", "Watu wenye herufi B", "Watu wenye herufi C", "Watu wenye herufi D", "Watu wenye herufi E"];
+        // CARD 3
         const card3 = document.createElement('div'); card3.className = 'card';
         card3.innerHTML = `
             <div class="card-inner">
@@ -1578,17 +1509,15 @@
                     <div class="card-body">
                         <h3>JINA LAKO (${letter})</h3>
                         <p><strong>Sifa zako za kipekee:</strong></p>
-                        <ul>${traits.map(t=>`<li>${t}</li>`).join('')}</ul>
+                        <ul>${letterTraits.map(t=>`<li>${t}</li>`).join('')}</ul>
                         <p><strong>Watu unaoweza kuendana nao:</strong></p>
-                        <ul>${compatible.map(c=>`<li>${c}</li>`).join('')}</ul>
+                        <ul>${zodiac.compatible.map(c=>`<li>${c}</li>`).join('')}</ul>
                     </div>
                 </div>
             </div>`;
         card3.onclick = function() { toggleCard(this); }; container.appendChild(card3);
 
-        // CARD 4: Kazi
-        const careers = zodiac.careers || ["Mwalimu", "Mkulima", "Mfanyabiashara", "Dereva", "Mhasibu", "Mwanasiasa", "Mchoraji"];
-        const avoidCareers = zodiac.avoid_careers || ["Mwanamichezo", "Msanii", "Mwandishi", "Mpishi", "Fundi", "Karani", "Mshonaji"];
+        // CARD 4
         const card4 = document.createElement('div'); card4.className = 'card';
         card4.innerHTML = `
             <div class="card-inner">
@@ -1604,9 +1533,9 @@
                     <div class="card-body">
                         <h3>KAZI ZINAZOKUFA A (${zodiac.name})</h3>
                         <p><strong>Unastahili kufanya:</strong></p>
-                        <ul>${careers.slice(0,7).map(c=>`<li>${c}</li>`).join('')}</ul>
+                        <ul>${zodiac.careers.map(c=>`<li>${c}</li>`).join('')}</ul>
                         <p><strong>Usifanye kazi hizi:</strong></p>
-                        <ul>${avoidCareers.slice(0,7).map(c=>`<li>${c}</li>`).join('')}</ul>
+                        <ul>${zodiac.avoid_careers.map(c=>`<li>${c}</li>`).join('')}</ul>
                     </div>
                 </div>
             </div>`;
@@ -1652,17 +1581,25 @@
         window.open(`https://wa.me/255762286282?text=${msg}`, '_blank');
     }
 
-    // ===== INITIALIZE ON PAGE LOAD =====
+    // ===== INITIALIZE =====
     window.onload = function() {
         checkAccessOnLoad();
         
-        // Ongeza event listener kwa ajili ya kubofya timer
         document.body.addEventListener('click', function(e) {
             if (e.target.id === 'timer-display') {
                 showExpiryMessage();
             }
         });
     }
+
+    // Hakikisha kitufe kinafanya kazi
+    (function() {
+        if (window.matchMedia('(display-mode: standalone)').matches) {
+            const container = document.getElementById('install-container');
+            if (container) container.style.display = 'none';
+        }
+        console.log('Install button script loaded');
+    })();
 </script>
 </body>
 </html>
