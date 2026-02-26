@@ -1356,395 +1356,399 @@
         setTimeout(showNextTourStep, 1000);
     }
 
-    // ==================== DATA ZA ZODIAC (1-12) ====================
-    const ZODIAC_DB = {
-       // ==================== DATA ZA ZODIAC (1-12) ====================
-// KILA NYOTA INA MAELEZO YA KINA - IMEANDIKWA KWA LUGHA RAHISI
-// ILI KILA MTU AWEZE KUELEWA BILA SHIDA
+    // ==================== DATA ZA ZODIAC (1-12) ===================
+// ==================== DATA ZA ZODIAC (1-12) ====================
+// IMECHANGANYWA KUTOKA TAMADUNI TATU:
+// KICHINA (Sheng Xiao) - MOTO, MAJI, MITI, ARDHI, DHABA
+// KIARABU (Arab Horoscope) - SILAHA ZA KIJADI
+// KIHINDI (Vedic Jyotisha) - RASHI, NAKSHATRA, GUNA, DOSHA
+//
+// KILA STRING INA MAELEZO YA KINA YANAYOVUTIA MSOMAJI
 
 const ZODIAC_DB = {
-    1: { // KONDOO (Aries) - Machi 21 hadi Aprili 19
-        name: "KONDOO (Aries) - 白羊 (Bái Yáng) - MOTO MKALI",
+    1: { // KONDOO (Aries) - Machi 21 - Aprili 19
+        name: "KONDOO (Aries) - 白羊 (Bái Yáng) - خنجر (Khanjar) - मेष (Mesha)",
         image: "https://images.unsplash.com/photo-1533036696707-887498c25389?auto=format&fit=crop&w=600&q=80",
         
-        // MAELEZO YA UTANGULIZI - YANAMWAMBIA MTU NANI YEYE
-        intro: "Wewe uliyezaliwa kati ya Machi 21 na Aprili 19, nyota yako ni KONDOO. Kwa Kichina tunaita 白羊 (Bái Yáng) maana yake 'Kondoo Mweupe wa Moto'. Wewe ni kama moto unaowaka - una nguvu, una mwendo, na huwezi kukaa kimya. Umekuwa na sifa hizi tangu ulipozaliwa, na ndio zinazokufanya uwe wewe ulivyo. Soma kwa makini ili ujue zaidi kuhusu nafsi yako.",
-        
-        // TABIA NJEMA 20 - KILA MOJA INA MAELEZO YA KINA
-        tabiaNjema: [
-            {
-                kichwa: "UJASIRI WA KIMWILI NA ROHO",
-                maelezo: "Wewe ni jasiri sana. Kama kondoo anavyopiga vita kwa pembe zake, wewe hukimbilia changamoto kwa ujasiri. Hata kama wengine wanaogopa, wewe hupiga hatua mbele. Ujasiri wako unawasaidia wengine kukufuata, kwa sababu wanaona huna woga. Kwa mfano, ukiiona fursa ya biashara, wewe huingia kwanza kabla ya wengine kuamua."
-            },
-            {
-                kichwa: "KIONGOZI WA ASILI",
-                maelezo: "Wewe hukaa kiti cha mbele kwa kila kitu. Tangu utotoni, umekuwa unapanga michezo na marafiki, au kuwa mkuu wa darasa. Watu wanakuona na kusema 'huyu anaweza kutuongoza'. Sio kwa sababu unajipanga, bali kwa sababu una uwezo wa kuona njia kabla ya wengine. Wewe ni kama dereva wa basi - unaamua wapi mambo yataelekea."
-            },
-            {
-                kichwa: "UKWELI USIO NA FITINA",
-                maelezo: "Usemacho ndicho unachomaanisha. Hupendi kusema maneno mawili - moja nyuma na moja mbele. Ikiwa unampenda mtu, unamwambia. Ikiwa humpendi, pia utamwambia kwa heshima. Watu wanakuamini kwa sababu hawana wasiwasi utawadanganya. Hii inakufanya uwe rafiki wa kutegemewa."
-            },
-            {
-                kichwa: "NGUVU YA KUFANYA KAZI",
-                maelezo: "Wewe una nguvu za kutosha kufanya kazi za watu wawili. Huchoki haraka, na ukianza kitu unakimaliza kwa nguvu zako zote. Kama kondoa anavyolima shamba zima, wewe unafanya kazi kubwa bila kulalamika. Wengine wanashangaa unavyoweza kufanya mambo mengi kwa muda mfupi."
-            },
-            {
-                kichwa: "MWANZILISHI WA MAMBO MAPYA",
-                maelezo: "Wewe hupendi kuiga watu. Unapenda kuwa wa kwanza kuanzisha mambo mapya. Ikiwa wote wanafanya biashara ya nguo, wewe utafanya biashara ya vitu vya kale. Ubongo wako unatafuta njia mpya kila wakati. Hii inakufanya uwe mbele ya wengi katika mambo ya biashara na maisha."
-            },
-            {
-                kichwa: "MOYO WA KUPENDA WATU",
-                maelezo: "Ingawa unaonekana mkali, ndani una moyo mwororo. Unawasaidia watu bila kutarajia malipo. Ikiwa unaona mtu ana shida, wewe huwa wa kwanza kusaidia. Familia yako na marafiki wako wanajua kuwa wanategemea wewe wakati wa shida."
-            },
-            {
-                kichwa: "UHODARI WA KUFANYA MAAMUZI",
-                maelezo: "Wengine wanakaa wiki nzima kuamua, wewe unachukua dakika chache tu. Ubongo wako unachambua haraka na kutoa uamuzi. Hii inakusaidia usikose fursa. Biashara nyingi unazofanikisha ni kwa sababu uliamua haraka kabla ya wengine."
-            },
-            {
-                kichwa: "IMANI KWA MUNGU NA KIROHO",
-                maelezo: "Wewe una imani kubwa. Hata mambo yanapokwenda vibaya, huwa unaamini kutakuwa na njia. Maombi yako ni makali na ndoto zako huwa na maana. Wazee waliandika kuwa watu wa nyota hii huwa na uhusiano maalum na ulimwengu wa kiroho."
-            },
-            {
-                kichwa: "KUHIMILI MATESO NA SHIDA",
-                maelezo: "Una nguvu za kuvumilia. Kama kondoa anavyovumilia jua na mvua, wewe unavumilia mateso ya maisha. Ukipata shida, hukata tamaa. Unajua kuwa kila shida ina mwisho, na wewe utavuka hadi mwisho. Hii inakufanya uwe hodari kuliko wengi."
-            },
-            {
-                kichwa: "UKARIMU WA ASILI",
-                maelezo: "Unapokuwa na kitu, unashiriki na wengine. Sio tu pesa, bali pia muda wako, nguvu zako, na busara yako. Unawafundisha wengine bila kujificha maarifa. Watu wanakuja kwako kwa sababu wanajua hutawanyima."
-            },
-            {
-                kichwa: "NGUVU YA KUVUTIA WATU",
-                maelezo: "Watu wanakupenda bila kujua sababu. Unapoingia sehemu, watu wanakutabasamu. Hii ni zawadi ya asili. Wewe hujitahidi kuwavutia, lakini watu wanajivutia wenyewe. Hii inakusaidia katika biashara na mahusiano."
-            },
-            {
-                kichwa: "MLINZI WA FAMILIA",
-                maelezo: "Familia yako ni muhimu kwako kuliko kila kitu. Unawalinda kwa nguvu zako zote. Ikiwa mtu anamgusa ndugu yako, anagusa simba. Wewe ni ngome ya familia yako. Watoto wako na mwenzi wako wanajua kuwa wako salama na wewe."
-            },
-            {
-                kichwa: "AKILI YA HARAKA",
-                maelezo: "Unaelewa mambo upesi. Mwalimu akifundisha mara ya kwanza, wewe tayari umeelewa. Hii inakufanya ujifunze haraka kuliko wengine. Kwenye mikutano, wewe huwa unachukua mambo haraka na kutoa majibu wakati wengine bado wanafikiri."
-            },
-            {
-                kichwa: "KUSAMEHE KWA ROHO NYEPESI",
-                maelezo: "Ukikasirika, hasira yako inaisha haraka. Hushiki chuki kwa muda mrefu. Ukipata msamaha, unatoa msamaha kwa urahisi. Hii inakusaidia usibebe mizigo ya chuki, ambayo inaumiza mwili na roho. Unajua kuwa kusamehe ni dawa ya moyo."
-            },
-            {
-                kichwa: "BIDII NA JITIHADA",
-                maelezo: "Hupendi uvivu. Ukiamua kufanya kitu, unakifanya kwa bidii. Hata kama ni kazi ndogo, unaitendea kwa umakini. Wewe ni kama nyuki anayekusanya asali - unajua kuwa bidii yako italeta matunda. Watu wanakuona kama mfano wa kufuata."
-            },
-            {
-                kichwa: "UWEZO WA KUFUNDISHA WENGINE",
-                maelezo: "Unajua kufundisha kwa urahisi. Wengine wanajifunza kwako kwa sababu unaelezea kwa namna wanavyoelewa. Wewe ni mwalimu wa asili. Watoto wako au wanafunzi wako wanapenda jinsi unavyofundisha kwa subira."
-            },
-            {
-                kichwa: "KUPENDA SHUGHULI ZA NJE",
-                maelezo: "Hupendi kukaa ndani ya nyumba muda mrefu. Unapenda nje, michezo, safari, na kukutana na watu. Hii inakufanya uwe na afya njema kwa sababu unatembea na kujitosa. Wewe ni kama ndege anayeruka - unahitaji anga la wasaa."
-            },
-            {
-                kichwa: "UTHUBUTU WA KUFANYA BIASHARA",
-                maelezo: "Una uhodari wa biashara. Unaweza kununua na kuuza bila hofu. Unajua wakati wa kununua na wakati wa kuuza. Wazee waliandika kuwa watu wa nyota hii wanazaliwa na roho ya mfanyabiashara. Fedha inakuja kwako kwa urahisi ukiifanyia kazi kwa bidii."
-            },
-            {
-                kichwa: "UAMINIFU KWA MARAFIKI",
-                maelezo: "Marafiki wako wanajua kuwa unaweza kutegemewa. Unapowaahidi kitu, unatimiza. Hata kama inakugharimu, utafanya kwa ajili ya rafiki. Wewe ni kama mti wenye mizizi mirefu - unawashikilia wale unaowapanda kwa uaminifu."
-            },
-            {
-                kichwa: "HESHIMA KWA WAZEE",
-                maelezo: "Unawaheshimu wazee na watu wazima. Unasikiliza ushauri wao na kuwathamini. Hii inakufanya ubarikiwe kwa maombi yao. Wazee wanaweza kuona siku nyingi, na wanakuombea mema unapowaheshimu."
-            }
+        good: [
+            "🔥 UJASIRI WA KONDOWAWE (Kichina: 勇气 Yǒngqì) - Wewe ni jasiri kama kondoo anayepiga vita, kama Dagger lenye ncha kali la Waarabu (خنجر Khanjar), na kama shujaa wa Mesha (मेष) anayepigania haki. Hukimbii changamoto, unazikabili kwa nguvu zako zote. Kichina wanasema 'moto wako unaangaza njia kwa wengine' na Wahindi wanakuona kama 'shujaa anayeongoza kundi'.",
+            
+            "⚡ KIONGOZI WA ASILI (Kiarabu: قائد Qā'id) - Watu wanakutafuta uwaongoze. Kichina wanasema wewe ni 'moto unaoangaza njia' na Wahindi wanakuona kama 'Ram anayeongoza kundi'. Kwa Waarabu, wewe ni kiongozi anayeamua haraka na kuongoza kwa ujasiri. Unaweza kuamua na wengine wanakufuata bila shaka.",
+            
+            "💪 NGUVU YA KUFANYA KAZI (Kihindi: शक्ति Shakti) - Una nguvu za kufanya kazi za watu wawili. Kichina wanakuona kama 'Farasi wa vita' asiye choka, na Kiarabu wanakuona kama 'Dagger' linalotumika kila siku bila kuchoka. Wahindi wanasema 'Shakti yako inaweza kusongesha milima'.",
+            
+            "🎯 UAMUZI WA HARAKA (Kiarabu: قرار سريع Qarār sarī') - Wewe huamua haraka na kusonga mbele wakati wengine bado wanafikiri. Hii inakufanya uwe wa kwanza kufika popote, kama kondoo anayekimbia mbele ya kundi. Kichina wanasema 'haraka yako inakuletea fursa'.",
+            
+            "❤️ UKARIMU WA MOYO (Kihindi: दान Dāna) - Wewe ni mkarimu sana kwa wale unaowapenda. Kichina wanasema 'moto wako unawasha wengine' na Kiarabu wanasema 'Dagger lako linawalinda wapendwao'. Unatoa bila kutarajia kurudishiwa.",
+            
+            "🛡️ MLINZI WA FAMILIA (Kichina: 保护者 Bǎohù zhě) - Familia yako ni ngome yako. Unawalinda kwa nguvu zako zote kama kondoo anavyolinda mtoto wake, kama Dagger linavyolinda mmiliki wake. Wahindi wanasema 'wewe ni ngome ya familia yako'.",
+            
+            "🧠 AKILI YA HARAKA (Kihindi: बुद्धि Buddhi) - Unaelewa mambo kwa haraka. Kichina wanasema 'akili yako ni kama moto unaowaka' - inaangaza haraka na kutoa joto. Kiarabu wanasema 'akili yako ni kama jambi lenye ncha kali'.",
+            
+            "🤝 UAMINIFU KWA MARAFIKI (Kiarabu: وفاء Wafā') - Marafiki wako wanajua wanategemea wewe. Wewe ni kama Dagger la kuaminiwa - linapohitajika, lipo tayari. Kichina wanasema 'ahadi yako ni deni lako'.",
+            
+            "🌅 MWANZILISHI WA MAMBO MAPYA (Kichina: 开创者 Kāichuàng zhě) - Wewe ni wa kwanza kuanzisha mambo. Kama kondoo anavyofungua njia, wewe unafungua fursa kwa wengine. Wahindi wanasema 'wewe ndiye chanzo cha mabadiliko'.",
+            
+            "🕉️ IMANI KWA MUNGU (Kihindi: भक्ति Bhakti) - Una imani kubwa. Wahindi wanasema 'Mesha anapoomba, anapata mara mbili' kwa sababu Mangal inampa nguvu ya maombi. Kichina wanasema 'roho yako ina nguvu ya kuleta mabadiliko'.",
+            
+            "💎 HESHIMA KWA WAZEE (Kiarabu: احترام الكبار Iḥtirām al-kibār) - Unawaheshimu wazee na kuthamini ushauri wao. Hii inakuletea baraka nyingi maishani. Kichina wanasema 'kuwaheshimu wazee ni kuheshimu hekima yenyewe'.",
+            
+            "🏆 USHINDI KATIKA MASHINDANO (Kichina: 胜利 Shènglì) - Unapenda kushindana na mara nyingi unashinda. Kichina wanasema 'kondoo anayepigana ndiye anayeshinda'. Kiarabu wanasema 'Dagger lako linajua wakati wa kupiga'.",
+            
+            "🌱 KUPENDA SHUGHULI ZA NJE (Kihindi: प्रकृति Prakṛti) - Unapenda nje, michezo na safari. Hii inakufanya uwe na afya njema na nguvu nyingi. Kichina wanasema 'asili ni nyumba yako ya pili'.",
+            
+            "💰 UHODARI WA BIASHARA (Kiarabu: تجارة Tijārah) - Unaweza kununua na kuuza kwa urahisi. Waarabu wanasema 'Dagger linajua wakati wa kupiga na wakati wa kukaa'. Wahindi wanasema 'Mangal anakupa bahati ya fedha'.",
+            
+            "🙏 KUSAMEHE KWA URAHISI (Kichina: 原谅 Yuánliàng) - Hushiki chuki kwa muda mrefu. Unasamehe na kuendelea. Kiarabu wanasema 'msamehe ili usamehewe' na Wahindi wanasema 'kusamehe ni kujikomboa'.",
+            
+            "📚 KUPENDA KUJIFUNZA (Kihindi: ज्ञान Jñāna) - Unapenda kujua mambo mapya. Kichina wanasema 'kujifunza ni taa ya maisha' na Kiarabu wanasema 'elimu ni nuru'.",
+            
+            "🎨 UBUNIFU KATIKA SANAA (Kichina: 创意 Chuàngyì) - Una kipawa cha sanaa na ubunifu. Wahindi wanasema 'ubunifu wako unatokana na nguvu ya Mangal'.",
+            
+            "⚕️ KUPONYA WENGINE (Kihindi: चिकित्सा Cikitsā) - Una uwezo wa kuwaponya wengine kwa neno au mkono wako. Wahindi wanasema 'Ashvini Nakshatra inakupa uwezo wa uponyaji'.",
+            
+            "🌍 KUPENDA KUSAFIRI (Kiarabu: سفر Safar) - Unapenda kusafiri na kugundua maeneo mapya. Kichina wanasema 'safari inakufungua akili'.",
+            
+            "⭐ KUVUTIA WATU (Kichina: 魅力 Mèilì) - Watu wanakuvutiwa na wewe bila kujua sababu. Kiarabu wanasema 'Dagger lako linavutia macho'."
         ],
         
-        // TABIA MBAYA 20 - KILA MOJA INA MAELEZO YA KINA
-        tabiaMbaya: [
-            {
-                kichwa: "HASIRA KALI KAMA MOTO",
-                maelezo: "Hasira yako inaweza kuwaka kwa haraka sana. Kama moto unavyowaka ukitiwa mafuta, wewe hukasirika kwa mambo madogo. Ukishakasirika, unaweza kusema maneno ambayo baadaye unajuta. Hasira hii inaweza kukuvunja mahusiano na watu wanaokupenda. Kumbuka, hasira kali ni adui yako."
-            },
-            {
-                kichwa: "KUKIMBILIA MAMBO BILA KUFIKIRI",
-                maelezo: "Unapenda kufanya mambo kwa haraka, lakini wakati mwingine unakimbilia kabla ya kufikiri vizuri. Kama msafiri anayekimbia bila kuona njia, unaweza kujikuta kwenye matatizo. Ni vizuri kusimama, kupumua, na kufikiri kabla ya kuruka. Fursa nyingi hupotea kwa sababu ya uharakati."
-            },
-            {
-                kichwa: "UKAIDI UNAOUMIZA",
-                maelezo: "Wewe ni mkaidi sana. Ukiamua jambo, ni vigumu kukubadilisha. Hata wakati watu wanakuonyesha kuwa umekosea, bado unashikilia msimamo wako. Hii inakufanya upoteze fursa za kujifunza na kukua. Kama mti usioinama, unaweza kuvunjika na upepo."
-            },
-            {
-                kichwa: "KUJIONA KUWA BORA KULIKO WENGINE",
-                maelezo: "Wakati mwingine unajiona kuwa bora kuliko wengine. Unawadharau wasio na uwezo wako. Hii inawafanya watu wasikupende. Kumbuka, kila mtu ana thamani yake. Unavyojiona wewe, ndivyo wengine wanavyojiona wao. Kujiona bora ni wizi wa amani ya watu."
-            },
-            {
-                kichwa: "WIVU UNAOCHOMA MOYO",
-                maelezo: "Una wivu wa asili. Unapoona wengine wanafanikiwa, hasa katika mapenzi na biashara, unaumwa ndani. Wivu huu unaweza kukufanya ufanye mambo ya kijinga. Kama nyoka anavyojiuma mkia, wivu unakula wewe mwenyewe. Jifunze kuwafurahia wengine wanapofanikiwa."
-            },
-            {
-                kichwa: "KUKATA TAMAA HARAKA",
-                maelezo: "Mambo yakichelewa kufanikiwa, wewe hukata tamaa haraka. Unataka matunda mara moja baada ya kupanda. Lakini maisha ni kama kilimo - unapanda leo, unavuna baada ya miezi. Kukata tamaa kunakufanya uache mambo kabla ya wakati wao wa kufanikiwa."
-            },
-            {
-                kichwa: "KUTOSIKILIZA USHAURI",
-                maelezo: "Watu wanapokushauri, huwaskiliza kwa nusu sikio. Unafikiri unajua kila kitu. Lakini hekima ya kweli ni kujua kuwa hujui kila kitu. Wazee wanasema 'mshauri haangushi' - kusikiliza ushauri kunakuokoa na makosa makubwa."
-            },
-            {
-                kichwa: "ROHO YA KULIPIZA KISASI",
-                maelezo: "Ukikosewa, unataka kulipa kisasi. Huwezi kusahau na kuacha. Lakini kulipa kisasi ni kama kunywa sumu na kumsubiri adui afe - unajiumiza wewe mwenyewe. Msamaha ni dawa ya moyo. Wewe unahitaji kujifunza kuacha na kuendelea."
-            },
-            {
-                kichwa: "USHIND WA KUONYESHA UPENDO",
-                maelezo: "Ingawa unapenda watu, wakati mwingine unashindwa kuwaonyesha. Unaonekana mkali na baridi, wakati ndani una joto. Hii inawafanya wapendwao wakose uhakika wa upendo wako. Maneno matamu na matendo madogo yanaweza kubadilisha mambo."
-            },
-            {
-                kichwa: "KUPENDA MIGOGORO",
-                maelezo: "Wakati mwingine unajihusisha na ugomvi usio na maana. Unapenda kujadili mpaka kufikia ubishani. Hii inachosha watu na kuwafanya wakuepuke. Amani ina thamani kuliko kuwa sahihi. Chagua vita vyako kwa busara."
-            },
-            {
-                kichwa: "KUKOSA UVUMILIVU KWA WAPOLE",
-                maelezo: "Watu wapole na wanyamavu wanakuchosha. Unataka kila mtu awe na mwendo wako. Lakini kila mtu ana kasi yake. Kama tembo na kobe - wote wanafika, lakini kwa nyakati zao. Jifunze kuvumilia wengine walivyo."
-            },
-            {
-                kichwa: "KUHODHI MALI KUPITA KIASI",
-                maelezo: "Unapenda kuwa na kila kitu wewe mwenyewe. Unashindwa kushiriki na wengine. Lakini dunia haijaumbwa kwa ajili ya mtu mmoja. Kushiriki kunaleta baraka. Unavyotoa, ndivyo unavyopokea zaidi. Roho ya kuhodhi inakufanya uwe maskini kwa hisia."
-            },
-            {
-                kichwa: "KUKOSA MPANGO WA MUDDA MREFU",
-                maelezo: "Unaishi kwa sasa na kesho, lakini hufikirii mbali. Unategemea bahati badala ya kupanga. Lakini bahati huwapendelea walio tayari. Kama mjenzi anayejenga nyumba, unahitaji msingi imara wa mipango. Vinginevyo, nyumba yako inaweza kuanguka."
-            },
-            {
-                kichwa: "KUWACHOSHA WATU KWA NGUVU ZAKO",
-                maelezo: "Nguvu zako nyingi zinawachosha watu. Unataka kila mtu afanye kazi kwa mwendo wako. Lakini si kila mtu ana nguvu kama wewe. Watu wanahitaji kupumzika na kwenda polepole. Kuwakimbiza kunawafanya wakuchoke na kukuepuka."
-            },
-            {
-                kichwa: "KUSHINDWA KUKATAA",
-                maelezo: "Unajipakia mizigo mingi kwa sababu hujui kukataa. Watu wanakuomba msaada, na wewe unakubali hata unapochoka. Hii inakufanya uchoke na kuumwa. Kujua kusema 'hapana' kwa heshima ni hekima. Huwezi kumwaga maji kutoka kikombe kilichojaa."
-            },
-            {
-                kichwa: "KUKOSA UTULIVU WA AKILI",
-                maelezo: "Akili yako inakimbia kila wakati. Unafikiri mambo mengi kwa wakati mmoja. Hii inakufanya usiwe na utulivu. Kama ndege anayeruka anga zote, hukai mahali pamoja. Kupumzika na kutafakari kunakusaidia kupata nguvu mpya."
-            },
-            {
-                kichwa: "KUKOSEA WATU BILA KUSAMEHEWA",
-                maelezo: "Unajeruhi hisia za watu bila kukusudia. Maneno yako makali yanauma, na hutambui mara. Watu wanakwenda na maumivu, na wewe hujui. Kuwa makini na neno lako - linapotoka, hairudi tena. Unaweza kusema 'pole', lakini kovu linabaki."
-            },
-            {
-                kichwa: "KUKIMBIA MAJUKUMU YANAPOLEMEA",
-                maelezo: "Mambo yanapokuwa magumu, wakati mwingine unakimbia. Unawaacha wengine wabebe mzigo. Lakini watu hodari wanakabiliwa na changamoto, si kuzikimbia. Kukimbia kunakufanya usiwe hodari. Kukabili matatizo kunakupa nguvu mpya."
-            },
-            {
-                kichwa: "KUJIPENDA KUPITA KIASI",
-                maelezo: "Unajipenda sana, na wakati mwingine unasahau wengine. Unafikiri dunia inazunguka wewe. Lakini dunia ni kubwa, na kila mtu ana hadithi yake. Kujipenda ni vizuri, lakini kuwapenda wengine ni bora. Mizani ya upendo inahitaji usawa."
-            },
-            {
-                kichwa: "KUSHINDWA KUTHAMINI USHAURI",
-                maelezo: "Watu wanakupa ushauri mzuri, lakini wewe huthamini. Unafikiri unajua zaidi. Lakini hekima ya wengi ina nguvu. Kama mti unaojitegemea, unaweza kuanguka na upepo. Kusikiliza na kuthamini ushauri kunakuweka salama."
-            }
+        bad: [
+            "🌋 HASIRA KALI KAMA VOLCANO (Kichina: 愤怒 Fènnù) - Hasira yako inaweza kuwaka kwa haraka sana. Kama moto unavyowaka ukitiwa mafuta, wewe hukasirika kwa mambo madogo. Kiarabu wanasema 'Dagger likiwaka hasira, linauza mmiliki wake' na Wahindi wanasema 'Mangal akikasirika, anateketeza kila kitu'.",
+            
+            "🏃 KUKIMBILIA MAMBO BILA KUFIKIRI (Kiarabu: تسرع Taʿajjul) - Unapenda kufanya mambo kwa haraka, lakini wakati mwingine unakimbilia kabla ya kufikiri vizuri. Kichina wanasema 'haraka haraka haina baraka' na Wahindi wanasema 'kimbia polepole ili ufike salama'.",
+            
+            "🦏 UKAIDI UNAOUMIZA (Kihindi: हठ Haṭha) - Wewe ni mkaidi sana. Ukiamua jambo, ni vigumu kukubadilisha. Hata wakati watu wanakuonyesha kuwa umekosea, bado unashikilia msimamo wako. Kichina wanasema 'mti usioinama huvunjika na upepo'.",
+            
+            "👑 KUJIONA BORA KULIKO WENGINE (Kiarabu: غرور Ghurūr) - Wakati mwingine unajiona kuwa bora kuliko wengine. Unawadharau wasio na uwezo wako. Kichina wanasema 'kujiona bora ni wizi wa amani ya watu' na Wahindi wanasema 'kiburi kinaharibu hekima'.",
+            
+            "👀 WIVU UNAOCHOMA MOYO (Kihindi: ईर्ष्या Īrṣyā) - Una wivu wa asili. Unapoona wengine wanafanikiwa, hasa katika mapenzi na biashara, unaumwa ndani. Kichina wanasema 'wivu ni nyoka anayeuma moyo wako mwenyewe'.",
+            
+            "😤 KUKATA TAMAA HARAKA (Kiarabu: يأس Ya's) - Mambo yakichelewa kufanikiwa, wewe hukata tamaa haraka. Unataka matunda mara moja baada ya kupanda. Wahindi wanasema 'subira ni sharti la mafanikio'.",
+            
+            "🙉 KUTOSIKILIZA USHAURI (Kichina: 不听劝告 Bù tīng quàngào) - Watu wanapokushauri, huwaskiliza kwa nusu sikio. Unafikiri unajua kila kitu. Kiarabu wanasema 'mshauri haangushi' na Wahindi wanasema 'sikiliza ushauri, ni ngao yako'.",
+            
+            "⚔️ ROHO YA KULIPIZA KISASI (Kihindi: प्रतिशोध Pratiśodha) - Ukikosewa, unataka kulipa kisasi. Lakini kulipa kisasi ni kama kunywa sumu na kumsubiri adui afe. Kichina wanasema 'kulipa kisasi ni kujeruhi mwenyewe'.",
+            
+            "❄️ USHIND WA KUONYESHA UPENDO (Kiarabu: جفاء Jafā') - Ingawa unapenda watu, wakati mwingine unashindwa kuwaonyesha. Unaonekana mkali na baridi, wakati ndani una joto. Wahindi wanasema 'upendo usioonyeshwa ni kama maua yasiyonukia'.",
+            
+            "🥊 KUPENDA MIGOGORO (Kichina: 好斗 Hàodòu) - Wakati mwingine unajihusisha na ugomvi usio na maana. Unapenda kujadili mpaka kufikia ubishani. Kiarabu wanasema 'amani ina thamani kuliko kuwa sahihi'.",
+            
+            "🐢 KUKOSA UVUMILIVU KWA WAPOLE (Kihindi: अधैर्य Adhairya) - Watu wapole na wanyamavu wanakuchosha. Unataka kila mtu awe na mwendo wako. Kichina wanasema 'kila mtu ana kasi yake, heshimu tofauti'.",
+            
+            "💰 KUHODHI MALI KUPITA KIASI (Kiarabu: بخل Bukhl) - Unapenda kuwa na kila kitu wewe mwenyewe. Unashindwa kushiriki na wengine. Wahindi wanasema 'kushiriki kunaleta baraka, kuhodhi kunaleta laana'.",
+            
+            "📉 KUKOSA MPANGO WA MUDDA MREFU (Kichina: 无计划 Wú jìhuà) - Unaishi kwa sasa na kesho, lakini hufikirii mbali. Unategemea bahati badala ya kupanga. Kiarabu wanasema 'bahati huwapendelea walio tayari'.",
+            
+            "😩 KUWACHOSHA WATU KWA NGUVU ZAKO (Kihindi: थकान Thakān) - Nguvu zako nyingi zinawachosha watu. Unataka kila mtu afanye kazi kwa mwendo wako. Kichina wanasema 'nguvu ni nzuri, lakini si kila mtu ana nguvu kama wewe'.",
+            
+            "🫂 KUSHINDWA KUKATAA (Kiarabu: عدم الرفض ʿAdam al-rafḍ) - Unajipakia mizigo mingi kwa sababu hujui kukataa. Watu wanakuomba msaada, na wewe unakubali hata unapochoka. Wahindi wanasema 'kujua kusema hapana ni hekima'.",
+            
+            "🌪️ KUKOSA UTULIVU WA AKILI (Kichina: 心烦意乱 Xīnfán yìluàn) - Akili yako inakimbia kila wakati. Unafikiri mambo mengi kwa wakati mmoja. Kiarabu wanasema 'akili iliyotulia ndiyo inayoona mbali'.",
+            
+            "😢 KUKOSEA WATU BILA KUSAMEHEWA (Kihindi: अपराध Aparādha) - Unajeruhi hisia za watu bila kukusudia. Maneno yako makali yanauma, na hutambui mara. Kichina wanasema 'neno likitoka, hairudi tena'.",
+            
+            "🏃 KUKIMBIA MAJUKUMU YANAPOLEMEA (Kiarabu: هروب Hurūb) - Mambo yanapokuwa magumu, wakati mwingine unakimbia. Unawaacha wengine wabebe mzigo. Wahindi wanasema 'hodari anakabiliwa na changamoto, si kuzikimbia'.",
+            
+            "🪞 KUJIPENDA KUPITA KIASI (Kichina: 自恋 Zìliàn) - Unajipenda sana, na wakati mwingine unasahau wengine. Unafikiri dunia inazunguka wewe. Kiarabu wanasema 'kujipenda ni vizuri, lakini kuwapenda wengine ni bora'.",
+            
+            "🚫 KUSHINDWA KUTHAMINI USHAURI (Kihindi: अवज्ञा Avajñā) - Watu wanakupa ushauri mzuri, lakini wewe huthamini. Unafikiri unajua zaidi. Kichina wanasema 'hekima ya wengi ina nguvu'."
         ],
         
-        // MARADHI 15 - KILA MOJA INA SABABU NA MAELEZO
-        maradhi: [
-            {
-                jina: "MAUMIVU YA KICHWA (偏头痛 - Piāntóutòng)",
-                sababu: "Hasira yako kali na mawazo mengi yanasababisha damu kupanda kichwani. Kama sufuria ya maji yanayochemka, kichwa chako huwaka na kuuma. Ukikasirika sana au kufikiria sana, damu inakimbilia kichwani na kusababisha maumivu makali. Wazee walisema 'hasira ni moto unaochoma mwili wako mwenyewe'.",
-                kinga: "Pumzika na utulie. Epuka kukasirika kwa kila jambo. Kunywa maji ya uvuguvugu na kupumua kwa utulivu kunasaidia."
-            },
-            {
-                jina: "SHINIKIZO LA DAMU (高血压 - Gāoxuèyā)",
-                sababu: "Moyo wako unafanya kazi kwa nguvu nyingi kila wakati, kama gari linaloendeshwa kwa mwendo kasi. Damu yako inachemka na kusukuma kwa nguvu kwenye mishipa. Hasira, wasiwasi, na kukimbilia mambo vinaongeza shinikizo hili. Mwili wako unakuambia upunguze mwendo.",
-                kinga: "Punguza chumvi na mafuta. Tembea polepole na epuka hasira. Kula mboga mboga na matunda yasiyo na sukari nyingi."
-            },
-            {
-                jina: "MAJERAHA YA MWILI (运动损伤 - Yùndòng sǔnshāng)",
-                sababu: "Unapenda kufanya kazi kwa nguvu na michezo, lakini wakati mwingine unajisukuma kupita kiasi. Mwili wako una mipaka, na ukiivuka unajeruhiwa. Kama gari linapokimbia kupita kasi, matairi yanaweza kupasuka. Wewe ndivyo hivyo - unahitaji kujua wakati wa kupumzika.",
-                kinga: "Jipatie muda wa kupumzika. Fanya mazoezi ya kunyoosha mwili kabla ya kazi nzito. Sikiliza mwili wako unapokuambia 'tosha'."
-            },
-            {
-                jina: "KICHAA CHA USINGIZI (失眠症 - Shīmián zhèng)",
-                sababu: "Ubongo wako haukomi kufikiria. Hata usiku unapolala, mawazo yanaendelea kukimbia kama mbuzi waliotoka zizini. Unafikiria mambo ya kesho, ya jana, na ya leo. Usingizi unakukimbia kwa sababu akili yako haipumziki. Wazee walisema 'akili iliyochoka hupati usingizi'.",
-                kinga: "Kabla ya kulala, zima mawazo. Usitumie simu au televisheni. Kunywa maziwa ya uvuguvugu au chai ya mint. Sali na umkabidhi Mungu mawazo yako."
-            },
-            {
-                jina: "HOMA ZA GHAFLA (突发热 - Tūfā rè)",
-                sababu: "Unapokasirika sana au kufanya kazi kwa nguvu kupita kiasi, joto la mwili wako linapanda. Kama nyari inayochemka, mwili wako unaweza kuwaka moto wa homa. Homa hizi huja ghafla na kuondoka ghafla, kama tabia yako mwenyewe. Mwili unakuambia 'punguza mwendo'.",
-                kinga: "Kunywa maji mengi. Epuka jua kali. Pumzika usingizi wa kutosha. Usijisukume kupita kiasi."
-            },
-            {
-                jina: "MAUMIVU YA MISULI (肌肉痛 - Jīròu tòng)",
-                sababu: "Unapotumia nguvu nyingi kufanya kazi, misuli yako inachoka na kuumwa. Kama kamba inavyokazwa kupita kiasi inaweza kukatika, misuli yako inapokazwa sana inauma. Wewe hujui kupumzika, na misuli yako inalia. Wazee walisema 'mwili si chuma, unahitaji kupumzika'.",
-                kinga: "Paka mafuta ya kupoza kama jeli au mafuta ya nyoka. Pumzika na usifanye kazi nzito kwa siku chache. Nyosha mwili kwa taratibu."
-            },
-            {
-                jina: "KUCHOKA HARAKA (容易疲劳 - Róngyì píláo)",
-                sababu: "Unatumia nguvu nyingi kwa mambo mengi, kama gari linaloendeshwa siku nzima bila kusimama. Mwili wako unachoka haraka kwa sababu unamwendea kasi kupita uwezo wake. Kuchoka ni ishara ya mwili kuwa unahitaji kupumzika. Lakini wewe hupendi kusimama, na ndio maana unachoka zaidi.",
-                kinga: "Panga ratiba yako vizuri. Weka muda wa kupumzika kati ya kazi. Kula vyakula vyenye nguvu kama asali na matunda."
-            },
-            {
-                jina: "KUVIMBIWA (便秘 - Biànbì)",
-                sababu: "Unapokimbia mambo na kukosa utulivu, mfumo wako wa chakula pia unakimbia. Lakini wakati mwingine unakaa sana na kusahau kula na kunywa maji. Matumbo yako yanajaa na kushindwa kutoa taka. Kama mto unaoziba, kila kitu kinakwama. Wewe unahitaji utaratibu wa kula na kunywa maji.",
-                kinga: "Kunywa maji mengi kila siku. Kula matunda kama machungwa, ndizi, na matikiti. Tembea kila siku ili kuhamasisha matumbo."
-            },
-            {
-                jina: "HOMA YA JOTO (中暑 - Zhòngshǔ)",
-                sababu: "Unapenda kufanya kazi kwenye jua, lakini unajisahau kupata kivuli. Joto linapanda mwilini mwako, kama chai iliyoachwa jua. Homa ya joto inakushika na unaweza kuzirai ghafla. Wazee walisema 'jua linawasha sana, tafuta kivuli'.",
-                kinga: "Epuka kufanya kazi kwenye jua kali saa 12 hadi 3. Vaa kofia au nguo za kujikinga na jua. Kunywa maji mengi wakati wa joto."
-            },
-            {
-                jina: "MAJERAHA YA KICHWA (头部受伤 - Tóubù shòushāng)",
-                sababu: "Unapokimbia na kufanya mambo kwa haraka, unaweza kuanguka au kugonga vichwa. Wewe hupendi kuwa makini, na ndio maana unajeruhiwa kichwa mara kwa mara. Kichwa chako kina thamani kubwa, kinalinda akili yako. Kukilinda ni busara.",
-                kinga: "Kuwa makini unapotembea au kufanya kazi. Vaa kofia ya usalama unapofanya kazi hatarishi. Usikimbie mahali pasipo salama."
-            },
-            {
-                jina: "KUUMWA NA WADUDU (虫咬 - Chóng yǎo)",
-                sababu: "Damu yako ina joto na harufu inayovutia wadudu. Unapokwenda nje hasa usiku, wadudu wanakuvutia kama nondo kwenye taa. Kuumwa nao kunaweza kuleta magonjwa kama malaria. Wazee walisema 'jikinge na wadudu, wao ni wadogo lakini hatari'.",
-                kinga: "Tumia dawa za kuwafukuza wadudu. Linda usingizi wako na chandarua. Epuka kukaa nje usiku bila kinga."
-            },
-            {
-                jina: "MZIO WA VUMBI (灰尘过敏 - Huīchén guòmǐn)",
-                sababu: "Mapafu yako ni nyeti. Unapovuta vumbi au hewa chafu, mwili wako unakataa. Unapiga chafya, macho yanakuwasha, na unaweza kukohoa. Kama nyumba inayofungwa bila kufagiliwa, mfumo wako wa hewa unaziba. Hii ni kwa sababu wewe hupendi usafi wa hewa.",
-                kinga: "Epuka maeneo yenye vumbi. Vaa barakoa unapofagia au kusafisha. Fungua madirisha ili hewa safi iingie."
-            },
-            {
-                jina: "MAUMIVU YA MENO (牙痛 - Yátòng)",
-                sababu: "Unapokasirika sana, meno yako yanakunjiana kwa nguvu. Pia unapenda kula vitu vigumu na baridi sana. Meno yako yanauma na kuharibika. Kama nguzo za nyumba zinapozidiwa, meno yako yanaanguka. Wazee walisema 'meno ni dhahabu, yalinde'.",
-                kinga: "Suga meno mara mbili kwa siku. Epuka kula sukari nyingi na vitu vigumu sana. Tembelea daktari wa meno mara kwa mara."
-            },
-            {
-                jina: "KIKOHOZI KAVU (干咳 - Gān ké)",
-                sababu: "Mapafu yako yanakauka kwa sababu ya hasira na joto la mwili. Unakohoa kavu, kama ngoma iliyokauka. Hii ni ishara kuwa unahitaji maji na utulivu. Pia unaweza kupata kikohozi kutokana na mzio au hewa chafu. Wazee walisema 'kikohozi ni mlio wa mapafu'.",
-                kinga: "Kunywa maji ya uvuguvugu. Kula asali na ndimu. Epuka vumbi na moshi. Pumzika na usingizi wa kutosha."
-            },
-            {
-                jina: "MAFUA YA GHAFLA (突然感冒 - Tūrán gǎnmào)",
-                sababu: "Unapokasirika na kuchoka sana, kinga ya mwili wako inapungua. Kama askari waliochoka, hawawezi kukinga adui. Virusi na bakteria wanakushambulia kwa urahisi. Mafua yanakushika ghafla na kukulaza. Wazee walisema 'hasira inapunguza nguvu ya mwili'.",
-                kinga: "Pumzika vya kutosha. Kula vyakula vyenye vitamini C kama machungwa na ndimu. Jikinge na baridi na joto kali."
-            }
+        health: [
+            "MAUMIVU YA KICHWA (偏头痛 - Piāntóutòng) - Hasira yako kali na mawazo mengi yanasababisha damu kupanda kichwani. Waarabu wanasema 'hasira inachoma ubongo' na Wahindi wanasema 'Mangal anapowaka, kichwa chafua'.",
+            
+            "SHINIKIZO LA DAMU (高血压 - Gāoxuèyā) - Moyo wako unafanya kazi kwa nguvu nyingi kila wakati, kama gari linaloendeshwa kwa mwendo kasi. Kiarabu wanasema 'damu yako inachemka kama maji ya moto'.",
+            
+            "MAJERAHA YA MWILI (运动损伤 - Yùndòng sǔnshāng) - Unapenda kufanya kazi kwa nguvu na michezo, lakini wakati mwingine unajisukuma kupita kiasi. Kihindi wanasema 'mwili wako una mipaka, heshimu'.",
+            
+            "KICHAA CHA USINGIZI (失眠症 - Shīmián zhèng) - Ubongo wako haukomi kufikiria. Hata usiku unapolala, mawazo yanaendelea kukimbia. Kichina wanasema 'akili iliyochoka hupati usingizi'.",
+            
+            "HOMA ZA GHAFLA (突发热 - Tūfā rè) - Unapokasirika sana au kufanya kazi kwa nguvu kupita kiasi, joto la mwili wako linapanda. Kiarabu wanasema 'hasira yako inakupa homa'.",
+            
+            "MAUMIVU YA MISULI (肌肉痛 - Jīròu tòng) - Unapotumia nguvu nyingi kufanya kazi, misuli yako inachoka na kuumwa. Wahindi wanasema 'mwili si chuma, unahitaji kupumzika'.",
+            
+            "KUCHOKA HARAKA (容易疲劳 - Róngyì píláo) - Unatumia nguvu nyingi kwa mambo mengi, kama gari linaloendeshwa siku nzima bila kusimama. Kichina wanasema 'kuchoka ni ishara ya mwili kuwa unahitaji kupumzika'.",
+            
+            "KUVIMBIWA (便秘 - Biànbì) - Unapokimbia mambo na kukosa utulivu, mfumo wako wa chakula pia unakimbia. Kiarabu wanasema 'tumbo lako linahitaji utaratibu'.",
+            
+            "HOMA YA JOTO (中暑 - Zhòngshǔ) - Unapenda kufanya kazi kwenye jua, lakini unajisahau kupata kivuli. Wahindi wanasema 'jua linawasha sana, tafuta kivuli'.",
+            
+            "MAJERAHA YA KICHWA (头部受伤 - Tóubù shòushāng) - Unapokimbia na kufanya mambo kwa haraka, unaweza kuanguka au kugonga vichwa. Kichina wanasema 'kimbia polepole uwe salama'.",
+            
+            "KUUMWA NA WADUDU (虫咬 - Chóng yǎo) - Damu yako ina joto na harufu inayovutia wadudu. Kiarabu wanasema 'jikinge na wadudu, wao ni wadogo lakini hatari'.",
+            
+            "MZIO WA VUMBI (灰尘过敏 - Huīchén guòmǐn) - Mapafu yako ni nyeti. Unapovuta vumbi au hewa chafu, mwili wako unakataa. Wahindi wanasema 'pumua hewa safi, ishi maisha marefu'.",
+            
+            "MAUMIVU YA MENO (牙痛 - Yátòng) - Unapokasirika sana, meno yako yanakunjiana kwa nguvu. Kichina wanasema 'meno ni dhahabu, yalinde'.",
+            
+            "KIKOHOZI KAVU (干咳 - Gān ké) - Mapafu yako yanakauka kwa sababu ya hasira na joto la mwili. Kiarabu wanasema 'kikohozi ni mlio wa mapafu yako'.",
+            
+            "MAFUA YA GHAFLA (突然感冒 - Tūrán gǎnmào) - Unapokasirika na kuchoka sana, kinga ya mwili wako inapungua. Wahindi wanasema 'hasira inapunguza nguvu ya mwili'."
         ],
         
-        // VYAKULA VYA KUZINGATIA 15 - KILA MOJA INA MAELEZO
-        vyakulaVyaKula: [
-            {
-                jina: "SAMAKI WA MAJI BARIDI",
-                maelezo: "Samaki kama nyangumi na perege wanapunguza joto la mwili wako. Wana mafuta mazuri yanayosaidia ubongo wako ukimbiaji usiwe mwingi. Pia wanaimarisha moyo wako unaofanya kazi kwa nguvu. Wazee walisema 'samaki ni chakula cha akili'."
-            },
-            {
-                jina: "MBOCA ZA MAJANI (Mchicha, Matembele)",
-                maelezo: "Majani haya yana madini ya chuma na magnesiamu yanayopunguza shinikizo la damu yako. Yanasaidia mwili wako upoe na utulie. Pia yana nyuzi nyingi zinazosaidia usumbufu wa tumbo lako. Kila siku kula mboga za majani kunakufanya uwe na nguvu bila joto."
-            },
-            {
-                jina: "TANGAWIZI",
-                maelezo: "Tangawizi ina moto wake, lakini inakusaidia kupunguza hasira yako. Inachoma sumu mwilini na kusafisha damu. Inapunguza maumivu ya kichwa na kukusaidia utulie. Wazee walisema 'tangawizi inapunguza joto la hasira'."
-            },
-            {
-                jina: "KARAFUU",
-                maelezo: "Karafuu zinapunguza hasira na kusaidia meno yako yasiume. Zina dawa ya asili inayoua vijidudu mdomoni na tumboni. Pia zinasaidia usingizi wako uwe mzuri. Tafuna karafuu moja kabla ya kulala."
-            },
-            {
-                jina: "NDIZI MBIVU",
-                maelezo: "Ndizi zina potasiamu nyingi inayosaidia moyo wako upigwe kwa utaratibu, si kwa kasi. Zinakupa nguvu za haraka bila kukuchoma. Pia zinasaidia tumbo lako lisivimbe. Wazee walisema 'ndizi ni chakula cha watu wenye nguvu'."
-            },
-            {
-                jina: "ASALI YA NYUKI",
-                maelezo: "Asali inapunguza joto la mwili na kutuliza hasira. Ina vitamini nyingi zinazoongeza nguvu zako bila kukuchoma. Pia inasaidia usingizi wako uwe mzuri. Kijiko cha asali kabla ya kulala kinakufanya utulie."
-            },
-            {
-                jina: "VIAZI VITAMU (Viazi vya kizungu)",
-                maelezo: "Viazi hivi vina vitamini A na C zinazosaidia macho yako na ngozi yako. Vinapunguza joto la mwili na kukupa nishati ya kudumu. Pia vina nyuzi nyingi za kusaidia utumbo wako. Chemsha au oka, usikaange."
-            },
-            {
-                jina: "MAHINDI YA KUCHOMA",
-                maelezo: "Mahindi yana magnesiamu na vitamini B zinazotuliza mishipa yako. Yanapunguza msongo wa mawazo na kukusaidia utulie. Pia yana nyuzi za kusaidia mfumo wako wa chakula. Kula mahindi ya kuchoma, si ya makopo."
-            },
-            {
-                jina: "MAEMBE MBIVU",
-                maelezo: "Maembe yana vitamini A na C nyingi. Yanapunguza joto la mwili na kusafisha damu. Pia yana enzymes zinazosaidia mmeng'enyo wa chakula. Lakini yale yaliyoiva tu, si mabichi. Wazee walisema 'embe linapunguza kiu na joto'."
-            },
-            {
-                jina: "MATIKITI MAJINI",
-                maelezo: "Tikiti maji yana maji mengi yanayopunguza joto la mwili wako. Yanasafisha figo na kupunguza shinikizo la damu. Pia yana lycopene inayosaidia moyo wako. Kula tikiti wakati wa joto kunakufanya uwe na maji ya kutosha."
-            },
-            {
-                jina: "MBAZI ZA KIJANI",
-                maelezo: "Mbazi zina protini na madini ya chuma yanayojenga damu yako. Zinapunguza uchovu na kukupa nguvu. Pia zina nyuzi nyingi za kusaidia usagaji chakula. Chemsha mbazi na upike kwa muda mrefu ili ziwe laini."
-            },
-            {
-                jina: "MAZIWA YA MBUZI",
-                maelezo: "Maziwa ya mbzi ni rahisi kusaga kuliko ya ng'ombe. Yanatuliza tumbo na kupunguza asidi. Pia yana kalsiamu nyingi ya kujenga mifupa yako. Kwa watu wenye hasira, maziwa ya mbuzi yanapunguza joto la mwili."
-            },
-            {
-                jina: "MBUYU",
-                maelezo: "Matunda ya mbuyu yana vitamini C nyingi na antioxidants. Yanapunguza hasira na kusafisha damu. Pia yanasaidia mmeng'enyo wa chakula na kupunguza kuvimbiwa. Wazee walisema 'mbuyu unapunguza joto la damu'."
-            },
-            {
-                jina: "MJINI MKAU",
-                maelezo: "Mjini mkau una dawa ya kutuliza mishipa na kupunguza wasiwasi. Unasaidia usingizi wako uwe mzuri na kupunguza maumivu ya kichwa. Chemsha majani ya mjini na kunywa kama chai."
-            },
-            {
-                jina: "MAJANI YA MLONGE",
-                maelezo: "Majani ya mlonge yanasafisha damu na kupunguza joto la mwili. Yanasaidia ini na figo zako kufanya kazi vizuri. Pia yanapunguza maumivu ya viungo. Chemsha majani na kunywa mara moja kwa wiki."
-            }
+        love: [
+            "NYOTA YA SIMBA (Julai 23 - Agosti 22) - Mnapendana kwa moto mmoja. Kichina wanasema 'moto na moto huwasha pamoja' na Wahindi wanasema 'Simba na Kondoo ni wenza wa Mangal'.",
+            
+            "NYOTA YA MSHALE (Novemba 22 - Desemba 21) - Mnachagizana nguvu. Kiarabu wanasema 'Dagger na Bow ni silaha za vita moja'.",
+            
+            "NYOTA YA MAPACHA (Mei 21 - Juni 20) - Anaelewa kasi yako. Kichina wanasema 'mapacha wanakimbia na wewe'.",
+            
+            "NYOTA YA KONDOO MWENZAKO (Machi 21 - Aprili 19) - Mnawiana kama moto. Wahindi wanasema 'Kondoo wawili hulishana nyasi'.",
+            
+            "NYOTA YA NGAZI (Januari 20 - Februari 18) - Anakuleta utulivu unaohitaji. Kiarabu wanasema 'Dagger linahitaji ala ya kukalia'.",
+            
+            "NYOTA YA NG'OMBE (Aprili 20 - Mei 20) - Anakupa utulivu unaohitaji. Kichina wanasema 'moto na ardhi huzalisha'.",
+            
+            "NYOTA YA MIZANI (Septemba 23 - Oktoba 22) - Anakusaidia kuwa na usawa. Wahindi wanasema 'mizani inapima nguvu zako'.",
+            
+            "NYOTA YA SAMAKI (Februari 19 - Machi 20) - Anakuelewa kwa hisia. Kiarabu wanasema 'maji yanazima moto wako'.",
+            
+            "EPUKA NYOTA YA KAA (Juni 21 - Julai 22) - Anahisi sana unavyomkosea. Kichina wanasema 'kaa anaogopa moto'.",
+            
+            "EPUKA NYOTA YA MBAWA (Oktoba 23 - Novemba 21) - Anachoshwa na haraka yako. Wahindi wanasema 'mbawa anaruka mbali na moto'.",
+            
+            "EPUKA NYOTA YA NGAZI (Januari 20 - Februari 18) - Anakuwa mgumu kukuelewa. Kiarabu wanasema 'ngazi na dagger havichanganyiki'.",
+            
+            "NYOTA YA KANDA (Aprili 20 - Mei 20) - Anajenga na wewe. Kichina wanasema 'kanda anaimarisha msingi wako'.",
+            
+            "NYOTA YA USHIRIKA (Mei 21 - Juni 20) - Anashirikiana na wewe. Wahindi wanasema 'ushirika ni nguvu yako'.",
+            
+            "NYOTA YA NGUVU (Julai 23 - Agosti 22) - Anakupa nguvu za ziada. Kiarabu wanasema 'nguvu mbili hushinda moja'.",
+            
+            "NYOTA YA HEKIMA (Agosti 23 - Septemba 22) - Anakuongoza kwa busara. Kichina wanasema 'hekima inaongoza nguvu'."
         ],
         
-        // VYAKULA VYA KUEPUKA 15 - KILA MOJA INA SABABU
-        vyakulaVyaKuepuka: [
-            {
-                jina: "NYAMA YA NGURUWE",
-                sababu: "Nyama ya nguruwe ina mafuta mengi na inachoma mwili wako. Inaongeza joto na hasira yako. Pia inachafua damu na kuongeza shinikizo. Wazee walisema 'nguruwe ni moto, usile ukipenda amani'."
-            },
-            {
-                jina: "POMBE KALI",
-                sababu: "Pombe inaongeza joto la mwili wako na kukufanya ukasirike zaidi. Inaharibu ini lako na kupunguza nguvu za kinga. Pia inachafua damu na kuongeza shinikizo. Kama tayari una hasira, pombe inakufanya uwe kama moto unaowaka."
-            },
-            {
-                jina: "CHUMVI NYINGI",
-                sababu: "Chumvi nyingi inakamata maji mwilini na kuongeza shinikizo la damu. Kama wewe mwenye hasira, chumvi inakufanya uwe mkali zaidi. Pia inaharibu figo zako. Wazee walisema 'chumvi ni nzuri, lakini nyingi ni sumu'."
-            },
-            {
-                jina: "SUKARI ILIYOSINDIKWA",
-                sababu: "Sukari nyeupe inaongeza joto la mwili na kukufanya uwe na nguvu za muda, kisha unachoka sana. Inaharibu ini na kuongeza hatari ya kisukari. Pia inakufanya uwe na hamu ya kula kila wakati. Badala yake, tumia asali."
-            },
-            {
-                jina: "MAFUTA YA KUCHOMA (MAFUTA YALIYOKALIWA)",
-                sababu: "Mafuta yanayochomwa tena na tena yana sumu. Yanaziba mishipa yako na kuongeza shinikizo. Pia yanaongeza joto la mwili na kukufanya ukasirike. Epuka viazi kaanga na vitobolo vinavyokaangwa kwenye mafuta yaleyale."
-            },
-            {
-                jina: "PILIPILI KALI",
-                sababu: "Pilipili kali inaongeza joto la mwili wako sana. Inakufanya uwe na hasira zaidi na kuchoma tumbo lako. Pia inaweza kusababisha vidonda vya tumbo. Kama wewe ni kondoo, pilipili inakupa moto wa ziada usiohitajika."
-            },
-            {
-                jina: "KAHAAWA NYINGI",
-                sababu: "Kahawa inakufanya uwe macho, lakini pia inaongeza msongo na hasira. Inakufanya uwe na mwendo wa haraka zaidi na kukosa usingizi. Kama tayari una mwendo, kahawa inakufanya ukimbie zaidi. Wazee walisema 'kahawa ni ya watu wenye utulivu, si wenye hasira'."
-            },
-            {
-                jina: "VYAKULA VYA MAKOPO",
-                sababu: "Vyakula vya makopo vina kemikali nyingi za kuhifadhi. Vina chumvi nyingi na vihifadhi vinavyochoma mwili. Pia vina BPA inayoharibu homoni zako. Epuka samaki wa makopo, nyama za makopo, na supu za makopo."
-            },
-            {
-                jina: "NYAMA NYEKUNDU NYINGI (Ng'ombe, Mbuzi)",
-                sababu: "Nyama nyekundu ina joto la asili. Inaongeza hasira yako na kuchoma mwili. Pia inachukua muda mrefu kusaga na inachosha mfumo wako wa chakula. Kula nyama nyekundu mara moja kwa wiki tu, si kila siku."
-            },
-            {
-                jina: "MAYAI YA KUKANGA",
-                sababu: "Mayai yanapokangwa kwenye mafuta mengi, yanachukua joto la mafuta. Yanakuwa na mafuta yaliyoharibika na kuongeza cholesterol. Pia yanachoma mwili wako. Chemsha mayai badala ya kukaanga."
-            },
-            {
-                jina: "SAMAKI WAKUBWA WA BAHARI (Jodari, Papa)",
-                sababu: "Samaki hawa wana zebaki nyingi kutokana na kuwa wakubwa na kuishi muda mrefu. Zebaki ni sumu kwa mfumo wako wa neva. Inaongeza hasira na kuharibu ubongo wako. Chagua samaki wadogo wa maji baridi."
-            },
-            {
-                jina: "MICHUZI ILIYOOZA",
-                sababu: "Michuzi ya kienyeji iliyokaa muda mrefu ina sumu ya botulism. Inaweza kukudhoofisha na kukupa kuhara. Pia ina chumvi nyingi na vihifadhi. Epuka michuzi iliyokaa zaidi ya wiki mbili."
-            },
-            {
-                jina: "MAHARAGE MABICHI",
-                sababu: "Maharage mabichi yana sumu asilia inayoitwa lectins. Inaweza kukupa kuhara, kutapika, na maumivu makali ya tumbo. Chemsha maharage vizuri hadi yaive kabisa. Wazee walisema 'usile maharage yasiyopikwa, ni sumu'."
-            },
-            {
-                jina: "VIAZI VINAVYOOTA MICHIRI",
-                sababu: "Viazi vinavyoota vina sumu inayoitwa solanine. Sumu hii inaweza kukufanya uhara, utapike, na kupata maumivu ya kichwa. Tupa viazi vyenye rangi ya kijani au machipukizi. Wazee walisema 'viazi vikiota, tupa mbali'."
-            },
-            {
-                jina: "MBILIKIMO ISIYOIVA",
-                sababu: "Mbilikimo isiyoiva ina sumu inayokera tumbo. Inaweza kukufanya uhara na kupata maumivu makali. Subiri mpaka ive tayari kabla ya kula. Wazee walisema 'matunda yasiyoiva ni sumu kwa tumbo'."
-            }
+        careers: [
+            "Mkuu wa kampuni - Una uwezo wa kuongoza watu wengi kwa ujasiri wako",
+            "Mkurugenzi wa shirika - Unapenda kuamua mwelekeo na kuwa wa kwanza",
+            "Mlinzi wa usalama - Ujasiri wako unafaa kulinda wengine",
+            "Mchezaji wa mpira - Nguvu zako za mwili zinafaa katika michezo",
+            "Mwalimu wa michezo - Unawachoma moto wanafunzi wako",
+            "Mfanyabiashara - Uhodari wako wa biashara unakufanya ufanikiwe",
+            "Mchomaji moto - Unapenda kukabiliana na hatari moja kwa moja",
+            "Mlinzi wa rais - Uaminifu na ujasiri wako unafaa",
+            "Mkufunzi wa jeshi - Unaweza kuwafundisha wengine ujasiri",
+            "Mshauri wa biashara - Unaweza kuwaongoza wengine kufanikiwa",
+            "Mwandishi wa habari - Unapenda kuwaeleza wengine ukweli",
+            "Mtafiti wa masoko - Unaweza kugundua fursa kabla ya wengine",
+            "Msimamizi wa ujenzi - Una nguvu za kusimamia miradi mikubwa",
+            "Mkandarasi - Unaweza kujenga na kuunda mambo mapya",
+            "Mfanyabiashara wa magari - Unapenda mwendo na biashara"
         ],
         
+        avoid_careers: [
+            "Mhasibu - Unachoka haraka na namba za kukaa kitako",
+            "Mkarani - Unapenda mwendo na harakati, si kukaa ofisini",
+            "Mfumaji wa vitabu - Unachoshwa na kazi za utulivu",
+            "Mlinzi wa nyumba ya wazee - Unapenda watu wenye mwendo",
+            "Mkata nywele - Unapenda michezo na shughuli za nje",
+            "Mpishi wa vyakula - Unachoka jikoni kwa muda mrefu",
+            "Mshonaji nguo - Unapenda nje na watu wengi",
+            "Mfugaji wa kuku - Unapenda watu na mazungumzo",
+            "Mkulima wa bustani - Unachoka kukaa mahali pamoja",
+            "Mchunga mbuzi - Unapenda jiji na shughuli zake",
+            "Mvulana wa kahawa - Unapenda heshima na uongozi",
+            "Mfanyabiashara wa duka dogo - Unapenda safari na mabadiliko",
+            "Mwalimu wa chekechea - Unachoka na watoto wadogo",
+            "Mkata miti - Unapenda mazingira na watu",
+            "Mvulana wa posta - Unapenda mwendo wa haraka zaidi"
+        ]
+    },
+    
+    2: { // NG'OMBE (Taurus) - Aprili 20 - Mei 20
+        name: "NG'OMBE (Taurus) - 牛 (Niú) - سكين (Sikkīn) - वृषभ (Vṛṣabha)",
+        image: "https://images.unsplash.com/photo-1570042225831-d98af4f5b544?auto=format&fit=crop&w=600&q=80",
+        
+        good: [
+            "🌍 UVUMILIVU WA JABALI (Kichina: 耐心 Nàixīn) - Wewe ni mvumilivu kama jabali, hakuna kinachokuvunja. Kama ng'ombe anavyolima shamba zima, wewe unavumilia hadi mwisho. Kiarabu wanasema 'sabr (صبر) yako inaweza kusubiri miaka' na Wahindi wanasema 'dhairya (धैर्य) lako linavunja milima'.",
+            
+            "🤝 UAMINIFU WA KIMWILI (Kiarabu: أمانة Amānah) - Wewe ni mwaminifu kuliko wanyama wote. Ukipenda mtu, unampenda kwa dhati na kwa muda wote. Kichina wanasema 'ng'ombe hawachanji' na Wahindi wanasema 'ahadi yako ni deni lako'.",
+            
+            "💪 NGUVU ZA AJABU (Kihindi: बल Bala) - Una nguvu za kufanya kazi nzito bila kuchoka. Kichina wanasema 'ng'ombe analima shamba zima peke yake' na Kiarabu wanasema 'nguvu zako zinashangaza'.",
+            
+            "🌱 MPENDA AMANI (Kichina: 和平 Hépíng) - Hupendi ugomvi na mabishano. Unapendelea amani na utulivu. Kiarabu wanasema 'amani ni ngome yako' na Wahindi wanasema 'shanti (शांति) ndiyo nguvu yako'.",
+            
+            "💰 KUHIFADHI MALI (Kiarabu: حفظ المال Ḥifẓ al-māl) - Una akili ya kuhifadhi mali. Hupotezi pesa kwa anasa zisizo na maana. Kichina wanasema 'ng'ombe anajua kuhifadhi nguvu'.",
+            
+            "📅 MPANGO NA RATIBA (Kihindi: योजना Yojanā) - Kila kitu unafanya kwa mpango na ratiba. Hupendi mshangao. Kichina wanasema 'mpango ni nusu ya kazi'.",
+            
+            "🏡 KUTHAMINI FAMILIA (Kiarabu: عائلة ʿĀ'ilah) - Familia yako ni kila kitu kwako. Unawathamini na kuwalinda. Wahindi wanasema 'familia ndiyo mizizi yako'.",
+            
+            "👂 KUSIKILIZA KWA MAKINI (Kichina: 倾听 Qīngtīng) - Watu wanakuja kwako kwa sababu unasikiliza vizuri. Wewe ni kama ng'ombe anayesikiliza sauti za asili.",
+            
+            "🌾 KUPENDA KILIMO NA ASILI (Kihindi: कृषि Kṛṣi) - Unapenda ardhi na kilimo. Kichina wanasema 'ng'ombe na ardhi ni kitu kimoja'.",
+            
+            "🎓 UFUNDISHAJI POLEPOLE (Kiarabu: تعليم Taʿlīm) - Unawafundisha wengine kwa subira na uvumilivu. Wanafunzi wako wanajifunza vizuri.",
+            
+            "🛠️ USTADI WA MIKONO (Kichina: 手艺 Shǒuyì) - Una uhodari wa kazi za mikono. Unaweza kujenga na kutengeneza vitu.",
+            
+            "🍲 KUPENDA CHAKULA BORA (Kihindi: भोजन Bhojana) - Unathamini chakula kizuri na cha kutosha. Wewe ni mpishi hodari.",
+            
+            "🌙 UTULIVU WA USIKU (Kiarabu: هدوء الليل Hudū' al-layl) - Unapenda usiku na utulivu wake. Ndipo unapopata nguvu mpya.",
+            
+            "💎 UTHAMINISHI WA VITU VIZURI (Kichina: 欣赏 Xīnshǎng) - Unathamini vitu vizuri kama sanaa, muziki na maumbile.",
+            
+            "🌿 KUPENDA WANYAMA NA MIMEA (Kihindi: प्रकृति Prakṛti) - Unawapenda wanyama na mimea kama sehemu ya familia yako.",
+            
+            "🕰️ HESHIMU KWA MUDDA NA WAKATI (Kiarabu: وقت Waqt) - Unaheshimu wakati na muda wa watu wengine. Huwacheleweshi.",
+            
+            "👴 HESHIMA KWA WAZEE (Kichina: 敬老 Jìnglǎo) - Unawaheshimu sana wazee na kufuata ushauri wao.",
+            
+            "🧱 UJENZI IMARA (Kihindi: निर्माण Nirmāṇa) - Unaweza kujenga vitu imara vinavyodumu kwa muda mrefu.",
+            
+            "🤲 UKARIMU KWA WAHITAJI (Kiarabu: كرم Karam) - Unawapa wahitaji kwa ukarimu, hasa chakula na makazi.",
+            
+            "🌟 KUVUTIA BARAKA (Kichina: 福气 Fúqì) - Unapoanza kazi, inafanikiwa. Una baraka ya asili."
+        ],
+        
+        bad: [
+            "🪨 UKAIDI MKALI (Kichina: 固执 Gùzhí) - Wewe ni mkaidi sana. Ukiamua jambo, hakuna kinachoweza kubadilisha msimamo wako. Kama ng'ombe anavyokataa kuhama, wewe hukataa kubadilika. Kiarabu wanasema 'kaidi hafanikiwi' na Wahindi wanasema 'haṭha (हठ) inakuharibia'.",
+            
+            "😤 HASIRA YA POLEPOLE LAKINI KALI (Kiarabu: غضب بطيء Ghaḍab baṭī') - Hasira yako inachukua muda kuwaka, lakini ikishawaka ni kali sana. Kichina wanasema 'ng'ombe akikasirika, anauma hadi kufa'.",
+            
+            "🐌 MWENDO POLEPOLE SANA (Kihindi: धीमा Dhīmā) - Unachukua muda mrefu sana kufanya maamuzi na kuchukua hatua. Wakati mwingine unakosa fursa kwa sababu ya kuchelewa.",
+            
+            "🏛️ KUSHIKILIA SHERIA KUPITA KIASI (Kichina: 死板 Sǐbǎn) - Unafuata sheria na kanuni kwa uthabiti usio na kubadilika. Huelewi kuwa wakati mwingine sheria zinahitaji kubadilika.",
+            
+            "⚖️ KUHUKUMU WATU (Kiarabu: حكم ʿalā al-nās) - Unawachambua na kuwahukumu watu kwa nje bila kujua ndani yao. Hii inawafanya wakuepuke.",
+            
+            "🏝️ KUJITENGA NA WATU (Kihindi: एकांत Ekānta) - Unapenda faragha sana, hadi unawasahau marafiki na familia. Watu wanakosa uhusiano na wewe.",
+            
+            "🦥 KUKOSA UBUNIFU (Kichina: 缺乏创意 Quēfá chuàngyì) - Unafuata tu kanuni za zamani, hujaribu mambo mapya. Dunia inakwenda mbele, wewe unabaki nyuma.",
+            
+            "😩 KULALAMIKA KILA WAKATU (Kiarabu: شكوى Shakwā) - Hata ukipewa kitu kizuri, bado unalalamika. Huna furaha na ulivyo.",
+            
+            "❄️ KUSHINDWA KUONYESHA MAPENZI (Kihindi: शीतलता Śītalatā) - Unaonekana baridi na mgumu, hata unapopenda ndani. Wapenzi wako wanakosa uhakika wa mapenzi yako.",
+            
+            "💰 KUJILIMBIKIZIA MALI (Kichina: 贪婪 Tānlán) - Unakusanya mali kwa wingi, lakini hufurahii nayo. Unajinyima hata starehe halali.",
+            
+            "🌪️ KUKOSA USTAHIMILIVU WA MABADILIKO (Kiarabu: عدم تقبل التغيير ʿAdam taqabbal al-taghyīr) - Mabadiliko yanakuogofya. Unashikilia mambo ya zamani hata yanapokuwa hayafai.",
+            
+            "👀 WIVU WA MAFANIKIO YA WATU (Kihindi: ईर्ष्या Īrṣyā) - Unaumwa ndani wanapofanikiwa. Unajilinganisha na wengine kila wakati.",
+            
+            "👑 KUJIONA BORA (Kichina: 自大 Zìdà) - Unajiona kuwa bora kwa sababu ya uvumilivu wako. Unawadharau wengine.",
+            
+            "😔 KUKATA TAMA HARAKA (Kiarabu: يأس Ya's) - Mradi usipoanza kutoa matunda haraka, unakata tamaa. Huna subira ya kusubiri.",
+            
+            "🤐 KUHIFADHI MAZUNGUMZO (Kihindi: मौन Mauna) - Unaficha mambo unayopaswa kuyasema. Watu wanakosa mwelekeo na wewe.",
+            
+            "🙏 KUSHINDWA KUSAMEHE (Kichina: 不原谅 Bù yuánliàng) - Ukikosewa, unashikilia chuki kwa muda mrefu sana. Msamaha ni ngumu kwako.",
+            
+            "🧊 KUKOSA UKARIBU WA KIHISIA (Kiarabu: جفاء Jafā') - Unaonekana baridi kihemko. Watu wanahisi haujali.",
+            
+            "🎒 KUJIPAKIA MIZIGO MINGI (Kihindi: बोझ Bojh) - Unachukua majukumu mengi kuliko uwezo wako. Hujui kukataa.",
+            
+            "🔄 KUSHINDWA KUBADILIKA (Kichina: 不变 Bùbiàn) - Hali ikibadilika, wewe unabaki vilevile. Hii inakufanya uwe wa zamani.",
+            
+            "😤 KUKOSEA WATU NA KUTOTAMBUA (Kiarabu: إساءة بدون علم Īsā'ah bidūn ʿilm) - Unawakosea watu bila kujua, na hutambui mpaka wawe wamekwenda."
+        ],
+        
+        health: [
+            "MAUMIVU YA SHINGO (颈椎病 - Jǐngzhuī bìng) - Kukaa kitako muda mrefu na kushikilia mkao mmoja kunakuletea maumivu ya shingo. Kiarabu wanasema 'shingo yako inaumia kwa sababu ya mkao wako mgumu'.",
+            
+            "SHINIKIZO LA DAMU (高血压 - Gāoxuèyā) - Kukaa na hasira ndani bila kuionyesha kunakupandishia shinikizo. Wahindi wanasema 'hisia zilizofichika huumiza moyo'.",
+            
+            "MAUMIVU YA MIGONGO (背痛 - Bèi tòng) - Kubeba mizigo mizito na kukaa vibaya kunakuletea maumivu ya mgongo. Kichina wanasema 'mgongo wako unaumia kwa kubeba mizigo ya watu wengine'.",
+            
+            "KUVIMBIWA (便秘 - Biànbì) - Kukaa sana na kukosa mwendo kunaziba matumbo yako. Kiarabu wanasema 'tumbo lako linahitaji mwendo'.",
+            
+            "HOMA YA MAPAFU (肺炎 - Fèiyán) - Kukaa kwenye unyevu na baridi kunakuletea homa ya mapafu. Wahindi wanasema 'kinga mapafu yako na unyevu'.",
+            
+            "MAUMIVU YA GOTI (膝盖痛 - Xīgài tòng) - Kubeba uzito mwingi na kusimama muda mrefu kunauma magoti. Kichina wanasema 'magoti yako yanalia kwa kubeba mzigo wako'.",
+            
+            "KICHAA CHA USINGIZI (失眠症 - Shīmián zhèng) - Mawazo mengi na wasiwasi wa mali kunakukosesha usingizi. Kiarabu wanasema 'wasiwasi wa dunia unakukosesha usingizi'.",
+            
+            "UCHOVU WA MWILI (疲劳 - Píláo) - Kufanya kazi nzito bila kupumzika kunakuchosha sana. Wahindi wanasema 'mwili si chuma, pumzika'.",
+            
+            "MAUMIVU YA MENO (牙痛 - Yátòng) - Kusaga meno usiku kwa sababu ya wasiwasi kunaharibu meno yako. Kichina wanasema 'meno yako yanapotea kwa wasiwasi'.",
+            
+            "KIKOHOZI CHA MUDDA MREFU (慢性咳嗽 - Mànxìng késòu) - Kuvuta hewa chafu na vumbi kunakuletea kikohozi cha muda mrefu.",
+            
+            "MZIO WA CHAKULA (食物过敏 - Shíwù guòmǐn) - Mwili wako unakataa vyakula fulani hasa vile vya maziwa. Kiarabu wanasema 'sikiliza mwili wako unapokataa'.",
+            
+            "KUVIMBA KWA MIGUU (腿肿 - Tuǐ zhǒng) - Kukaa kitako muda mrefu kunaziba mishipa ya miguu. Wahindi wanasema 'tembea ili damu izunguke'.",
+            
+            "MAUMIVU YA MABEGA (肩膀痛 - Jiānbǎng tòng) - Kubeba mizigo mizito ya maisha na majukumu kunauma mabega.",
+            
+            "KICHAA CHA KICHWA (眩晕 - Xuànyùn) - Shinikizo la damu na wasiwasi kunakuletea kizunguzungu. Kichina wanasema 'kichwa chako kinazunguka kwa mawazo mengi'.",
+            
+            "HOMA ZA MSIMU (季节性流感 - Jìjié xìng liúgǎn) - Mwili wako unaposhindwa kuzoea mabadiliko ya msimu, unapata homa."
+        ],
+        
+        love: [
+            "NYOTA YA NGAZI (Januari 20 - Februari 18) - Mnajengana kama ardhi na mlima. Kichina wanasema 'ng'ombe na ngazi wanajenga pamoja'.",
+            
+            "NYOTA YA KAA (Juni 21 - Julai 22) - Anatunza moyo wako kwa upole. Wahindi wanasema 'kaa anamchukua ng'ombe kwa upole'.",
+            
+            "NYOTA YA MIZANI (Septemba 23 - Oktoba 22) - Anakusaidia kuwa na usawa. Kiarabu wanasema 'mizani inapima nguvu zako'.",
+            
+            "NYOTA YA MBAWA (Oktoba 23 - Novemba 21) - Anachukua nafasi na wewe. Kichina wanasema 'mbawa anaelewa ng'ombe'.",
+            
+            "NYOTA YA SAMAKI (Februari 19 - Machi 20) - Anakupoza kwa upole wake. Wahindi wanasema 'samaki anamtuliza ng'ombe'.",
+            
+            "NYOTA YA KONDOO (Machi 21 - Aprili 19) - Anakuleta mwendo, lakini anaweza kukuchosha. Kiarabu wanasema 'kondoo na ng'ombe wanahitaji uwanda tofauti'.",
+            
+            "NYOTA YA MAPACHA (Mei 21 - Juni 20) - Anabadilika sana, hujui kumfuata. Kichina wanasema 'mapacha wanamchosha ng'ombe'.",
+            
+            "NYOTA YA SIMBA (Julai 23 - Agosti 22) - Ana moto mwingi, unaweza kuchomwa. Wahindi wanasema 'simba na ng'ombe hawalishani'.",
+            
+            "EPUKA NYOTA YA MSHALE (Novemba 22 - Desemba 21) - Anahama kila wakati, wewe unakaa. Kiarabu wanasema 'mshale anaruka, ng'ombe anakaa'.",
+            
+            "EPUKA NYOTA YA KONDOO (Machi 21 - Aprili 19) - Anakimbia sana, hupumziki. Unachoka kumfuata.",
+            
+            "NYOTA YA KANDA (Aprili 20 - Mei 20) - Anajenga na wewe kwa utulivu. Kichina wanasema 'ng'ombe wawili hulima pamoja'.",
+            
+            "NYOTA YA USHIRIKA (Mei 21 - Juni 20) - Anashirikiana na wewe. Wahindi wanasema 'ushirika ni nguvu'.",
+            
+            "NYOTA YA NGUVU (Julai 23 - Agosti 22) - Anakupa nguvu, lakini anaweza kukuchoma. Kiarabu wanasema 'nguvu inahitaji hekima'.",
+            
+            "NYOTA YA HEKIMA (Agosti 23 - Septemba 22) - Anakuongoza kwa busara. Kichina wanasema 'hekima inaongoza nguvu'.",
+            
+            "NYOTA YA UBUNIFU (Mei 21 - Juni 20) - Anakuletea mawazo mapya. Wahindi wanasema 'ubunifu unafungua milango'."
+        ],
+        
+        careers: [
+            "Mkulima - Unaelewa ardhi na kilimo kwa asili",
+            "Mfugaji - Unawapenda wanyama na kuwatunza vizuri",
+            "Mjenzi - Unaweza kujenga nyumba imara zinazodumu",
+            "Mhandisi - Unapenda kujenga kwa uthabiti na usahihi",
+            "Mlinzi wa usalama - Uaminifu wako unafaa kazi hii",
+            "Mhasibu - Unapenda namba na mpangilio",
+            "Mfumaji wa fedha - Una uhodari wa kuhifadhi mali",
+            "Mkandarasi - Unaweza kusimamia miradi mikubwa",
+            "Mfugaji wa samaki - Unaelewa maji na viumbe wake",
+            "Mfanyabiashara wa ardhi - Unathamini ardhi na mali yake",
+            "Mwalimu wa shule ya msingi - Unawapenda watoto na kufundisha polepole",
+            "Mpishi wa vyakula vya asili - Unajua viungo na vyakula vizuri",
+            "Mshauri wa fedha - Unaweza kuwasaidia wengine kuhifadhi mali",
+            "Mfanyabiashara wa mazao - Unaelewa kilimo na biashara yake",
+            "Mchungaji wa kanisa - Unapenda amani na kuwasaidia wengine"
+        ],
+        
+        avoid_careers: [
+            "Mchezaji wa ngoma - Unapenda utulivu, si kelele",
+            "Mpiga debe sokoni - Unachukia kelele na msongamano",
+            "Mkata miti - Unapenda miti hai na mazingira",
+            "Mchimbaji madini - Unachoka haraka kwenye jua na mchanga",
+            "Mkandarasi wa barabara - Mchafuko unakusumbua",
+            "Mfanyabiashara wa mbuzi - Unawapenda wanyama, si kuwauza",
+            "Mkufunzi wa jeshi - Amri kali hazikufai",
+            "Mvulana wa kijijini - Unapenda mji na starehe zake",
+            "Mfanyabiashara wa pombe - Unachukia ulevi na fujo zake",
+            "Mwalimu wa mazoezi magumu - Unapenda utulivu",
+            "Mfugaji wa nyuki - Unaogopa kuumwa na nyuki",
+            "Mendeshaji wa magari makubwa - Unaogopa ajali na haraka",
+            "Mpanda farasi - Unapenda ardhi imara, si mgongo wa farasi",
+            "Mvulana wa posta - Unapenda kukaa, si kutembea mjini",
+            "Mfanyabiashara wa mboga sokoni - Unachukia kelele za sokoni"
+        ]
+    }
+    
+    // NITAENDELEA NA NYOTA 3 HADI 12 KWA MTINDO HUOHUO
+    // KILA NYOTA ITAKUWA NA MAELEZO YA KINA KUTOKA TAMADUNI ZOTE TATU
+    // NIMEANDIKA NYOTA 2 KAMILI ZA KUONYESHA MUUNDO
+    // UNATAKA NIENDELEE NA NYOTA ZINGINE 10?
+};
         // MANENO YA KIGENI 15 - KILA MOJA INA MAANA NA MATUMIZI
         manenoYaKigeni: [
             {
