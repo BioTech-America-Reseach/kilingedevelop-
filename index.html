@@ -1078,21 +1078,30 @@
         }, 3000);
     }
 
-    // ==================== MFUMO WA MALIPO (MUDA HALISI) - CODES ZIMEFICHWA ====================
-    // Codes za awali zimefichwa kwa kutumia base64.
-    const encryptedCodes = 'eyJXMDAxIjp7ImRheXMiOjEsIm5hbWUiOiJSYXMtTW9qd28gKEJyb256ZSktU2lrdSAxIn0sIlcwMDIiOnsiZGF5cyI6MzAsIm5hbWUiOiJGZWZlIChTaWx2ZXIpIC0gTWltaSBpYSBTa3VsZSBuYSBTaWt1IDMwIn0sIlcwMDMiOnsiZGF5cyI6MzY1LCJuYW1lIjoiWmFoYWJpIChHb2xkKSAtIE13YWthIDEifX0=';
-    let validCodes = JSON.parse(atob(encryptedCodes));
+   // ==================== MFUMO WA MALIPO (MUDA HALISI) - CODES ZIMEFICHWA ====================
+// Codes za awali zimefichwa kwa kutumia base64.
+const encryptedCodes = 'eyJXMDAxIjp7ImRheXMiOjEsIm5hbWUiOiJSYXMtTW9qd28gKEJyb256ZSktU2lrdSAxIn0sIlcwMDIiOnsiZGF5cyI6MzAsIm5hbWUiOiJGZWZlIChTaWx2ZXIpIC0gTWltaSBpYSBTa3VsZSBuYSBTaWt1IDMwIn0sIlcwMDMiOnsiZGF5cyI6MzY1LCJuYW1lIjoiWmFoYWJpIChHb2xkKSAtIE13YWthIDEifX0=';
+let validCodes = JSON.parse(atob(encryptedCodes));
 
-   	validCodes['W001'] = { days: 1,  name: "Mpya - Siku 1" };    // Inabadilisha ile ya awali
-	validCodes['W076'] = { days: 7,  name: "Mpya - Siku 7" };
-	validCodes['W062'] = { days: 14, name: "Mpya - Siku 14" };
-	validCodes['W082'] = { days: 60, name: "Mpya - Siku 60" };   // Code tofauti
-	validCodes['W042'] = { days: 60, name: "Mpya - Siku 60" };   // Code tofauti
-	validCodes['W122'] = { days: 60, name: "Mpya - Siku 60" };   // Code tofauti
-	validCodes['W482'] = { days: 60, name: "Mpya - Siku 60" };   // Code tofauti
-	validCodes['W013'] = { days: 90, name: "Mpya - Siku 90" };
-	validCodes['W245'] = { days: 180, name: "Mpya - Siku 180" };
+// KUONDOA KABISA codes za zamani (W001, W002, W003)
+delete validCodes['W001'];
+delete validCodes['W002'];
+delete validCodes['W003'];
 
+// Kuweka codes mpya
+validCodes['WW1'] = { days: 1,  name: "Mpya - Siku 1" };
+validCodes['WW2'] = { days: 30, name: "Mpya - Siku 30" };
+validCodes['WW3'] = { days: 365, name: "Mpya - Siku 365" };
+
+// Zingine zinaweza kubaki kama zilivyo
+validCodes['W076'] = { days: 7,  name: "Mpya - Siku 7" };
+validCodes['W062'] = { days: 14, name: "Mpya - Siku 14" };
+validCodes['W082'] = { days: 60, name: "Mpya - Siku 60" };
+validCodes['W042'] = { days: 60, name: "Mpya - Siku 60" };
+validCodes['W122'] = { days: 60, name: "Mpya - Siku 60" };
+validCodes['W482'] = { days: 60, name: "Mpya - Siku 60" };
+validCodes['W013'] = { days: 90, name: "Mpya - Siku 90" };
+validCodes['W245'] = { days: 180, name: "Mpya - Siku 180" };
     // ======= ORodha ya codes zilizotumika (kuzuia matumizi ya code mara mbili) =======
     let usedCodes = JSON.parse(localStorage.getItem('drWilliamUsedCodes')) || [];
 
